@@ -3,13 +3,33 @@
     x:Class="BudgetHero.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BudgetHero.App"
-    Shell.FlyoutBehavior="Flyout"
-    Title="BudgetHero.App">
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:views="clr-namespace:BudgetHero.App.Views"
+    Title="BudgetHero.App"
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate views:MainView}"
+        Route="MainView" />
+
+    <Shell.FlyoutFooter>
+        <Grid Padding="15">
+            <sf:SfSegmentedControl
+                x:Name="ThemeSegmentedControl"
+                HorizontalOptions="Center"
+                SegmentHeight="40"
+                SegmentWidth="40"
+                SelectionChanged="SfSegmentedControl_SelectionChanged"
+                VerticalOptions="Center">
+                <sf:SfSegmentedControl.ItemsSource>
+                    <x:Array Type="{x:Type sf:SfSegmentItem}">
+                        <sf:SfSegmentItem Text="Light" />
+                        <sf:SfSegmentItem Text="Dark" />
+                    </x:Array>
+                </sf:SfSegmentedControl.ItemsSource>
+            </sf:SfSegmentedControl>
+        </Grid>
+    </Shell.FlyoutFooter>
 
 </Shell>

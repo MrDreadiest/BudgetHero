@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BudgetHero.App.Views.MainView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
+    xmlns:mainViews="clr-namespace:BudgetHero.App.Views.Content.Main"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewModels:MainViewModel">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedToCommand}" EventName="NavigatedTo" />
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedFromCommand}" EventName="NavigatedFrom" />
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+
+        <DataTemplate x:Key="Login">
+            <mainViews:LoginContentView />
+        </DataTemplate>
+
+        <DataTemplate x:Key="Register">
+            <mainViews:RegisterContentView />
+        </DataTemplate>
+
+        <main:MainCarouselItemTemplateSelector
+            x:Key="MainTemplateSelector"
+            LoginDT="{StaticResource Login}"
+            RegisterDT="{StaticResource Register}" />
+
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
+            <Grid RowDefinitions="Auto,*">
+                <Label
+                    Grid.Row="0"
+                    Style="{StaticResource Title1}"
+                    Text="{Binding Title}" />
+
+                <universalViews:SegmentedControlView Grid.Row="1" BindingContext="{Binding SegmentedControlVM}" />
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Row="1" Style="{StaticResource LayoutBodyGrid}">
+
+            <CarouselView
+                Grid.Row="1"
+                IsSwipeEnabled="False"
+                ItemTemplate="{StaticResource MainTemplateSelector}"
+                ItemsSource="{Binding MainCarouselVMs}"
+                Position="{Binding CarouselPosition, Mode=TwoWay}" />
+
+        </Grid>
+    </Grid>
+</ContentPage>

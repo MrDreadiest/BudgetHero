@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Main.RegisterContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="main:RegisterContentViewModel">
+
+    <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource LayoutSpacing}">
+
+        <Grid>
+            <Border Padding="{StaticResource LayoutPadding}">
+
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+
+                    <sf:SfTextInputLayout Hint="Email">
+                        <Entry Text="{Binding Email}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout EnablePasswordVisibilityToggle="True" Hint="Hasło">
+                        <Entry Text="{Binding Password}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout EnablePasswordVisibilityToggle="True" Hint="Potwierdź hasło">
+                        <Entry Text="{Binding PasswordRepeated}" />
+                    </sf:SfTextInputLayout>
+
+                    <VerticalStackLayout Spacing="5" VerticalOptions="Start">
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="Minimalna długość to 8 znaków" />
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="Zawiera cyfry, litery (duże i małe)" />
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="Zawiera znaki specjalne (no. ?!@#$%)" />
+                    </VerticalStackLayout>
+
+                    <Button Command="{Binding RegisterCommand}" Text="Rejestruj" />
+                </VerticalStackLayout>
+            </Border>
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentView>
