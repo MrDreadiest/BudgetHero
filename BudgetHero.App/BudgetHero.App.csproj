@@ -85,6 +85,9 @@
 	  <MauiXaml Update="Views\Content\Universal\ActivityIndicator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Universal\IconSelectContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Content\Universal\SegmentedControlView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

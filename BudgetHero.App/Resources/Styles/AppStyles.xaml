@@ -25,10 +25,17 @@
     <x:Double x:Key="size560">56</x:Double>
 
     <OnIdiom
-        x:Key="IconSizeLarge"
+        x:Key="IconSizeLarger"
         x:TypeArguments="x:Double"
         Default="32">
         <OnIdiom.Desktop>44</OnIdiom.Desktop>
+    </OnIdiom>
+
+    <OnIdiom
+        x:Key="IconSizeLarge"
+        x:TypeArguments="x:Double"
+        Default="26">
+        <OnIdiom.Desktop>38</OnIdiom.Desktop>
     </OnIdiom>
 
     <OnIdiom
@@ -158,6 +165,45 @@
         <Setter Property="LineHeight" Value="1.17" />
         <!--  70  -->
         <Setter Property="FontAttributes" Value="{OnPlatform WinUI=None, Default=Bold}" />
+    </Style>
+
+    <Style x:Key="MaterialIcon" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontFamily" Value="MaterialIcons" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeMedium}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+    </Style>
+
+    <Style x:Key="IconFramedButton" TargetType="Button">
+        <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="BorderWidth" Value="3" />
+        <Setter Property="FontFamily" Value="MaterialIcons" />
+        <Setter Property="MinimumHeightRequest" Value="44" />
+        <Setter Property="MinimumWidthRequest" Value="44" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeMedium}" />
+    </Style>
+
+    <Style x:Key="IconButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="FontFamily" Value="MaterialIcons" />
+        <Setter Property="MinimumHeightRequest" Value="44" />
+        <Setter Property="MinimumWidthRequest" Value="44" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeLarge}" />
+    </Style>
+
+    <Style
+        x:Key="IconNavigateButton"
+        BasedOn="{StaticResource IconButton}"
+        TargetType="Button">
+        <Setter Property="FontSize" Value="{StaticResource IconSizeLarger}" />
     </Style>
 
     <Style
