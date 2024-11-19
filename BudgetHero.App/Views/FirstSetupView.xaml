@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BudgetHero.App.Views.FirstSetupView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:firstSetup="clr-namespace:BudgetHero.App.ViewModels.Content.FirstSetup"
+    xmlns:firstSetupViews="clr-namespace:BudgetHero.App.Views.Content.FirstSetup"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewModels:FirstSetupViewModel">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedToCommand}" EventName="NavigatedTo" />
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedFromCommand}" EventName="NavigatedFrom" />
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="User">
+            <firstSetupViews:UserContentView />
+        </DataTemplate>
+
+        <DataTemplate x:Key="Budget">
+            <firstSetupViews:BudgetContentView />
+        </DataTemplate>
+
+        <DataTemplate x:Key="Categories">
+            <firstSetupViews:CategoriesContentView />
+        </DataTemplate>
+
+        <firstSetup:FirstSetupCarouselItemTemplateSelector
+            x:Key="FirstSetupTemplateSelector"
+            BudgetDT="{StaticResource Budget}"
+            CategoriesDT="{StaticResource Categories}"
+            UserDT="{StaticResource User}" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
+            <Grid RowDefinitions="Auto,*">
+                <Label
+                    Grid.Row="0"
+                    Style="{StaticResource Title1}"
+                    Text="{Binding Title}" />
+                <universalViews:SegmentedControlView Grid.Row="1" BindingContext="{Binding SegmentedControlVM}" />
+            </Grid>
+        </Border>
+
+        <Grid
+            Grid.Row="1"
+            RowDefinitions="*,Auto"
+            Style="{StaticResource LayoutBodyGrid}">
+
+            <CarouselView
+                Grid.Row="0"
+                IsSwipeEnabled="False"
+                ItemTemplate="{StaticResource FirstSetupTemplateSelector}"
+                ItemsSource="{Binding FirstSetupCarouselVMs}"
+                Position="{Binding CarouselPosition, Mode=TwoWay}" />
+
+            <Grid
+                Grid.Row="1"
+                Margin="{StaticResource LayoutMargin}"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="{StaticResource LayoutSpacing}">
+
+                <Button
+                    Grid.Column="0"
+                    Command="{Binding BackCommand}"
+                    Text="Powrót" />
+
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding NextCommand}"
+                    Text="Dalej" />
+            </Grid>
+
+            <universalViews:IconSelectContentView Grid.RowSpan="2" BindingContext="{Binding IconSelectVM}" />
+            <universalViews:ActivityIndicator Grid.RowSpan="2" IsBusy="{Binding IsBusy}" />
+        </Grid>
+    </Grid>
+</ContentPage>

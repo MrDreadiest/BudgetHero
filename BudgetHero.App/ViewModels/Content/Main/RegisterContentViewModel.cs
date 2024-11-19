@@ -64,7 +64,7 @@ namespace BudgetHero.App.ViewModels.Content.Main
             }, new Message("Pomyślna akcja", "Rejestracja powiodła sie."));
         }
 
-        public async override Task ResetView()
+        public async override Task ResetViewAsync()
         {
             Password = string.Empty;
             PasswordRepeated = string.Empty;

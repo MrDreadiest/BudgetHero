@@ -9,9 +9,14 @@
     Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
+        Title="MainView"
         ContentTemplate="{DataTemplate views:MainView}"
         Route="MainView" />
+
+    <ShellContent
+        Title="FirstSetupView"
+        ContentTemplate="{DataTemplate views:FirstSetupView}"
+        Route="FirstSetupView" />
 
     <Shell.FlyoutFooter>
         <Grid Padding="15">

@@ -70,7 +70,7 @@
     <OnIdiom
         x:Key="LayoutSpacing"
         x:TypeArguments="x:Double"
-        Default="5">
+        Default="10">
         <OnIdiom.Desktop>15</OnIdiom.Desktop>
     </OnIdiom>
 
@@ -229,9 +229,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="LayoutBodyGrid" TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
-    </Style>
+    <Style x:Key="LayoutBodyGrid" TargetType="Grid" />
 
     <Style x:Key="CardStyle" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 20" />
@@ -251,10 +249,21 @@
                            Desktop=24}"
         TextColor="{StaticResource LightOnDarkBackground}" />
 
+    <Style x:Key="LoginEntry" TargetType="sf:SfTextInputLayout">
+        <Setter Property="ReserveSpaceForAssistiveLabels" Value="False" />
+        <Setter Property="ContainerType" Value="Outlined" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="InputViewPadding" Value="{OnIdiom 10, Desktop=20}" />
+        <Setter Property="ContainerBackground" Value="Transparent" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        <Setter Property="HintLabelStyle" Value="{AppThemeBinding Light={StaticResource lightThemeLabelStyle}, Dark={StaticResource darkThemeLabelStyle}}" />
+    </Style>
+
     <Style TargetType="sf:SfTextInputLayout">
         <Setter Property="ReserveSpaceForAssistiveLabels" Value="False" />
         <Setter Property="ContainerType" Value="Outlined" />
-        <Setter Property="InputViewPadding" Value="{OnIdiom 10, Desktop=20}" />
+        <Setter Property="Margin" Value="0,-7,0,0" />
+        <Setter Property="InputViewPadding" Value="{OnIdiom '15,4,4,4', Desktop=20}" />
         <Setter Property="ContainerBackground" Value="Transparent" />
         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
         <Setter Property="HintLabelStyle" Value="{AppThemeBinding Light={StaticResource lightThemeLabelStyle}, Dark={StaticResource darkThemeLabelStyle}}" />

@@ -14,11 +14,14 @@
             <Border Padding="{StaticResource LayoutPadding}">
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <sf:SfTextInputLayout Hint="Email">
+                    <sf:SfTextInputLayout Hint="Email" Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Email}" />
                     </sf:SfTextInputLayout>
 
-                    <sf:SfTextInputLayout EnablePasswordVisibilityToggle="True" Hint="Password">
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="Password"
+                        Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Password}" />
                     </sf:SfTextInputLayout>
 
@@ -38,13 +41,13 @@
 
 
         <Grid ColumnDefinitions="*,Auto,*">
-            <BoxView Grid.Column="0" HeightRequest="1" />
+            <BoxView Grid.Column="0" />
             <Label
                 Grid.Column="1"
                 Margin="5"
                 Style="{StaticResource Caption1}"
                 Text="lub" />
-            <BoxView Grid.Column="2" HeightRequest="1" />
+            <BoxView Grid.Column="2" />
         </Grid>
 
         <Button IsEnabled="False" Text="Zapomniałem hasła" />

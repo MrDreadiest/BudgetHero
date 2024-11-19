@@ -3,6 +3,7 @@ using BudgetHero.App.Models.Extensions;
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.Utilities;
 using BudgetHero.App.ViewModels.Interfaces;
+using BudgetHero.App.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HomeBudget.Common.EntityDTOs.Account;
@@ -80,13 +81,13 @@ namespace BudgetHero.App.ViewModels.Content.Main
                     }
                     else
                     {
-                        //await Shell.Current.GoToAsync($"//{nameof(UserAccountSetupPageAndroidView)}");
+                        await Shell.Current.GoToAsync($"//{nameof(FirstSetupView)}");
                     }
                 }
             });
         }
 
-        public async override Task ResetView()
+        public async override Task ResetViewAsync()
         {
             await this.RunWithBusyFlagAsync(async () => { await CheckIsRememberMeActive(); });
 

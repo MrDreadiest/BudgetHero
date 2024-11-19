@@ -15,15 +15,21 @@
 
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <sf:SfTextInputLayout Hint="Email">
+                    <sf:SfTextInputLayout Hint="Email" Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Email}" />
                     </sf:SfTextInputLayout>
 
-                    <sf:SfTextInputLayout EnablePasswordVisibilityToggle="True" Hint="Hasło">
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="Hasło"
+                        Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Password}" />
                     </sf:SfTextInputLayout>
 
-                    <sf:SfTextInputLayout EnablePasswordVisibilityToggle="True" Hint="Potwierdź hasło">
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="Potwierdź hasło"
+                        Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding PasswordRepeated}" />
                     </sf:SfTextInputLayout>
 

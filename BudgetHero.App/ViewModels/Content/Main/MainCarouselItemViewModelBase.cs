@@ -15,7 +15,7 @@ namespace BudgetHero.App.ViewModels.Content.Main
 
         public MainCarouselItemViewType ItemViewType { get; }
 
-        public abstract Task ResetView();
+        public abstract Task ResetViewAsync();
 
         protected MainCarouselItemViewModelBase(MainCarouselItemViewType itemViewType)
         {

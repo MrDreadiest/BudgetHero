@@ -2,7 +2,6 @@
 using BudgetHero.App.ViewModels.Content.Universal;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Syncfusion.Maui.Toolkit.SegmentedControl;
 
 namespace BudgetHero.App.ViewModels
 {
@@ -11,7 +10,6 @@ namespace BudgetHero.App.ViewModels
         private bool _isNavigatedTo;
         private bool _dataLoaded;
 
-        public List<SfSegmentItem> SegmentItems { get; }
         public List<MainCarouselItemViewModelBase> MainCarouselVMs { get; }
 
         public SegmentedControlViewModel SegmentedControlVM { get; }
@@ -29,16 +27,6 @@ namespace BudgetHero.App.ViewModels
 
             SegmentedControlVM = new SegmentedControlViewModel(MainCarouselVMs.Select(item => new SegmentedControlItem(item.Title)).ToList());
             SegmentedControlVM.SelectionChanged += SegmentedControlVM_SelectionChanged;
-
-            SegmentItems = MainCarouselVMs.Select(item => new SfSegmentItem() { Text = item.ItemViewType.GetDescription() }).ToList();
-        }
-
-        private void SegmentedControlVM_SelectionChanged(object? sender, (int oldIndex, int newIndex) e)
-        {
-            if (e.oldIndex != e.newIndex)
-            {
-                CarouselPosition = e.newIndex;
-            }
         }
 
         [RelayCommand]
@@ -67,13 +55,21 @@ namespace BudgetHero.App.ViewModels
         {
             foreach (var item in MainCarouselVMs)
             {
-                await item.ResetView();
+                await item.ResetViewAsync();
             }
         }
 
         private async Task InitData()
         {
             await Task.CompletedTask;
+        }
+
+        private void SegmentedControlVM_SelectionChanged(object? sender, (int oldIndex, int newIndex) e)
+        {
+            if (e.oldIndex != e.newIndex)
+            {
+                CarouselPosition = e.newIndex;
+            }
         }
     }
 }

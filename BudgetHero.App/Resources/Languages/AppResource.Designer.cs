@@ -63,27 +63,27 @@ namespace BudgetHero.App.Resources.Languages {
         /// <summary>
         ///   Looks up a localized string similar to Budżet.
         /// </summary>
-        internal static string AccountSetupContentViewsType_BudgetSetup {
+        internal static string FirstSetupCarouselItemViewsType_BudgetSetup {
             get {
-                return ResourceManager.GetString("AccountSetupContentViewsType_BudgetSetup", resourceCulture);
+                return ResourceManager.GetString("FirstSetupCarouselItemViewsType_BudgetSetup", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Kategorie.
         /// </summary>
-        internal static string AccountSetupContentViewsType_CategoriesSetup {
+        internal static string FirstSetupCarouselItemViewsType_Categories {
             get {
-                return ResourceManager.GetString("AccountSetupContentViewsType_CategoriesSetup", resourceCulture);
+                return ResourceManager.GetString("FirstSetupCarouselItemViewsType_Categories", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Użytkownik.
         /// </summary>
-        internal static string AccountSetupContentViewsType_UserSetup {
+        internal static string FirstSetupCarouselItemViewsType_UserSetup {
             get {
-                return ResourceManager.GetString("AccountSetupContentViewsType_UserSetup", resourceCulture);
+                return ResourceManager.GetString("FirstSetupCarouselItemViewsType_UserSetup", resourceCulture);
             }
         }
         

@@ -12,10 +12,14 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         [ObservableProperty]
         private SegmentedControlItem _selectedItem;
 
-        public SegmentedControlViewModel(List<SegmentedControlItem> items)
+        private readonly bool _isSelectFromUiEnable;
+
+        public SegmentedControlViewModel(List<SegmentedControlItem> items, bool isSelectFromUiEnable = true)
         {
             Items = items;
             SelectedItem = Items.First();
+
+            _isSelectFromUiEnable = isSelectFromUiEnable;
         }
 
         public void Select(int index, bool notify = true)
@@ -26,7 +30,10 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         [RelayCommand]
         public void Select(SegmentedControlItem item)
         {
-            Select(item, true);
+            if (_isSelectFromUiEnable)
+            {
+                Select(item, true);
+            }
         }
 
         private void Select(SegmentedControlItem? item, bool notify = true)

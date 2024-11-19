@@ -2,6 +2,7 @@
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.ViewModels;
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace BudgetHero.App
@@ -22,6 +23,7 @@ namespace BudgetHero.App
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcons");
                 });
 
 #if DEBUG
@@ -48,11 +50,9 @@ namespace BudgetHero.App
             #region ViewModels
 
             builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<FirstSetupViewModel>();
 
             #endregion
-
-
-
 
             return builder.Build();
         }
