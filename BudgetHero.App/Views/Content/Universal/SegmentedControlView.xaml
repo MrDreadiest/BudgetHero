@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Universal.SegmentedControlView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
+    x:DataType="controls:SegmentedControlViewModel">
+
+    <ContentView.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryBackground}, Dark={StaticResource DarkBackground}}" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 6" />
+            <Setter Property="Margin" Value="0" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="MinimumHeightRequest" Value="44" />
+            <Setter Property="MinimumWidthRequest" Value="44" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+            <Setter Property="TextColor" Value="White" />
+            <Style.Triggers>
+                <DataTrigger
+                    x:DataType="controls:SegmentedControlItem"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Button"
+                    Value="True">
+                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger
+                    x:DataType="controls:SegmentedControlItem"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Button"
+                    Value="False">
+                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryBackground}, Dark={StaticResource DarkBackground}}" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+
+    <Border>
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="{Binding Items.Count}" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="controls:SegmentedControlItem">
+                    <Button
+                        BindingContext="{Binding .}"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type controls:SegmentedControlViewModel}}, Path=SelectCommand}"
+                        CommandParameter="{Binding .}"
+                        Text="{Binding Text}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Border>
+
+</ContentView>
