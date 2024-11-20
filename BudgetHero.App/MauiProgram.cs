@@ -3,6 +3,7 @@ using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.ViewModels;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace BudgetHero.App
@@ -15,6 +16,7 @@ namespace BudgetHero.App
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .ConfigureSyncfusionCore()
                 .ConfigureSyncfusionToolkit()
                 .ConfigureMauiHandlers(handlers =>
                 {
