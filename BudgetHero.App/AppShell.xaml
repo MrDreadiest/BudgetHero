@@ -3,22 +3,76 @@
     x:Class="BudgetHero.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
     xmlns:views="clr-namespace:BudgetHero.App.Views"
     Title="BudgetHero.App"
     Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="MainView"
         ContentTemplate="{DataTemplate views:MainView}"
-        Route="MainView" />
+        Route="MainView"
+        Shell.NavBarIsVisible="False" />
 
     <ShellContent
-        Title="FirstSetupView"
         ContentTemplate="{DataTemplate views:FirstSetupView}"
-        Route="FirstSetupView" />
+        Route="FirstSetupView"
+        Shell.NavBarIsVisible="False" />
 
-    <Shell.FlyoutFooter>
+    <TabBar>
+        <ShellContent
+            Title="{x:Static lang:AppResource.TransactionsView_Title}"
+            ContentTemplate="{DataTemplate views:TransactionsView}"
+            Route="TransactionsView"
+            Shell.NavBarIsVisible="False">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialIcons" Glyph="{StaticResource TransactionsIcon}" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="{x:Static lang:AppResource.ReportsView_Title}"
+            ContentTemplate="{DataTemplate views:ReportsView}"
+            Route="ReportsView"
+            Shell.NavBarIsVisible="False">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialIcons" Glyph="{StaticResource ReportsIcon}" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            x:Name="DashboardView"
+            Title="{x:Static lang:AppResource.DashboardView_Title}"
+            ContentTemplate="{DataTemplate views:DashboardView}"
+            Route="DashboardView"
+            Shell.NavBarIsVisible="False">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialIcons" Glyph="{StaticResource DashboardIcon}" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="{x:Static lang:AppResource.BudgetsView_Title}"
+            ContentTemplate="{DataTemplate views:BudgetsView}"
+            Route="BudgetsView"
+            Shell.NavBarIsVisible="False">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialIcons" Glyph="{StaticResource BudgetIcon}" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="{x:Static lang:AppResource.SettingsView_Title}"
+            ContentTemplate="{DataTemplate views:SettingsView}"
+            Route="SettingsView"
+            Shell.NavBarIsVisible="False">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialIcons" Glyph="{StaticResource SettingsIcon}" />
+            </ShellContent.Icon>
+        </ShellContent>
+    </TabBar>
+
+    <!--<Shell.FlyoutFooter>
         <Grid Padding="15">
             <sf:SfSegmentedControl
                 x:Name="ThemeSegmentedControl"
@@ -35,6 +89,6 @@
                 </sf:SfSegmentedControl.ItemsSource>
             </sf:SfSegmentedControl>
         </Grid>
-    </Shell.FlyoutFooter>
+    </Shell.FlyoutFooter>-->
 
 </Shell>

@@ -1,6 +1,4 @@
-﻿
-using BudgetHero.App.Models.Extensions;
-using BudgetHero.App.Services.Interfaces;
+﻿using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.Utilities;
 using BudgetHero.App.ViewModels.Interfaces;
 using BudgetHero.App.Views;
@@ -22,8 +20,6 @@ namespace BudgetHero.App.ViewModels.Content.Main
         private bool _isRemembered;
 
         public IModalDisplayHandler? ModalDisplayHandler => _displayHandler;
-
-
 
         private readonly IAuthenticationService _authenticationService;
         private readonly IUserService _userService;
@@ -68,21 +64,7 @@ namespace BudgetHero.App.ViewModels.Content.Main
                         _appSettingsService.SetRememberedUserPasswordAsync(Password).FireAndForgetSafeAsync();
                     }
 
-                    if (_userService.CurrentUser.IsAccountSetup)
-                    {
-                        if (_budgetService.CurrentBudget.IsNullOrEmpty())
-                        {
-                            //await Shell.Current.GoToAsync($"//{nameof(BudgetsPageAndroidView)}");
-                        }
-                        else
-                        {
-                            //await Shell.Current.GoToAsync($"//{nameof(DashboardPageAndroidView)}");
-                        }
-                    }
-                    else
-                    {
-                        await Shell.Current.GoToAsync($"//{nameof(FirstSetupView)}");
-                    }
+                    await Shell.Current.GoToAsync($"//{nameof(DashboardView)}");
                 }
             });
         }

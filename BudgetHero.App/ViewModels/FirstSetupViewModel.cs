@@ -71,7 +71,7 @@ namespace BudgetHero.App.ViewModels
                         bool result = await FinalizeUserAccountSetup();
                         if (result)
                         {
-                            //await Shell.Current.GoToAsync($"//{nameof(BudgetsPageAndroidView)}");
+                            await Shell.Current.GoToAsync($"//{nameof(BudgetsView)}");
                         }
                     }
                 }

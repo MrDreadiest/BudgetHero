@@ -66,6 +66,7 @@ namespace BudgetHero.App.Services
                     }
                 }
             }
+            CurrentBudget = new Budget() { Id = string.Empty, OwnerId = string.Empty };
             return false;
         }
 

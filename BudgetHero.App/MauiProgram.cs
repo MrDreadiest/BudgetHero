@@ -48,10 +48,14 @@ namespace BudgetHero.App
             #endregion
 
             #region ViewModels
-
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<FirstSetupViewModel>();
 
+            builder.Services.AddSingleton<DashboardViewModel>();
+            builder.Services.AddSingleton<BudgetsViewModel>();
+            builder.Services.AddSingleton<ReportsViewModel>();
+            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddSingleton<TransactionsViewModel>();
             #endregion
 
             return builder.Build();

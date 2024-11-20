@@ -61,6 +61,24 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Budżety.
+        /// </summary>
+        internal static string BudgetsView_Title {
+            get {
+                return ResourceManager.GetString("BudgetsView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kokpit.
+        /// </summary>
+        internal static string DashboardView_Title {
+            get {
+                return ResourceManager.GetString("DashboardView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Budżet.
         /// </summary>
         internal static string FirstSetupCarouselItemViewsType_BudgetSetup {
@@ -106,6 +124,15 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Raporty.
+        /// </summary>
+        internal static string ReportsView_Title {
+            get {
+                return ResourceManager.GetString("ReportsView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Słupkowy.
         /// </summary>
         internal static string ReportType_GraphBar {
@@ -129,6 +156,24 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string ReportType_Table {
             get {
                 return ResourceManager.GetString("ReportType_Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ustawienia.
+        /// </summary>
+        internal static string SettingsView_Title {
+            get {
+                return ResourceManager.GetString("SettingsView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transakcje.
+        /// </summary>
+        internal static string TransactionsView_Title {
+            get {
+                return ResourceManager.GetString("TransactionsView_Title", resourceCulture);
             }
         }
     }
