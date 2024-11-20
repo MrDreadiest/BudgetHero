@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
@@ -16,11 +18,29 @@
         <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
     </ContentPage.Behaviors>
 
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0"
+                    Style="{StaticResource LargeTitle}"
+                    Text="{Binding Title}"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
+        </Border>
 
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+        <Grid
+            Grid.Row="1"
+            Style="{StaticResource LayoutBodyGrid}">
+            <VerticalStackLayout Padding="{StaticResource LayoutPadding}">
+                <universalViews:AddBudgetContentView BindingContext="{Binding AddBudgetVM}" />
+
+            </VerticalStackLayout>
+
+            <universalViews:IconSelectContentView BindingContext="{Binding AddBudgetVM.IconSelectVM}" />
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}"/>
+        </Grid>
+    </Grid>
 </ContentPage>

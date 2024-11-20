@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Universal.AddBudgetContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
+    xmlns:universal="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
+    x:DataType="universal:AddBudgetContentViewModel">
+
+    <Border Style="{StaticResource ExpanderOuterBorder}">
+        <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True">
+            <syncfusion:SfExpander.Header>
+                <Grid Padding="{StaticResource LayoutPadding}" ColumnDefinitions="Auto,*">
+                    <Label
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource Title2}"
+                        Text="{Binding Title}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </syncfusion:SfExpander.Header>
+            <syncfusion:SfExpander.Content>
+                <Grid Padding="{StaticResource LayoutPadding}" BackgroundColor="{StaticResource DarkBackground}">
+                    <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
+                            <Button
+                                Grid.Column="0"
+                                Command="{Binding IconSelectVM.ToggleViewCommand}"
+                                Style="{StaticResource IconFramedButton}"
+                                Text="{Binding TemporaryBudget.IconUnicode}" />
+
+                            <sf:SfTextInputLayout Grid.Column="1" Hint="{x:Static lang:AppResource.AddBudgetContentView_Entry_Name}">
+                                <Entry Text="{Binding TemporaryBudget.Name}" />
+                            </sf:SfTextInputLayout>
+                        </Grid>
+
+                        <Label Style="{StaticResource Caption1}" Text="{x:Static lang:AppResource.AddBudgetContentView_Label_Icon_Hint}" />
+
+                        <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.AddBudgetContentView_Entry_Description}">
+                            <Entry Text="{Binding TemporaryBudget.Description}" />
+                        </sf:SfTextInputLayout>
+
+                        <Button Command="{Binding AddCommand}" Text="{x:Static lang:AppResource.AddBudgetContentView_Button_Add}" />
+
+                    </VerticalStackLayout>
+                </Grid>
+            </syncfusion:SfExpander.Content>
+        </syncfusion:SfExpander>
+    </Border>
+
+</ContentView>

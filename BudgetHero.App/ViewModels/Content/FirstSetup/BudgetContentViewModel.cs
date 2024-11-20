@@ -1,5 +1,4 @@
-﻿using BudgetHero.App.Models;
-using BudgetHero.App.Models.Extensions;
+﻿using BudgetHero.App.Models.Extensions;
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.ViewModels.Content.Universal;
 using BudgetHero.App.ViewModels.Interfaces;
@@ -10,7 +9,7 @@ namespace BudgetHero.App.ViewModels.Content.FirstSetup
     public partial class BudgetContentViewModel : FirstSetupCarouselItemViewModelBase, IBusyHandler
     {
         [ObservableProperty]
-        private Budget _temporaryBudget;
+        private Models.Budget _temporaryBudget;
 
         public IconSelectContentViewModel IconSelectVM { get; set; }
 
@@ -26,7 +25,7 @@ namespace BudgetHero.App.ViewModels.Content.FirstSetup
         {
             _displayHandler = displayHandler;
 
-            TemporaryBudget = new Budget() { Id = string.Empty, OwnerId = string.Empty };
+            TemporaryBudget = new Models.Budget() { Id = string.Empty, OwnerId = string.Empty };
             IconSelectVM = iconSelectVM;
         }
 
@@ -50,7 +49,7 @@ namespace BudgetHero.App.ViewModels.Content.FirstSetup
 
         public override async Task ResetViewAsync()
         {
-            TemporaryBudget = new Budget() { Id = string.Empty, OwnerId = string.Empty };
+            TemporaryBudget = new Models.Budget() { Id = string.Empty, OwnerId = string.Empty };
             TemporaryBudget.IconUnicode = IconSelectVM.SelectedIconItem.Unicode;
             await Task.CompletedTask;
         }

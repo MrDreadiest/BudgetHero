@@ -61,6 +61,42 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj.
+        /// </summary>
+        internal static string AddBudgetContentView_Button_Add {
+            get {
+                return ResourceManager.GetString("AddBudgetContentView_Button_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opis.
+        /// </summary>
+        internal static string AddBudgetContentView_Entry_Description {
+            get {
+                return ResourceManager.GetString("AddBudgetContentView_Entry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        internal static string AddBudgetContentView_Entry_Name {
+            get {
+                return ResourceManager.GetString("AddBudgetContentView_Entry_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kliknij by wybrać przypisaną ikonę.
+        /// </summary>
+        internal static string AddBudgetContentView_Label_Icon_Hint {
+            get {
+                return ResourceManager.GetString("AddBudgetContentView_Label_Icon_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Budżety.
         /// </summary>
         internal static string BudgetsView_Title {
