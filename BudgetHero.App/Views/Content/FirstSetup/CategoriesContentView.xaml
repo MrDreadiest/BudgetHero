@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:firstSetup="clr-namespace:BudgetHero.App.ViewModels.Content.FirstSetup"
     xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:model="clr-namespace:BudgetHero.App.Models"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
@@ -18,7 +19,7 @@
             <Border Padding="{StaticResource LayoutPadding}">
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <Label Style="{StaticResource SubHeadline}" Text="Tworzenie kategorii" />
+                    <Label Style="{StaticResource SubHeadline}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_SubTitle}" />
 
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
                         <Button
@@ -27,14 +28,14 @@
                             Style="{StaticResource IconFramedButton}"
                             Text="{Binding TemporaryTransactionCategory.IconUnicode}" />
 
-                        <sf:SfTextInputLayout Grid.Column="1" Hint="Nazwa">
+                        <sf:SfTextInputLayout Grid.Column="1" Hint="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Entry_Name}">
                             <Entry Text="{Binding TemporaryTransactionCategory.Name}" />
                         </sf:SfTextInputLayout>
                     </Grid>
 
-                    <Label Style="{StaticResource Caption1}" Text="Kliknij by wybrać przypisaną ikonę" />
+                    <Label Style="{StaticResource Caption1}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Label_Hint}" />
 
-                    <Button Command="{Binding AddCategoryCommand}" Text="Dodaj" />
+                    <Button Command="{Binding AddCategoryCommand}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Button_Add}" />
 
                 </VerticalStackLayout>
             </Border>
@@ -47,7 +48,7 @@
                 Grid.Column="1"
                 Margin="5"
                 Style="{StaticResource Caption1}"
-                Text="Akualnie dodane kategorie w budżecie" />
+                Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_BoxViewSeparator_Categories}" />
             <BoxView Grid.Column="2" />
         </Grid>
 

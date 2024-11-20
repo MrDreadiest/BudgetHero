@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:firstSetup="clr-namespace:BudgetHero.App.ViewModels.Content.FirstSetup"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     x:DataType="firstSetup:BudgetContentViewModel">
@@ -18,7 +19,7 @@
             <Border Padding="{StaticResource LayoutPadding}">
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <Label Style="{StaticResource SubHeadline}" Text="Tworzenie budżetu" />
+                    <Label Style="{StaticResource SubHeadline}" Text="{x:Static lang:AppResource.FirstSetup_BudgetContentView_SubTitle}" />
 
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
                         <Button
@@ -27,14 +28,14 @@
                             Style="{StaticResource IconFramedButton}"
                             Text="{Binding TemporaryBudget.IconUnicode}" />
 
-                        <sf:SfTextInputLayout Grid.Column="1" Hint="Nazwa">
+                        <sf:SfTextInputLayout Grid.Column="1" Hint="{x:Static lang:AppResource.FirstSetup_BudgetContentView_Entry_Name}">
                             <Entry Text="{Binding TemporaryBudget.Name}" />
                         </sf:SfTextInputLayout>
                     </Grid>
 
-                    <Label Style="{StaticResource Caption1}" Text="Kliknij by wybrać przypisaną ikonę" />
+                    <Label Style="{StaticResource Caption1}" Text="{x:Static lang:AppResource.FirstSetup_BudgetContentView_Label_Icon_Hint}" />
 
-                    <sf:SfTextInputLayout Hint="Opis">
+                    <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.FirstSetup_BudgetContentView_Entry_Description}">
                         <Entry Text="{Binding TemporaryBudget.Description}" />
                     </sf:SfTextInputLayout>
 
@@ -49,7 +50,7 @@
                 Grid.Column="1"
                 Margin="5"
                 Style="{StaticResource Caption1}"
-                Text="Lub wybierz jeden z proponowanych poniżej" />
+                Text="{x:Static lang:AppResource.FirstSetup_BudgetContentView_BoxViewSeparator_Package}" />
             <BoxView Grid.Column="2" />
         </Grid>
 
@@ -60,7 +61,7 @@
             <Label
                 HorizontalOptions="Center"
                 Style="{StaticResource Body1}"
-                Text="Dostępne wkróce"
+                Text="{x:Static lang:AppResource.General_Views_IsNotEnable}"
                 VerticalOptions="Center" />
         </Border>
 

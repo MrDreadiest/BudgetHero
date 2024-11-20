@@ -132,11 +132,125 @@
   <data name="FirstSetupCarouselItemViewsType_UserSetup" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="FirstSetupView_Button_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="FirstSetupView_Button_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="FirstSetupView_Title" xml:space="preserve">
+    <value>First setup</value>
+  </data>
+  <data name="FirstSetup_BudgetContentView_BoxViewSeparator_Package" xml:space="preserve">
+    <value>Or choose one of the options below</value>
+  </data>
+  <data name="FirstSetup_BudgetContentView_Entry_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="FirstSetup_BudgetContentView_Entry_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FirstSetup_BudgetContentView_Label_Icon_Hint" xml:space="preserve">
+    <value>Click to select assigned icon</value>
+  </data>
+  <data name="FirstSetup_BudgetContentView_SubTitle" xml:space="preserve">
+    <value>Budget creation</value>
+  </data>
+  <data name="FirstSetup_CategoriesContentView_BoxViewSeparator_Categories" xml:space="preserve">
+    <value>Recently added categories in the budget</value>
+  </data>
+  <data name="FirstSetup_CategoriesContentView_Button_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="FirstSetup_CategoriesContentView_Entry_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FirstSetup_CategoriesContentView_Label_Hint" xml:space="preserve">
+    <value>Click to select assigned icon</value>
+  </data>
+  <data name="FirstSetup_CategoriesContentView_SubTitle" xml:space="preserve">
+    <value>Category creation</value>
+  </data>
+  <data name="FirstSetup_Label_Welcome_Title_1" xml:space="preserve">
+    <value>Welcome in BudgetHero</value>
+  </data>
+  <data name="FirstSetup_Label_Welcome_Title_2" xml:space="preserve">
+    <value>The final step is ahead of you.</value>
+  </data>
+  <data name="FirstSetup_Label_Welcome_Title_3" xml:space="preserve">
+    <value>Create your first budget!</value>
+  </data>
+  <data name="FirstSetup_UserContentView_Entry_FirstName" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="FirstSetup_UserContentView_Entry_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="FirstSetup_UserContentView_Entry_PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="FirstSetup_UserContentView_SubTitle" xml:space="preserve">
+    <value>User data</value>
+  </data>
+  <data name="General_Views_IsNotEnable" xml:space="preserve">
+    <value>Available soon</value>
+  </data>
+  <data name="IconSelectContentView_Title" xml:space="preserve">
+    <value>Select icon</value>
+  </data>
+  <data name="LoginContentView_BoxViewSeparator_Or" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="LoginContentView_Button_ForgotPassword" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="LoginContentView_Button_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginContentView_Checkbox_RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="LoginContentView_Entry_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="LoginContentView_Entry_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="MainCarouselItemViewType_Login" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="MainCarouselItemViewType_Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="MainView_Label_Welcome_Title_1" xml:space="preserve">
+    <value>Welcome in BudgetHero</value>
+  </data>
+  <data name="MainView_Label_Welcome_Title_2" xml:space="preserve">
+    <value>Be the hero of your finances.</value>
+  </data>
+  <data name="MainView_Label_Welcome_Title_3" xml:space="preserve">
+    <value>Log in to your account or join by registering.</value>
+  </data>
+  <data name="RegisterContentView_Button_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterContentView_Entry_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterContentView_Entry_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterContentView_Entry_PasswordRepeated" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="RegisterContentView_Label_Password_Hint_1" xml:space="preserve">
+    <value>Minimum length is 8 characters</value>
+  </data>
+  <data name="RegisterContentView_Label_Password_Hint_2" xml:space="preserve">
+    <value>Contains numbers, letters (upper and lower case)</value>
+  </data>
+  <data name="RegisterContentView_Label_Password_Hint_3" xml:space="preserve">
+    <value>Contains special characters (e.g. ?!@#$%)</value>
   </data>
   <data name="ReportsView_Title" xml:space="preserve">
     <value>Reports</value>

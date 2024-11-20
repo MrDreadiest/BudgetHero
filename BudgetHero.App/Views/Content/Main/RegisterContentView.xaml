@@ -3,6 +3,7 @@
     x:Class="BudgetHero.App.Views.Content.Main.RegisterContentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
@@ -15,20 +16,20 @@
 
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <sf:SfTextInputLayout Hint="Email" Style="{StaticResource LoginEntry}">
-                        <Entry Text="{Binding Email}" />
+                    <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.RegisterContentView_Entry_Email}" Style="{StaticResource LoginEntry}">
+                        <Entry Keyboard="Email" Text="{Binding Email}" />
                     </sf:SfTextInputLayout>
 
                     <sf:SfTextInputLayout
                         EnablePasswordVisibilityToggle="True"
-                        Hint="Hasło"
+                        Hint="{x:Static lang:AppResource.RegisterContentView_Entry_Password}"
                         Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Password}" />
                     </sf:SfTextInputLayout>
 
                     <sf:SfTextInputLayout
                         EnablePasswordVisibilityToggle="True"
-                        Hint="Potwierdź hasło"
+                        Hint="{x:Static lang:AppResource.RegisterContentView_Entry_PasswordRepeated}"
                         Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding PasswordRepeated}" />
                     </sf:SfTextInputLayout>
@@ -38,20 +39,20 @@
                             Margin="0"
                             HorizontalOptions="Start"
                             Style="{StaticResource Caption1}"
-                            Text="Minimalna długość to 8 znaków" />
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_1}" />
                         <Label
                             Margin="0"
                             HorizontalOptions="Start"
                             Style="{StaticResource Caption1}"
-                            Text="Zawiera cyfry, litery (duże i małe)" />
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_2}" />
                         <Label
                             Margin="0"
                             HorizontalOptions="Start"
                             Style="{StaticResource Caption1}"
-                            Text="Zawiera znaki specjalne (no. ?!@#$%)" />
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_3}" />
                     </VerticalStackLayout>
 
-                    <Button Command="{Binding RegisterCommand}" Text="Rejestruj" />
+                    <Button Command="{Binding RegisterCommand}" Text="{x:Static lang:AppResource.RegisterContentView_Button_Register}" />
                 </VerticalStackLayout>
             </Border>
             <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />

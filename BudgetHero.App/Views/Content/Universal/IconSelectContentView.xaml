@@ -5,11 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
     xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     x:DataType="controls:IconSelectContentViewModel">
 
     <ContentView.Resources>
         <Style BasedOn="{StaticResource IconFramedButton}" TargetType="Button">
-
             <Setter Property="HeightRequest" Value="60" />
             <Setter Property="WidthRequest" Value="60" />
             <Setter Property="Margin" Value="5" />
@@ -58,7 +58,7 @@
                 <Label
                     Grid.Column="1"
                     Style="{StaticResource SubHeadline}"
-                    Text="Wybór ikony"
+                    Text="{x:Static lang:AppResource.IconSelectContentView_Title}"
                     VerticalOptions="Center" />
             </Grid>
         </Border>

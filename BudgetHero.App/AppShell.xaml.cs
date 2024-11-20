@@ -45,7 +45,9 @@ namespace BudgetHero.App
 
         private void OnShellNavigating(object? sender, ShellNavigatingEventArgs e)
         {
-            if (e.Target.Location.OriginalString.Contains(nameof(DashboardView)))
+            if (e.Target.Location.OriginalString.Contains(nameof(DashboardView)) ||
+                e.Target.Location.OriginalString.Contains(nameof(ReportsView)) ||
+                e.Target.Location.OriginalString.Contains(nameof(TransactionsView)))
             {
                 if (!_userService.CurrentUser.IsAccountSetup)
                 {

@@ -79,6 +79,159 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lub wybierz jeden z proponowanych poniżej.
+        /// </summary>
+        internal static string FirstSetup_BudgetContentView_BoxViewSeparator_Package {
+            get {
+                return ResourceManager.GetString("FirstSetup_BudgetContentView_BoxViewSeparator_Package", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opis.
+        /// </summary>
+        internal static string FirstSetup_BudgetContentView_Entry_Description {
+            get {
+                return ResourceManager.GetString("FirstSetup_BudgetContentView_Entry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        internal static string FirstSetup_BudgetContentView_Entry_Name {
+            get {
+                return ResourceManager.GetString("FirstSetup_BudgetContentView_Entry_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kliknij by wybrać przypisaną ikonę.
+        /// </summary>
+        internal static string FirstSetup_BudgetContentView_Label_Icon_Hint {
+            get {
+                return ResourceManager.GetString("FirstSetup_BudgetContentView_Label_Icon_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tworzenie budżetu.
+        /// </summary>
+        internal static string FirstSetup_BudgetContentView_SubTitle {
+            get {
+                return ResourceManager.GetString("FirstSetup_BudgetContentView_SubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Akualnie dodane kategorie w budżecie.
+        /// </summary>
+        internal static string FirstSetup_CategoriesContentView_BoxViewSeparator_Categories {
+            get {
+                return ResourceManager.GetString("FirstSetup_CategoriesContentView_BoxViewSeparator_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj.
+        /// </summary>
+        internal static string FirstSetup_CategoriesContentView_Button_Add {
+            get {
+                return ResourceManager.GetString("FirstSetup_CategoriesContentView_Button_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        internal static string FirstSetup_CategoriesContentView_Entry_Name {
+            get {
+                return ResourceManager.GetString("FirstSetup_CategoriesContentView_Entry_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kliknij by wybrać przypisaną ikonę.
+        /// </summary>
+        internal static string FirstSetup_CategoriesContentView_Label_Hint {
+            get {
+                return ResourceManager.GetString("FirstSetup_CategoriesContentView_Label_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tworzenie kategorii.
+        /// </summary>
+        internal static string FirstSetup_CategoriesContentView_SubTitle {
+            get {
+                return ResourceManager.GetString("FirstSetup_CategoriesContentView_SubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Witaj w BudgetHero.
+        /// </summary>
+        internal static string FirstSetup_Label_Welcome_Title_1 {
+            get {
+                return ResourceManager.GetString("FirstSetup_Label_Welcome_Title_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przed tobą ostatni krok..
+        /// </summary>
+        internal static string FirstSetup_Label_Welcome_Title_2 {
+            get {
+                return ResourceManager.GetString("FirstSetup_Label_Welcome_Title_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stwórz swój pierwszy budżet!.
+        /// </summary>
+        internal static string FirstSetup_Label_Welcome_Title_3 {
+            get {
+                return ResourceManager.GetString("FirstSetup_Label_Welcome_Title_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imię.
+        /// </summary>
+        internal static string FirstSetup_UserContentView_Entry_FirstName {
+            get {
+                return ResourceManager.GetString("FirstSetup_UserContentView_Entry_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwisko.
+        /// </summary>
+        internal static string FirstSetup_UserContentView_Entry_LastName {
+            get {
+                return ResourceManager.GetString("FirstSetup_UserContentView_Entry_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numer telefonu.
+        /// </summary>
+        internal static string FirstSetup_UserContentView_Entry_PhoneNumber {
+            get {
+                return ResourceManager.GetString("FirstSetup_UserContentView_Entry_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dane użytkownika.
+        /// </summary>
+        internal static string FirstSetup_UserContentView_SubTitle {
+            get {
+                return ResourceManager.GetString("FirstSetup_UserContentView_SubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Budżet.
         /// </summary>
         internal static string FirstSetupCarouselItemViewsType_BudgetSetup {
@@ -106,6 +259,105 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Powrót.
+        /// </summary>
+        internal static string FirstSetupView_Button_Back {
+            get {
+                return ResourceManager.GetString("FirstSetupView_Button_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dalej.
+        /// </summary>
+        internal static string FirstSetupView_Button_Next {
+            get {
+                return ResourceManager.GetString("FirstSetupView_Button_Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Konfiguracja startowa.
+        /// </summary>
+        internal static string FirstSetupView_Title {
+            get {
+                return ResourceManager.GetString("FirstSetupView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dostępne wkrótce.
+        /// </summary>
+        internal static string General_Views_IsNotEnable {
+            get {
+                return ResourceManager.GetString("General_Views_IsNotEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybór ikony.
+        /// </summary>
+        internal static string IconSelectContentView_Title {
+            get {
+                return ResourceManager.GetString("IconSelectContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lub.
+        /// </summary>
+        internal static string LoginContentView_BoxViewSeparator_Or {
+            get {
+                return ResourceManager.GetString("LoginContentView_BoxViewSeparator_Or", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapomniałem hasła.
+        /// </summary>
+        internal static string LoginContentView_Button_ForgotPassword {
+            get {
+                return ResourceManager.GetString("LoginContentView_Button_ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zaloguj.
+        /// </summary>
+        internal static string LoginContentView_Button_Login {
+            get {
+                return ResourceManager.GetString("LoginContentView_Button_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapamiętaj mnie.
+        /// </summary>
+        internal static string LoginContentView_Checkbox_RememberMe {
+            get {
+                return ResourceManager.GetString("LoginContentView_Checkbox_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string LoginContentView_Entry_Email {
+            get {
+                return ResourceManager.GetString("LoginContentView_Entry_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hasło.
+        /// </summary>
+        internal static string LoginContentView_Entry_Password {
+            get {
+                return ResourceManager.GetString("LoginContentView_Entry_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logowanie.
         /// </summary>
         internal static string MainCarouselItemViewType_Login {
@@ -120,6 +372,96 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string MainCarouselItemViewType_Register {
             get {
                 return ResourceManager.GetString("MainCarouselItemViewType_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Witaj w BudgetHero.
+        /// </summary>
+        internal static string MainView_Label_Welcome_Title_1 {
+            get {
+                return ResourceManager.GetString("MainView_Label_Welcome_Title_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bądź bohaterem swoich finansów..
+        /// </summary>
+        internal static string MainView_Label_Welcome_Title_2 {
+            get {
+                return ResourceManager.GetString("MainView_Label_Welcome_Title_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zaloguj się do swojego konta lub dołącz poprzez rejestrację..
+        /// </summary>
+        internal static string MainView_Label_Welcome_Title_3 {
+            get {
+                return ResourceManager.GetString("MainView_Label_Welcome_Title_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejestruj.
+        /// </summary>
+        internal static string RegisterContentView_Button_Register {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Button_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string RegisterContentView_Entry_Email {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Entry_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hasło.
+        /// </summary>
+        internal static string RegisterContentView_Entry_Password {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Entry_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potwierdź hasło.
+        /// </summary>
+        internal static string RegisterContentView_Entry_PasswordRepeated {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Entry_PasswordRepeated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimalna długość to 8 znaków.
+        /// </summary>
+        internal static string RegisterContentView_Label_Password_Hint_1 {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Label_Password_Hint_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zawiera cyfry, litery (duże i małe).
+        /// </summary>
+        internal static string RegisterContentView_Label_Password_Hint_2 {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Label_Password_Hint_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zawiera znaki specjalne (no. ?!@#$%).
+        /// </summary>
+        internal static string RegisterContentView_Label_Password_Hint_3 {
+            get {
+                return ResourceManager.GetString("RegisterContentView_Label_Password_Hint_3", resourceCulture);
             }
         }
         

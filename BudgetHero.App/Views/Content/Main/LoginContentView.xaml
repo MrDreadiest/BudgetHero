@@ -3,6 +3,7 @@
     x:Class="BudgetHero.App.Views.Content.Main.LoginContentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
@@ -14,13 +15,13 @@
             <Border Padding="{StaticResource LayoutPadding}">
                 <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
 
-                    <sf:SfTextInputLayout Hint="Email" Style="{StaticResource LoginEntry}">
-                        <Entry Text="{Binding Email}" />
+                    <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.LoginContentView_Entry_Email}" Style="{StaticResource LoginEntry}">
+                        <Entry Keyboard="Email" Text="{Binding Email}" />
                     </sf:SfTextInputLayout>
 
                     <sf:SfTextInputLayout
                         EnablePasswordVisibilityToggle="True"
-                        Hint="Password"
+                        Hint="{x:Static lang:AppResource.LoginContentView_Entry_Password}"
                         Style="{StaticResource LoginEntry}">
                         <Entry Text="{Binding Password}" />
                     </sf:SfTextInputLayout>
@@ -30,7 +31,7 @@
                         <Label
                             Grid.Column="1"
                             Style="{StaticResource CheckboxLabel}"
-                            Text="Zapamiętaj mnie" />
+                            Text="{x:Static lang:AppResource.LoginContentView_Checkbox_RememberMe}" />
                     </Grid>
 
                     <Button Command="{Binding LoginCommand}" Text="Zaloguj" />
@@ -46,11 +47,11 @@
                 Grid.Column="1"
                 Margin="5"
                 Style="{StaticResource Caption1}"
-                Text="lub" />
+                Text="{x:Static lang:AppResource.LoginContentView_BoxViewSeparator_Or}" />
             <BoxView Grid.Column="2" />
         </Grid>
 
-        <Button IsEnabled="False" Text="Zapomniałem hasła" />
+        <Button IsEnabled="False" Text="{x:Static lang:AppResource.LoginContentView_Button_ForgotPassword}" />
     </VerticalStackLayout>
 
 </ContentView>

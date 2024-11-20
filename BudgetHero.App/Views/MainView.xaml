@@ -3,6 +3,7 @@
     x:Class="BudgetHero.App.Views.MainView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
     xmlns:mainViews="clr-namespace:BudgetHero.App.Views.Content.Main"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -35,14 +36,43 @@
 
     <Grid RowDefinitions="Auto,*">
         <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
-            <Grid RowDefinitions="Auto,*">
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <Grid
+                    ColumnDefinitions="*,4*"
+                    ColumnSpacing="{StaticResource LayoutSpacing}"
+                    RowDefinitions="Auto,*">
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Aspect="AspectFill">
+                        <Image.Source>
+                            <AppThemeBinding Dark="logo_complementary.png" Light="logo_primary.png" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="0"
+                        Style="{StaticResource LargeTitle}"
+                        Text="{x:Static lang:AppResource.MainView_Label_Welcome_Title_1}"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0"
+                        Style="{StaticResource Title3}"
+                        Text="{x:Static lang:AppResource.MainView_Label_Welcome_Title_2}"
+                        VerticalOptions="Center" />
+
+                </Grid>
                 <Label
-                    Grid.Row="0"
-                    Style="{StaticResource Title1}"
-                    Text="{Binding Title}" />
+                    Margin="0"
+                    Style="{StaticResource Caption1}"
+                    Text="{x:Static lang:AppResource.MainView_Label_Welcome_Title_3}"
+                    VerticalOptions="Center" />
 
                 <universalViews:SegmentedControlView Grid.Row="1" BindingContext="{Binding SegmentedControlVM}" />
-            </Grid>
+            </VerticalStackLayout>
 
         </Border>
 

@@ -155,7 +155,7 @@
         <Setter Property="FontAttributes" Value="{OnPlatform WinUI=None, Default=Bold}" />
     </Style>
     <Style x:Key="LargeTitle" TargetType="Label">
-        <Setter Property="FontSize" Value="34" />
+        <Setter Property="FontSize" Value="32" />
         <Setter Property="LineHeight" Value="1.21" />
         <!--  41  -->
         <Setter Property="FontAttributes" Value="{OnPlatform WinUI=None, Default=Bold}" />
