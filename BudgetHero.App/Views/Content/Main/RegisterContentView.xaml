@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Main.RegisterContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="main:RegisterContentViewModel">
+
+    <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource LayoutSpacing}">
+
+        <Grid>
+            <Border Padding="{StaticResource LayoutPadding}">
+
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+
+                    <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.RegisterContentView_Entry_Email}" Style="{StaticResource LoginEntry}">
+                        <Entry Keyboard="Email" Text="{Binding Email}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="{x:Static lang:AppResource.RegisterContentView_Entry_Password}"
+                        Style="{StaticResource LoginEntry}">
+                        <Entry Text="{Binding Password}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="{x:Static lang:AppResource.RegisterContentView_Entry_PasswordRepeated}"
+                        Style="{StaticResource LoginEntry}">
+                        <Entry Text="{Binding PasswordRepeated}" />
+                    </sf:SfTextInputLayout>
+
+                    <VerticalStackLayout Spacing="5" VerticalOptions="Start">
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_1}" />
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_2}" />
+                        <Label
+                            Margin="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource Caption1}"
+                            Text="{x:Static lang:AppResource.RegisterContentView_Label_Password_Hint_3}" />
+                    </VerticalStackLayout>
+
+                    <Button Command="{Binding RegisterCommand}" Text="{x:Static lang:AppResource.RegisterContentView_Button_Register}" />
+                </VerticalStackLayout>
+            </Border>
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentView>

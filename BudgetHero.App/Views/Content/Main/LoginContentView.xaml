@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Main.LoginContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:main="clr-namespace:BudgetHero.App.ViewModels.Content.Main"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="main:LoginContentViewModel">
+
+    <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource LayoutSpacing}">
+
+        <Grid>
+            <Border Padding="{StaticResource LayoutPadding}">
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+
+                    <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.LoginContentView_Entry_Email}" Style="{StaticResource LoginEntry}">
+                        <Entry Keyboard="Email" Text="{Binding Email}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout
+                        EnablePasswordVisibilityToggle="True"
+                        Hint="{x:Static lang:AppResource.LoginContentView_Entry_Password}"
+                        Style="{StaticResource LoginEntry}">
+                        <Entry Text="{Binding Password}" />
+                    </sf:SfTextInputLayout>
+
+                    <Grid ColumnDefinitions="Auto,*">
+                        <CheckBox Grid.Column="0" IsChecked="{Binding IsRemembered, Mode=TwoWay}" />
+                        <Label
+                            Grid.Column="1"
+                            Style="{StaticResource CheckboxLabel}"
+                            Text="{x:Static lang:AppResource.LoginContentView_Checkbox_RememberMe}" />
+                    </Grid>
+
+                    <Button Command="{Binding LoginCommand}" Text="Zaloguj" />
+                </VerticalStackLayout>
+            </Border>
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+        </Grid>
+
+
+        <Grid ColumnDefinitions="*,Auto,*">
+            <BoxView Grid.Column="0" />
+            <Label
+                Grid.Column="1"
+                Margin="5"
+                Style="{StaticResource Caption1}"
+                Text="{x:Static lang:AppResource.LoginContentView_BoxViewSeparator_Or}" />
+            <BoxView Grid.Column="2" />
+        </Grid>
+
+        <Button IsEnabled="False" Text="{x:Static lang:AppResource.LoginContentView_Button_ForgotPassword}" />
+    </VerticalStackLayout>
+
+</ContentView>

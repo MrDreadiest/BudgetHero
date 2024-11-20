@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Universal.IconSelectContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    x:DataType="controls:IconSelectContentViewModel">
+
+    <ContentView.Resources>
+        <Style BasedOn="{StaticResource IconFramedButton}" TargetType="Button">
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="WidthRequest" Value="60" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="{StaticResource IconSizeMedium}" />
+            <Style.Triggers>
+                <DataTrigger
+                    x:DataType="icons:IconItem"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Button"
+                    Value="True">
+                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                    <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger
+                    x:DataType="icons:IconItem"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Button"
+                    Value="False">
+                    <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightSecondaryBackground}, Dark={StaticResource DarkBackground}}" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                    <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </ContentView.Resources>
+
+    <Grid
+        x:Name="Root"
+        Padding="{StaticResource LayoutPadding}"
+        BackgroundColor="{AppThemeBinding Light={StaticResource LightSecondaryBackground},
+                                          Dark={StaticResource DarkBackground}}"
+        RowDefinitions="Auto,*"
+        RowSpacing="{StaticResource LayoutSpacing}">
+
+        <Border Grid.Row="0" Padding="{StaticResource LayoutPadding}">
+            <Grid ColumnSpacing="{StaticResource LayoutSpacing}">
+                <Button
+                    Command="{Binding ToggleViewCommand}"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource IconNavigateButton}"
+                    Text="{x:Static icons:Icons.ArrowBackward}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{StaticResource SubHeadline}"
+                    Text="{x:Static lang:AppResource.IconSelectContentView_Title}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Padding="{StaticResource LayoutPadding}">
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding IconCategories}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="{StaticResource LayoutSpacing}" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="icons:IconCategory">
+                            <Border Background="{AppThemeBinding Light={StaticResource LightSecondaryBackground}, Dark={StaticResource DarkBackground}}">
+                                <VerticalStackLayout>
+                                    <Label Style="{StaticResource Title3}" Text="{Binding CategoryName}" />
+                                    <CollectionView ItemsSource="{Binding Icons}">
+                                        <CollectionView.ItemsLayout>
+                                            <GridItemsLayout Orientation="Vertical" Span="5" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="icons:IconItem">
+                                                <Button
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type controls:IconSelectContentViewModel}}, Path=SelectIconCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    Text="{Binding Unicode}" />
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+
+
+        </Border>
+    </Grid>
+</ContentView>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.FirstSetup.CategoriesContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:firstSetup="clr-namespace:BudgetHero.App.ViewModels.Content.FirstSetup"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:model="clr-namespace:BudgetHero.App.Models"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="firstSetup:CategoriesContentViewModel">
+
+    <Grid
+        Padding="{StaticResource LayoutPadding}"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="{StaticResource LayoutSpacing}">
+        <VerticalStackLayout Grid.Row="0" Spacing="{StaticResource LayoutSpacing}">
+            <Border Padding="{StaticResource LayoutPadding}">
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+
+                    <Label Style="{StaticResource SubHeadline}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_SubTitle}" />
+
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
+                        <Button
+                            Grid.Column="0"
+                            Command="{Binding IconSelectVM.ToggleViewCommand}"
+                            Style="{StaticResource IconFramedButton}"
+                            Text="{Binding TemporaryTransactionCategory.IconUnicode}" />
+
+                        <sf:SfTextInputLayout Grid.Column="1" Hint="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Entry_Name}">
+                            <Entry Text="{Binding TemporaryTransactionCategory.Name}" />
+                        </sf:SfTextInputLayout>
+                    </Grid>
+
+                    <Label Style="{StaticResource Caption1}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Label_Hint}" />
+
+                    <Button Command="{Binding AddCategoryCommand}" Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_Button_Add}" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto,*">
+            <BoxView Grid.Column="0" />
+            <Label
+                Grid.Column="1"
+                Margin="5"
+                Style="{StaticResource Caption1}"
+                Text="{x:Static lang:AppResource.FirstSetup_CategoriesContentView_BoxViewSeparator_Categories}" />
+            <BoxView Grid.Column="2" />
+        </Grid>
+
+        <Border Grid.Row="2" Padding="{StaticResource LayoutPadding}">
+            <CollectionView ItemsSource="{Binding TransactionCategories}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:TransactionCategory">
+                        <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="*,Auto">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="{StaticResource LayoutMargin}"
+                                Style="{StaticResource MaterialIcon}"
+                                Text="{Binding IconUnicode}" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Style="{StaticResource Body1}"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type firstSetup:CategoriesContentViewModel}}, Path=RemoveCategoryCommand}"
+                                CommandParameter="{Binding}"
+                                Style="{StaticResource IconButton}"
+                                Text="{x:Static icons:Icons.Close}"
+                                VerticalOptions="Center" />
+                            <BoxView Grid.Row="1" Grid.ColumnSpan="3" />
+                        </Grid>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+    </Grid>
+</ContentView>
