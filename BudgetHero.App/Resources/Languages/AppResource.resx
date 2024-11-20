@@ -129,6 +129,15 @@
   <data name="AddBudgetContentView_Label_Icon_Hint" xml:space="preserve">
     <value>Kliknij by wybrać przypisaną ikonę</value>
   </data>
+  <data name="AddBudgetContentView_Title" xml:space="preserve">
+    <value>Dodaj budżet</value>
+  </data>
+  <data name="BudgetListType_Own" xml:space="preserve">
+    <value>Własne</value>
+  </data>
+  <data name="BudgetListType_Shared" xml:space="preserve">
+    <value>Współdzielone</value>
+  </data>
   <data name="BudgetsView_Title" xml:space="preserve">
     <value>Budżety</value>
   </data>

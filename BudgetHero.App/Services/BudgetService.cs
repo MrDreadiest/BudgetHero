@@ -11,6 +11,10 @@ namespace BudgetHero.App.Services
         public event EventHandler? CurrentBudgetChanged;
         public event EventHandler? BudgetsChanged;
 
+        public event EventHandler<Budget>? BudgetCreated;
+        public event EventHandler<Budget>? BudgetDeleted;
+        public event EventHandler<Budget>? BudgetUpdated;
+
         public Budget CurrentBudget
         {
             get => _currentBudget;
@@ -101,7 +105,7 @@ namespace BudgetHero.App.Services
                 Budget newBudget = response.FromCreateResponse();
                 newBudget.Users.Add(_userService.CurrentUser);
                 _budgets.Add(newBudget);
-                BudgetsChanged?.Invoke(this, EventArgs.Empty);
+                BudgetCreated?.Invoke(this, newBudget);
                 return true;
             }
             return false;
@@ -116,7 +120,5 @@ namespace BudgetHero.App.Services
         {
             throw new NotImplementedException();
         }
-
-
     }
 }

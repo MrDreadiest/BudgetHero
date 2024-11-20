@@ -3,6 +3,7 @@
     x:Class="BudgetHero.App.Views.BudgetsView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:budgetViews="clr-namespace:BudgetHero.App.Views.Content.Budget"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
@@ -18,6 +19,13 @@
         <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
     </ContentPage.Behaviors>
 
+    <ContentPage.Resources>
+        <DataTemplate x:Key="ListView">
+            <budgetViews:BudgetListContentView />
+        </DataTemplate>
+
+    </ContentPage.Resources>
+
     <Grid RowDefinitions="Auto,*">
         <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
             <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
@@ -28,19 +36,27 @@
                     Style="{StaticResource LargeTitle}"
                     Text="{Binding Title}"
                     VerticalOptions="Center" />
+                <universalViews:SegmentedControlView Grid.Row="1" BindingContext="{Binding SegmentedControlVM}" />
             </VerticalStackLayout>
         </Border>
 
-        <Grid
-            Grid.Row="1"
-            Style="{StaticResource LayoutBodyGrid}">
-            <VerticalStackLayout Padding="{StaticResource LayoutPadding}">
-                <universalViews:AddBudgetContentView BindingContext="{Binding AddBudgetVM}" />
+        <Grid Grid.Row="1" Style="{StaticResource LayoutBodyGrid}">
+            <Grid
+                Padding="{StaticResource LayoutPadding}"
+                RowDefinitions="Auto,*"
+                RowSpacing="{StaticResource LayoutSpacing}">
+                <universalViews:AddBudgetContentView Grid.Row="0" BindingContext="{Binding AddBudgetVM}" />
 
-            </VerticalStackLayout>
+                <CarouselView
+                    Grid.Row="1"
+                    IsSwipeEnabled="False"
+                    ItemTemplate="{StaticResource ListView}"
+                    ItemsSource="{Binding BudgetsListVMs}"
+                    Position="{Binding CarouselPosition, Mode=TwoWay}" />
+            </Grid>
 
             <universalViews:IconSelectContentView BindingContext="{Binding AddBudgetVM.IconSelectVM}" />
-            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}"/>
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
         </Grid>
     </Grid>
 </ContentPage>

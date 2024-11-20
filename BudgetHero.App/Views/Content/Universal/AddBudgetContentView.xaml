@@ -9,8 +9,11 @@
     xmlns:universal="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
     x:DataType="universal:AddBudgetContentViewModel">
 
-    <Border Style="{StaticResource ExpanderOuterBorder}">
-        <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True">
+    <Border
+        HorizontalOptions="Center"
+        Style="{StaticResource ExpanderOuterBorder}"
+        VerticalOptions="Center">
+        <syncfusion:SfExpander AnimationDuration="200" IsExpanded="False">
             <syncfusion:SfExpander.Header>
                 <Grid Padding="{StaticResource LayoutPadding}" ColumnDefinitions="Auto,*">
                     <Label

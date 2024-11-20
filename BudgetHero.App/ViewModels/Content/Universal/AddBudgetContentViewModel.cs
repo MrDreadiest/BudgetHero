@@ -39,7 +39,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             _displayHandler = displayHandler;
             _budgetService = budgetService;
 
-            Title = AppResource.DashboardView_Title;
+            Title = AppResource.AddBudgetContentView_Title;
 
             TemporaryBudget = new Models.Budget() { Id = string.Empty, OwnerId = string.Empty };
 

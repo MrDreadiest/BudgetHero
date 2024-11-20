@@ -4,8 +4,12 @@ namespace BudgetHero.App.Services.Interfaces
 {
     public interface IBudgetService
     {
-        event EventHandler CurrentBudgetChanged;
-        event EventHandler BudgetsChanged;
+        event EventHandler? CurrentBudgetChanged;
+        event EventHandler? BudgetsChanged;
+
+        event EventHandler<Budget>? BudgetCreated;
+        event EventHandler<Budget>? BudgetDeleted;
+        event EventHandler<Budget>? BudgetUpdated;
 
         IReadOnlyList<Budget> Budgets { get; }
         Budget CurrentBudget { get; set; }

@@ -129,6 +129,15 @@
   <data name="AddBudgetContentView_Label_Icon_Hint" xml:space="preserve">
     <value>Click to select assigned icon</value>
   </data>
+  <data name="AddBudgetContentView_Title" xml:space="preserve">
+    <value>Add budget</value>
+  </data>
+  <data name="BudgetListType_Own" xml:space="preserve">
+    <value>Own</value>
+  </data>
+  <data name="BudgetListType_Shared" xml:space="preserve">
+    <value>Shared</value>
+  </data>
   <data name="BudgetsView_Title" xml:space="preserve">
     <value>Budgets</value>
   </data>
