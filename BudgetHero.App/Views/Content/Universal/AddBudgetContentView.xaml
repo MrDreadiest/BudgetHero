@@ -7,6 +7,7 @@
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
     xmlns:universal="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     x:DataType="universal:AddBudgetContentViewModel">
 
     <Border
@@ -48,9 +49,9 @@
                         <Button Command="{Binding AddCommand}" Text="{x:Static lang:AppResource.AddBudgetContentView_Button_Add}" />
 
                     </VerticalStackLayout>
+                    <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
                 </Grid>
             </syncfusion:SfExpander.Content>
         </syncfusion:SfExpander>
     </Border>
-
 </ContentView>
