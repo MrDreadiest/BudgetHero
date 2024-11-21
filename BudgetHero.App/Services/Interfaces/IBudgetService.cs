@@ -11,13 +11,14 @@ namespace BudgetHero.App.Services.Interfaces
         event EventHandler<Budget>? BudgetDeleted;
         event EventHandler<Budget>? BudgetUpdated;
 
-        IReadOnlyList<Budget> Budgets { get; }
+        IReadOnlyList<Budget> OwnBudgets { get; }
         Budget CurrentBudget { get; set; }
 
         bool SelectBudgetAsCurrent(string id);
         Task TryGetLastBudgetAsCurrentAsync();
 
         Task<bool> GetAllBudgetsAsync();
+        Task<bool> GetAllSharedBudgetsAsync();
         Task<Budget?> GetBudgetByIdAsync(string budgetId);
         Task<bool> CreateBudgetAsync(Budget budget);
         Task<bool> UpdateBudgetAsync(Budget budget);

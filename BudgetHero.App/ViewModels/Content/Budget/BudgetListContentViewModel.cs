@@ -1,4 +1,6 @@
 ﻿using BudgetHero.App.Services.Interfaces;
+using BudgetHero.App.Utilities;
+using BudgetHero.App.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -27,7 +29,10 @@ namespace BudgetHero.App.ViewModels.Content.Budget
         [RelayCommand]
         public void Select(Models.Budget budget)
         {
-            _ = _budgetService.SelectBudgetAsCurrent(budget.Id);
+            if (_budgetService.SelectBudgetAsCurrent(budget.Id))
+            {
+                Shell.Current.GoToAsync($"//{nameof(DashboardView)}").FireAndForgetSafeAsync();
+            }
         }
 
         public void Add(Models.Budget budget)

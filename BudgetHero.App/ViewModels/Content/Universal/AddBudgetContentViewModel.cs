@@ -61,10 +61,11 @@ namespace BudgetHero.App.ViewModels.Content.Universal
                     if (result)
                     {
                         Refresh();
+                        message.Body = "Akcja zakonczona sukcesem.";
                     }
                     else
                     {
-                        message.Body = "Akcja zakonćzyła niepowodzeniem.";
+                        message.Body = "Akcja zakonczona niepowodzeniem.";
                     }
                 }
                 else
@@ -77,8 +78,9 @@ namespace BudgetHero.App.ViewModels.Content.Universal
 
         public void Refresh()
         {
-            TemporaryBudget = new Models.Budget() { Id = string.Empty, OwnerId = string.Empty };
             IconSelectVM.ResetView();
+            TemporaryBudget = new Models.Budget() { Id = string.Empty, OwnerId = string.Empty };
+            TemporaryBudget.IconUnicode = IconSelectVM.SelectedIconItem.Unicode;
         }
 
         private void IconSelectVM_SelectedIconChanged(object? sender, EventArgs e)

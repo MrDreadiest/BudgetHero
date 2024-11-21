@@ -88,7 +88,7 @@ namespace BudgetHero.App.ViewModels
             BudgetsListVMs.ForEach(list => list.Clear());
 
             var ownList = BudgetsListVMs.Find(i => i.BudgetListType == BudgetListType.Own);
-            foreach (var budget in _budgetService.Budgets)
+            foreach (var budget in _budgetService.OwnBudgets)
             {
                 ownList!.Add(budget);
             }
