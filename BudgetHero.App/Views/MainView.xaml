@@ -71,7 +71,7 @@
                     Text="{x:Static lang:AppResource.MainView_Label_Welcome_Title_3}"
                     VerticalOptions="Center" />
 
-                <universalViews:SegmentedControlView Grid.Row="1" BindingContext="{Binding SegmentedControlVM}" />
+                <universalViews:SegmentedControlView  BindingContext="{Binding SegmentedControlVM}" />
             </VerticalStackLayout>
 
         </Border>
@@ -79,7 +79,6 @@
         <Grid Grid.Row="1" Style="{StaticResource LayoutBodyGrid}">
 
             <CarouselView
-                Grid.Row="1"
                 IsSwipeEnabled="False"
                 ItemTemplate="{StaticResource MainTemplateSelector}"
                 ItemsSource="{Binding MainCarouselVMs}"

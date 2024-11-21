@@ -11,6 +11,10 @@ namespace BudgetHero.App.Services
         public event EventHandler? CurrentBudgetChanged;
         public event EventHandler? BudgetsChanged;
 
+        public event EventHandler<Budget>? BudgetCreated;
+        public event EventHandler<Budget>? BudgetDeleted;
+        public event EventHandler<Budget>? BudgetUpdated;
+
         public Budget CurrentBudget
         {
             get => _currentBudget;
@@ -25,14 +29,16 @@ namespace BudgetHero.App.Services
             }
         }
 
-        public IReadOnlyList<Budget> Budgets => _budgets.AsReadOnly();
+        public IReadOnlyList<Budget> OwnBudgets => _ownBudgets.AsReadOnly();
+        public IReadOnlyList<Budget> SharedBudgets => _ownBudgets.AsReadOnly();
 
         private readonly IApiClient _apiClient;
         private readonly IUserService _userService;
         private readonly IAppSettingsService _appSettingsService;
 
         private Budget _currentBudget;
-        private List<Budget> _budgets;
+        private List<Budget> _ownBudgets;
+        private List<Budget> _sharedBudgets;
 
         public BudgetService(IApiClient apiClient, IUserService userService, IAppSettingsService appSettingsService)
         {
@@ -41,7 +47,8 @@ namespace BudgetHero.App.Services
             _appSettingsService = appSettingsService;
 
             _currentBudget = new Budget() { Id = string.Empty, OwnerId = string.Empty };
-            _budgets = new List<Budget>();
+            _ownBudgets = new List<Budget>();
+            _sharedBudgets = new List<Budget>();
         }
 
         public async Task TryGetLastBudgetAsCurrentAsync()
@@ -55,7 +62,7 @@ namespace BudgetHero.App.Services
         {
             if (!string.IsNullOrEmpty(id))
             {
-                var budget = Budgets.FirstOrDefault(b => b.Id == id);
+                var budget = OwnBudgets.FirstOrDefault(b => b.Id == id);
 
                 if (budget != null)
                 {
@@ -77,11 +84,16 @@ namespace BudgetHero.App.Services
 
             if (budgets != null)
             {
-                _budgets = budgets.Select(b => b.FromGetResponse()).ToList();
+                _ownBudgets = budgets.Select(b => b.FromGetResponse()).ToList();
                 BudgetsChanged?.Invoke(this, EventArgs.Empty);
             }
 
             return budgets != null;
+        }
+
+        public Task<bool> GetAllSharedBudgetsAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Budget?> GetBudgetByIdAsync(string budgetId)
@@ -100,8 +112,8 @@ namespace BudgetHero.App.Services
             {
                 Budget newBudget = response.FromCreateResponse();
                 newBudget.Users.Add(_userService.CurrentUser);
-                _budgets.Add(newBudget);
-                BudgetsChanged?.Invoke(this, EventArgs.Empty);
+                _ownBudgets.Add(newBudget);
+                BudgetCreated?.Invoke(this, newBudget);
                 return true;
             }
             return false;
@@ -116,7 +128,5 @@ namespace BudgetHero.App.Services
         {
             throw new NotImplementedException();
         }
-
-
     }
 }

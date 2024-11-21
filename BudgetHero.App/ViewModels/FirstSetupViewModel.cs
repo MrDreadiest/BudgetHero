@@ -201,7 +201,7 @@ namespace BudgetHero.App.ViewModels
                 if (!budgetResult)
                     return false;
 
-                var createdBudget = _budgetService.Budgets.FirstOrDefault();
+                var createdBudget = _budgetService.OwnBudgets.FirstOrDefault();
                 if (createdBudget == null)
                     return false;
 

@@ -4,16 +4,21 @@ namespace BudgetHero.App.Services.Interfaces
 {
     public interface IBudgetService
     {
-        event EventHandler CurrentBudgetChanged;
-        event EventHandler BudgetsChanged;
+        event EventHandler? CurrentBudgetChanged;
+        event EventHandler? BudgetsChanged;
 
-        IReadOnlyList<Budget> Budgets { get; }
+        event EventHandler<Budget>? BudgetCreated;
+        event EventHandler<Budget>? BudgetDeleted;
+        event EventHandler<Budget>? BudgetUpdated;
+
+        IReadOnlyList<Budget> OwnBudgets { get; }
         Budget CurrentBudget { get; set; }
 
         bool SelectBudgetAsCurrent(string id);
         Task TryGetLastBudgetAsCurrentAsync();
 
         Task<bool> GetAllBudgetsAsync();
+        Task<bool> GetAllSharedBudgetsAsync();
         Task<Budget?> GetBudgetByIdAsync(string budgetId);
         Task<bool> CreateBudgetAsync(Budget budget);
         Task<bool> UpdateBudgetAsync(Budget budget);

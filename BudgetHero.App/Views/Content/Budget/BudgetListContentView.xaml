@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Budget.BudgetListContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:budget="clr-namespace:BudgetHero.App.ViewModels.Content.Budget"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:model="clr-namespace:BudgetHero.App.Models"
+    x:DataType="budget:BudgetListContentViewModel">
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Budgets}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="{StaticResource LayoutSpacing}" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Budget">
+                    <Border>
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="{StaticResource LayoutSpacing}">
+
+                            <Border Grid.Column="0" Style="{StaticResource IconFrameBorder}">
+                                <Label Style="{StaticResource MaterialFramedIcon}" Text="{Binding IconUnicode}" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Style="{StaticResource Body1Strong}" Text="{Binding Name}" />
+                                <Label Style="{StaticResource Caption1}" Text="{Binding Description}" />
+                            </VerticalStackLayout>
+
+                            <Button
+                                Grid.Column="2"
+                                Margin="0"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type budget:BudgetListContentViewModel}}, Path=SelectCommand}"
+                                CommandParameter="{Binding .}"
+                                Style="{StaticResource IconNavigateButton}"
+                                Text="{x:Static icons:Icons.ArrowForward}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+
+
+</ContentView>

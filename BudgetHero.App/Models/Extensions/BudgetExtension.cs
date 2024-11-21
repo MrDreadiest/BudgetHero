@@ -7,6 +7,7 @@ namespace BudgetHero.App.Models.Extensions
         public static void FromGetResponse(this Budget budget, BudgetGetResponseModel responseModel)
         {
             budget.Id = responseModel.Id;
+            budget.OwnerId = responseModel.OwnerId;
             budget.Name = responseModel.Name;
             budget.Description = responseModel.Description;
             budget.IconUnicode = responseModel.IconUnicode;
@@ -41,13 +42,15 @@ namespace BudgetHero.App.Models.Extensions
                 Id = responseModel.Id,
                 OwnerId = responseModel.OwnerId,
                 Name = responseModel.Name,
-                IconUnicode = responseModel.IconUnicode
+                IconUnicode = responseModel.IconUnicode,
+                Description = responseModel.Description,
             };
         }
 
         public static void FromCreateResponse(this Budget budget, BudgetCreateResponseModel responseModel)
         {
             budget.Id = responseModel.Id;
+            budget.OwnerId = responseModel.OwnerId;
             budget.Name = responseModel.Name;
             budget.Description = responseModel.Description;
             budget.IconUnicode = responseModel.IconUnicode;
@@ -56,6 +59,7 @@ namespace BudgetHero.App.Models.Extensions
         public static void FromUpdateResponse(this Budget budget, BudgetCreateResponseModel responseModel)
         {
             budget.Id = responseModel.Id;
+            budget.OwnerId = responseModel.OwnerId;
             budget.Name = responseModel.Name;
             budget.Description = responseModel.Description;
             budget.IconUnicode = responseModel.IconUnicode;
