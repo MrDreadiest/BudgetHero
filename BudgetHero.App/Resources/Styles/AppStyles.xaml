@@ -3,9 +3,12 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
-    xmlns:sfExpander="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander">
+    xmlns:sfEditors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:sfExpander="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
+    xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup">
 
 
     <x:Double x:Key="sizeNone">0</x:Double>
@@ -173,7 +176,7 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="FontFamily" Value="MaterialIcons" />
-        <Setter Property="FontSize" Value="{StaticResource IconSizeMedium}" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeLarge}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
     </Style>
 
@@ -182,7 +185,7 @@
         BasedOn="{StaticResource MaterialIcon}"
         TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
-        <Setter Property="FontSize" Value="{StaticResource IconSizeLarger}" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeLarge}" />
     </Style>
 
     <Style x:Key="IconFramedButton" TargetType="Button">
@@ -193,8 +196,9 @@
         <Setter Property="MinimumHeightRequest" Value="44" />
         <Setter Property="MinimumWidthRequest" Value="44" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
-        <Setter Property="FontSize" Value="{StaticResource IconSizeMedium}" />
+        <Setter Property="FontSize" Value="{StaticResource IconSizeLarge}" />
     </Style>
+
 
     <Style x:Key="IconButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -237,6 +241,16 @@
         <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
         <Setter Property="StrokeThickness" Value="0" />
         <Setter Property="Padding" Value="{OnIdiom 10, Desktop=20}" />
+    </Style>
+
+    <Style
+        x:Key="IconFrameTransactionBorder"
+        BasedOn="{StaticResource IconFrameBorder}"
+        TargetType="Border">
+        <Setter Property="MinimumHeightRequest" Value="30" />
+        <Setter Property="MinimumWidthRequest" Value="30" />
+        <Setter Property="Padding" Value="{OnIdiom 2, Desktop=10}" />
+        <Setter Property="Margin" Value="{OnIdiom 10, Desktop=10}" />
     </Style>
 
     <Style x:Key="ExpanderOuterBorder" TargetType="Border">
@@ -296,15 +310,68 @@
         <Setter Property="HintLabelStyle" Value="{AppThemeBinding Light={StaticResource lightThemeLabelStyle}, Dark={StaticResource darkThemeLabelStyle}}" />
     </Style>
 
-    <Style TargetType="pullToRefresh:SfPullToRefresh">
-        <Setter Property="TransitionMode" Value="SlideOnTop" />
-        <Setter Property="PullingThreshold" Value="100" />
-        <Setter Property="ProgressColor" Value="{StaticResource Primary}" />
+    <Style TargetType="inputLayout:SfTextInputLayout">
+        <Setter Property="ReserveSpaceForAssistiveLabels" Value="False" />
+        <Setter Property="ContainerType" Value="Outlined" />
+        <Setter Property="InputViewPadding" Value="{OnIdiom 15, Desktop=20}" />
+        <Setter Property="ContainerBackground" Value="Transparent" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        <Setter Property="HintLabelStyle">
+            <Setter.Value>
+                <inputLayout:LabelStyle FontSize="{OnIdiom 18, Desktop=24}" TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="sfEditors:SfNumericEntry">
+        <Setter Property="CustomFormat" Value="C2" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        <Setter Property="ClearButtonColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        <Setter Property="ShowClearButton" Value="True" />
     </Style>
 
     <Style TargetType="sfExpander:SfExpander">
         <Setter Property="HeaderBackground" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource DarkSecondaryBackground}}" />
         <Setter Property="HeaderIconColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+    </Style>
+
+    <Style TargetType="sfPopup:SfPopup">
+        <Setter Property="AnimationDuration" Value="300" />
+        <Setter Property="AnimationMode" Value="SlideOnBottom" />
+        <Setter Property="AppearanceMode" Value="OneButton" />
+        <Setter Property="FooterHeight" Value="60" />
+        <Setter Property="HeaderHeight" Value="80" />
+        <Setter Property="AutoSizeMode" Value="Both" />
+        <Setter Property="IsVisible" Value="Hidden" />
+        <Setter Property="ShowCloseButton" Value="True" />
+        <Setter Property="ShowFooter" Value="True" />
+        <Setter Property="StaysOpen" Value="True" />
+        <Setter Property="PopupStyle">
+            <Setter.Value>
+                <sfPopup:PopupStyle
+                    AcceptButtonBackground="{StaticResource ComplementaryOnDarkBackground}"
+                    AcceptButtonTextColor="White"
+                    CornerRadius="0"
+                    FooterBackground="{StaticResource DarkSecondaryBackground}"
+                    FooterButtonCornerRadius="15"
+                    HeaderBackground="{StaticResource DarkSecondaryBackground}"
+                    HeaderFontAttribute="Bold"
+                    HeaderFontSize="25"
+                    HeaderTextAlignment="Center"
+                    HeaderTextColor="White"
+                    MessageBackground="{StaticResource DarkBackground}"
+                    OverlayColor="{StaticResource TransparentDarkBackground}"
+                    PopupBackground="{StaticResource DarkSecondaryBackground}"
+                    Stroke="{StaticResource DarkSecondaryBackground}"
+                    StrokeThickness="6" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="RefreshView">
+        <Setter Property="RefreshColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
     </Style>
 
 </ResourceDictionary>
