@@ -565,6 +565,24 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skasuj.
+        /// </summary>
+        internal static string General_ToolbarItem_Button_Delete {
+            get {
+                return ResourceManager.GetString("General_ToolbarItem_Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapisz.
+        /// </summary>
+        internal static string General_ToolbarItem_Button_Save {
+            get {
+                return ResourceManager.GetString("General_ToolbarItem_Button_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dostępne wkrótce.
         /// </summary>
         internal static string General_Views_IsNotEnable {
@@ -858,6 +876,15 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string SettingsView_Title {
             get {
                 return ResourceManager.GetString("SettingsView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szczegóły transakcji.
+        /// </summary>
+        internal static string TransactionDetailView_Title {
+            get {
+                return ResourceManager.GetString("TransactionDetailView_Title", resourceCulture);
             }
         }
         

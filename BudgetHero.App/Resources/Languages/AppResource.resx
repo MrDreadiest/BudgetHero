@@ -387,4 +387,13 @@
   <data name="General_DisplayAlert_Confirmation_Message_Template_Plural" xml:space="preserve">
     <value>Czy na pewno chcesz {0} te {1}?</value>
   </data>
+  <data name="TransactionDetailView_Title" xml:space="preserve">
+    <value>Szczegóły transakcji</value>
+  </data>
+  <data name="General_ToolbarItem_Button_Delete" xml:space="preserve">
+    <value>Skasuj</value>
+  </data>
+  <data name="General_ToolbarItem_Button_Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
 </root>
