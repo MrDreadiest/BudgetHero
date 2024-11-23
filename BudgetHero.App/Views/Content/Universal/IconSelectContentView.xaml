@@ -33,7 +33,7 @@
                     <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightSecondaryBackground}, Dark={StaticResource DarkBackground}}" />
                     <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
                     <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
-                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="FontAttributes" Value="None" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
