@@ -130,7 +130,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Factories\" />
 	  <Folder Include="ViewModels\Content\Interfaces\" />
 	  <Folder Include="ViewModels\Converters\" />
 	</ItemGroup>

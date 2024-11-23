@@ -142,6 +142,141 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Włąsny.
+        /// </summary>
+        internal static string DateFilterType_Own {
+            get {
+                return ResourceManager.GetString("DateFilterType_Own", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6 miesięcy.
+        /// </summary>
+        internal static string DateFilterType_SixMonths {
+            get {
+                return ResourceManager.GetString("DateFilterType_SixMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ten miesiąc.
+        /// </summary>
+        internal static string DateFilterType_ThisMonth {
+            get {
+                return ResourceManager.GetString("DateFilterType_ThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ten rok.
+        /// </summary>
+        internal static string DateFilterType_ThisYear {
+            get {
+                return ResourceManager.GetString("DateFilterType_ThisYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 miesiące.
+        /// </summary>
+        internal static string DateFilterType_ThreeMonths {
+            get {
+                return ResourceManager.GetString("DateFilterType_ThreeMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12 miesięcy.
+        /// </summary>
+        internal static string DateFilterType_TwelveMonths {
+            get {
+                return ResourceManager.GetString("DateFilterType_TwelveMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtruj.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Button_Filter {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Button_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resetuj.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Button_Reset {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Button_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data od.
+        /// </summary>
+        internal static string FilterTransactionsContentView_DatePicker_DateFrom {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_DatePicker_DateFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data do.
+        /// </summary>
+        internal static string FilterTransactionsContentView_DatePicker_DateTo {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_DatePicker_DateTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kwota od.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Entry_PriceFrom {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Entry_PriceFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kwota do.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Entry_PriceTo {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Entry_PriceTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybierz kategorie.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Label_SelectCategoty_Hint {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Label_SelectCategoty_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybrane kategorie.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Label_SelectedCategories_Hint {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Label_SelectedCategories_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtruj transakcje.
+        /// </summary>
+        internal static string FilterTransactionsContentView_Title {
+            get {
+                return ResourceManager.GetString("FilterTransactionsContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lub wybierz jeden z proponowanych poniżej.
         /// </summary>
         internal static string FirstSetup_BudgetContentView_BoxViewSeparator_Package {
@@ -349,11 +484,110 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tak.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Accept {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dodać.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Action_Add {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Action_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to usunąć.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Action_Delete {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Action_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to zaktualizować.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Action_Update {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Action_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Cancel {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czy na pewno chcesz {0} {1}?.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Message_Template {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Message_Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czy na pewno chcesz {0} te {1}?.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Message_Template_Plural {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Message_Template_Plural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czy na pewno chcesz {0} {1}?.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Message_Template_Singular {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Message_Template_Singular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potwierdzenie.
+        /// </summary>
+        internal static string General_DisplayAlert_Confirmation_Title {
+            get {
+                return ResourceManager.GetString("General_DisplayAlert_Confirmation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dostępne wkrótce.
         /// </summary>
         internal static string General_Views_IsNotEnable {
             get {
                 return ResourceManager.GetString("General_Views_IsNotEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brak elementów.
+        /// </summary>
+        internal static string General_Views_NoItems {
+            get {
+                return ResourceManager.GetString("General_Views_NoItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukaj.
+        /// </summary>
+        internal static string General_Views_Search {
+            get {
+                return ResourceManager.GetString("General_Views_Search", resourceCulture);
             }
         }
         
@@ -561,6 +795,60 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string ReportType_Table {
             get {
                 return ResourceManager.GetString("ReportType_Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to budżety.
+        /// </summary>
+        internal static string Resource_Plural_Budget {
+            get {
+                return ResourceManager.GetString("Resource_Plural_Budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kategorie.
+        /// </summary>
+        internal static string Resource_Plural_Category {
+            get {
+                return ResourceManager.GetString("Resource_Plural_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to transakcje.
+        /// </summary>
+        internal static string Resource_Plural_Transaction {
+            get {
+                return ResourceManager.GetString("Resource_Plural_Transaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to budżet.
+        /// </summary>
+        internal static string Resource_Singular_Budget {
+            get {
+                return ResourceManager.GetString("Resource_Singular_Budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kategorię.
+        /// </summary>
+        internal static string Resource_Singular_Category {
+            get {
+                return ResourceManager.GetString("Resource_Singular_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to transakcję.
+        /// </summary>
+        internal static string Resource_Singular_Transaction {
+            get {
+                return ResourceManager.GetString("Resource_Singular_Transaction", resourceCulture);
             }
         }
         

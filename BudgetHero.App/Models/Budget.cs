@@ -1,8 +1,9 @@
-﻿
+﻿using BudgetHero.App.Resources.Languages;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BudgetHero.App.Models
 {
+    [ResourceKey("Resource_Singular_Budget", "Resource_Plural_Budget")]
     public partial class Budget : ObservableObject
     {
         public required string Id { get; set; }

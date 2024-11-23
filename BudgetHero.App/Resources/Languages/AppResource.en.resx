@@ -144,6 +144,12 @@
   <data name="DashboardView_Title" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="DateFilterType_SixMonths" xml:space="preserve">
+    <value>6 months</value>
+  </data>
+  <data name="DateFilterType_ThreeMonths" xml:space="preserve">
+    <value>3 months</value>
+  </data>
   <data name="FirstSetupCarouselItemViewsType_BudgetSetup" xml:space="preserve">
     <value>Budget</value>
   </data>
@@ -273,6 +279,9 @@
   <data name="RegisterContentView_Label_Password_Hint_3" xml:space="preserve">
     <value>Contains special characters (e.g. ?!@#$%)</value>
   </data>
+  <data name="DateFilterType_ThisYear" xml:space="preserve">
+    <value>This year</value>
+  </data>
   <data name="ReportsView_Title" xml:space="preserve">
     <value>Reports</value>
   </data>
@@ -290,5 +299,92 @@
   </data>
   <data name="TransactionsView_Title" xml:space="preserve">
     <value>Transactions</value>
+  </data>
+  <data name="DateFilterType_Own" xml:space="preserve">
+    <value>Own</value>
+  </data>
+  <data name="DateFilterType_ThisMonth" xml:space="preserve">
+    <value>This month</value>
+  </data>
+  <data name="DateFilterType_TwelveMonths" xml:space="preserve">
+    <value>12 months</value>
+  </data>
+  <data name="FilterTransactionsContentView_Title" xml:space="preserve">
+    <value>Filter transactions</value>
+  </data>
+  <data name="FilterTransactionsContentView_Button_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterTransactionsContentView_Button_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="FilterTransactionsContentView_DatePicker_DateFrom" xml:space="preserve">
+    <value>Date from</value>
+  </data>
+  <data name="FilterTransactionsContentView_DatePicker_DateTo" xml:space="preserve">
+    <value>Date to</value>
+  </data>
+  <data name="FilterTransactionsContentView_Entry_PriceFrom" xml:space="preserve">
+    <value>Price from</value>
+  </data>
+  <data name="FilterTransactionsContentView_Entry_PriceTo" xml:space="preserve">
+    <value>Price to</value>
+  </data>
+  <data name="FilterTransactionsContentView_Label_SelectCategoty_Hint" xml:space="preserve">
+    <value>Select category</value>
+  </data>
+  <data name="FilterTransactionsContentView_Label_SelectedCategories_Hint" xml:space="preserve">
+    <value>Selected categories</value>
+  </data>
+  <data name="General_Views_NoItems" xml:space="preserve">
+    <value>No items</value>
+  </data>
+  <data name="General_Views_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Title" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Accept" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Cancel" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Add" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Update" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template" xml:space="preserve">
+    <value>Are you sure you want to {0} the {1}?</value>
+  </data>
+  <data name="Resource_Singular_Transaction" xml:space="preserve">
+    <value>transaction</value>
+  </data>
+  <data name="Resource_Plural_Transaction" xml:space="preserve">
+    <value>transactions</value>
+  </data>
+  <data name="Resource_Singular_Budget" xml:space="preserve">
+    <value>budget</value>
+  </data>
+  <data name="Resource_Plural_Budget" xml:space="preserve">
+    <value>budgets</value>
+  </data>
+  <data name="Resource_Singular_Category" xml:space="preserve">
+    <value>category</value>
+  </data>
+  <data name="Resource_Plural_Category" xml:space="preserve">
+    <value>categories</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template_Singular" xml:space="preserve">
+    <value>Are you sure you want to {0} the {1}?</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template_Plural" xml:space="preserve">
+    <value>Are you sure you want to {0} these {1}?</value>
   </data>
 </root>
