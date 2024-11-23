@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Universal.DropdownSelectTransactionCategoryContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:PullToRefreshControl="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:model="clr-namespace:BudgetHero.App.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:universal="clr-namespace:BudgetHero.App.ViewModels.Content.Universal"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="universal:DropdownTransactionCategoryContentViewModel">
+
+    <ContentView.Resources>
+
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+
+        <Style
+            x:Key="SelectableMaterialIcon"
+            BasedOn="{StaticResource MaterialIcon}"
+            TargetType="Label">
+            <Setter Property="Margin" Value="{StaticResource LayoutMargin}" />
+            <Style.Triggers>
+                <DataTrigger
+                    x:DataType="model:TransactionCategory"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Label"
+                    Value="True">
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger
+                    x:DataType="model:TransactionCategory"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Label"
+                    Value="False">
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="None" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style
+            x:Key="SelectableLabel"
+            BasedOn="{StaticResource Body1}"
+            TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="LineBreakMode" Value="TailTruncation" />
+            <Style.Triggers>
+                <DataTrigger
+                    x:DataType="model:TransactionCategory"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Label"
+                    Value="True">
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger
+                    x:DataType="model:TransactionCategory"
+                    Binding="{Binding IsSelected}"
+                    TargetType="Label"
+                    Value="False">
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                    <Setter Property="FontAttributes" Value="None" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </ContentView.Resources>
+
+    <Grid
+        x:Name="Root"
+        BackgroundColor="{AppThemeBinding Light={StaticResource LightSecondaryBackground},
+                                          Dark={StaticResource DarkBackground}}"
+        RowDefinitions="Auto,*"
+        RowSpacing="{StaticResource LayoutSpacing}">
+
+        <Border Grid.Row="0" Padding="{StaticResource LayoutPadding}">
+            <Grid ColumnSpacing="{StaticResource LayoutSpacing}">
+                <Button
+                    Command="{Binding ToggleViewCommand}"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource IconNavigateButton}"
+                    Text="{x:Static icons:Icons.ArrowBackward}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{StaticResource SubHeadline}"
+                    Text="{x:Static lang:AppResource.FilterTransactionsContentView_Label_SelectCategoty_Hint}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Padding="{StaticResource LayoutPadding}">
+            <RefreshView Command="{Binding ReloadCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding FilteredTransactionCategories}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:TransactionCategory">
+                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type universal:DropdownTransactionCategoryContentViewModel}}, Path=ItemTappedCommand}" CommandParameter="{Binding}" />
+                                    </Grid.GestureRecognizers>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Style="{StaticResource SelectableMaterialIcon}"
+                                        Text="{Binding IconUnicode}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Style="{StaticResource SelectableLabel}"
+                                        Text="{Binding Name}" />
+                                    <BoxView Grid.Row="1" Grid.ColumnSpan="3" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </RefreshView>
+
+        </Border>
+
+    </Grid>
+</ContentView>
