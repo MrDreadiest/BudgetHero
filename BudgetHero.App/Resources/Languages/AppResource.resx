@@ -144,6 +144,12 @@
   <data name="DashboardView_Title" xml:space="preserve">
     <value>Kokpit</value>
   </data>
+  <data name="DateFilterType_SixMonths" xml:space="preserve">
+    <value>6 miesięcy</value>
+  </data>
+  <data name="DateFilterType_ThreeMonths" xml:space="preserve">
+    <value>3 miesiące</value>
+  </data>
   <data name="FirstSetupCarouselItemViewsType_BudgetSetup" xml:space="preserve">
     <value>Budżet</value>
   </data>
@@ -273,6 +279,9 @@
   <data name="RegisterContentView_Label_Password_Hint_3" xml:space="preserve">
     <value>Zawiera znaki specjalne (no. ?!@#$%)</value>
   </data>
+  <data name="DateFilterType_ThisYear" xml:space="preserve">
+    <value>Ten rok</value>
+  </data>
   <data name="ReportsView_Title" xml:space="preserve">
     <value>Raporty</value>
   </data>
@@ -290,5 +299,101 @@
   </data>
   <data name="TransactionsView_Title" xml:space="preserve">
     <value>Transakcje</value>
+  </data>
+  <data name="DateFilterType_Own" xml:space="preserve">
+    <value>Włąsny</value>
+  </data>
+  <data name="DateFilterType_ThisMonth" xml:space="preserve">
+    <value>Ten miesiąc</value>
+  </data>
+  <data name="DateFilterType_TwelveMonths" xml:space="preserve">
+    <value>12 miesięcy</value>
+  </data>
+  <data name="FilterTransactionsContentView_Title" xml:space="preserve">
+    <value>Filtruj transakcje</value>
+  </data>
+  <data name="FilterTransactionsContentView_Button_Filter" xml:space="preserve">
+    <value>Filtruj</value>
+  </data>
+  <data name="FilterTransactionsContentView_Button_Reset" xml:space="preserve">
+    <value>Resetuj</value>
+  </data>
+  <data name="FilterTransactionsContentView_DatePicker_DateFrom" xml:space="preserve">
+    <value>Data od</value>
+  </data>
+  <data name="FilterTransactionsContentView_DatePicker_DateTo" xml:space="preserve">
+    <value>Data do</value>
+  </data>
+  <data name="FilterTransactionsContentView_Entry_PriceFrom" xml:space="preserve">
+    <value>Kwota od</value>
+  </data>
+  <data name="FilterTransactionsContentView_Entry_PriceTo" xml:space="preserve">
+    <value>Kwota do</value>
+  </data>
+  <data name="FilterTransactionsContentView_Label_SelectCategoty_Hint" xml:space="preserve">
+    <value>Wybierz kategorie</value>
+  </data>
+  <data name="FilterTransactionsContentView_Label_SelectedCategories_Hint" xml:space="preserve">
+    <value>Wybrane kategorie</value>
+  </data>
+  <data name="General_Views_NoItems" xml:space="preserve">
+    <value>Brak elementów</value>
+  </data>
+  <data name="General_Views_Search" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Title" xml:space="preserve">
+    <value>Potwierdzenie</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Accept" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Cancel" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Add" xml:space="preserve">
+    <value>dodać</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Delete" xml:space="preserve">
+    <value>usunąć</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Action_Update" xml:space="preserve">
+    <value>zaktualizować</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template" xml:space="preserve">
+    <value>Czy na pewno chcesz {0} {1}?</value>
+  </data>
+  <data name="Resource_Singular_Transaction" xml:space="preserve">
+    <value>transakcję</value>
+  </data>
+  <data name="Resource_Plural_Transaction" xml:space="preserve">
+    <value>transakcje</value>
+  </data>
+  <data name="Resource_Singular_Budget" xml:space="preserve">
+    <value>budżet</value>
+  </data>
+  <data name="Resource_Plural_Budget" xml:space="preserve">
+    <value>budżety</value>
+  </data>
+  <data name="Resource_Singular_Category" xml:space="preserve">
+    <value>kategorię</value>
+  </data>
+  <data name="Resource_Plural_Category" xml:space="preserve">
+    <value>kategorie</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template_Singular" xml:space="preserve">
+    <value>Czy na pewno chcesz {0} {1}?</value>
+  </data>
+  <data name="General_DisplayAlert_Confirmation_Message_Template_Plural" xml:space="preserve">
+    <value>Czy na pewno chcesz {0} te {1}?</value>
+  </data>
+  <data name="TransactionDetailView_Title" xml:space="preserve">
+    <value>Szczegóły transakcji</value>
+  </data>
+  <data name="General_ToolbarItem_Button_Delete" xml:space="preserve">
+    <value>Skasuj</value>
+  </data>
+  <data name="General_ToolbarItem_Button_Save" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
 </root>

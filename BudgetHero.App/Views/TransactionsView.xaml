@@ -3,12 +3,26 @@
     x:Class="BudgetHero.App.Views.TransactionsView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:model="clr-namespace:BudgetHero.App.Models"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:sfData="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+    xmlns:sfDataExt="clr-namespace:Syncfusion.Maui.DataSource.Extensions;assembly=Syncfusion.Maui.DataSource"
+    xmlns:sfListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:transactions="clr-namespace:BudgetHero.App.ViewModels.Content.Transactions"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
+    x:Name="TransactionsPage"
     Title="{Binding Title}"
     x:DataType="viewModels:TransactionsViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior Command="{Binding NavigatedToCommand}" EventName="NavigatedTo" />
@@ -16,10 +30,160 @@
         <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
     </ContentPage.Behaviors>
 
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="{StaticResource LayoutMargin}"
+                    Style="{StaticResource LargeTitle}"
+                    Text="{Binding Title}"
+                    VerticalOptions="Center" />
+
+                <sf:SfTextInputLayout
+                    Grid.Column="0"
+                    Hint="{x:Static lang:AppResource.General_Views_Search}"
+                    InputViewPadding="1">
+                    <SearchBar TextChanged="SearchBar_TextChanged" />
+                </sf:SfTextInputLayout>
+            </VerticalStackLayout>
+        </Border>
+
+        <Grid
+            Grid.Row="1"
+            Padding="{StaticResource LayoutPadding}"
+            RowDefinitions="*">
+
+            <Grid
+                x:Name="BottomLayer"
+                Grid.Row="1"
+                Margin="0,65,0,0"
+                IsEnabled="{Binding FilterTransactionsVM.IsOpen, Converter={StaticResource InvertedBoolConverter}}"
+                Style="{StaticResource LayoutBodyGrid}">
+
+                <sfListView:SfListView
+                    x:Name="listView"
+                    IsStickyGroupHeader="True"
+                    ItemsSource="{Binding FilteredTransaction}">
+
+                    <sfListView:SfListView.EmptyView>
+                        <Grid>
+                            <Label
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource Caption1Strong}"
+                                Text="{x:Static lang:AppResource.General_Views_NoItems}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </sfListView:SfListView.EmptyView>
+                    <sfListView:SfListView.DataSource>
+                        <sfData:DataSource>
+                            <sfData:DataSource.SortDescriptors>
+                                <sfData:SortDescriptor PropertyName="Date" />
+                            </sfData:DataSource.SortDescriptors>
+                        </sfData:DataSource>
+                    </sfListView:SfListView.DataSource>
+
+                    <sfListView:SfListView.GroupHeaderTemplate>
+                        <DataTemplate x:DataType="sfDataExt:GroupResult">
+                            <Border
+                                Padding="{StaticResource LayoutPadding}"
+                                Background="{AppThemeBinding Light={StaticResource LightBackground},
+                                                             Dark={StaticResource DarkSecondaryBackground}}"
+                                StrokeShape="RoundRectangle 8">
+                                <Label
+                                    HorizontalOptions="Start"
+                                    Style="{StaticResource Caption1Strong}"
+                                    Text="{Binding Key, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                    TextColor="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground},
+                                                                Dark={StaticResource ComplementaryOnDarkBackground}}"
+                                    VerticalOptions="Center" />
+                            </Border>
+                        </DataTemplate>
+                    </sfListView:SfListView.GroupHeaderTemplate>
+
+                    <sfListView:SfListView.ItemTemplate>
+                        <DataTemplate x:DataType="transactions:TransactionListItem">
+                            <SwipeView SwipeStarted="SwipeView_SwipeStarted">
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItemView>
+                                            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                                <Button
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:TransactionsViewModel}}, Path=DeleteTransactionCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    Style="{StaticResource IconNavigateButton}"
+                                                    Text="{x:Static icons:Icons.Close}" />
+                                            </Grid>
+                                        </SwipeItemView>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid
+                                    Background="{AppThemeBinding Light={StaticResource LightBackground},
+                                                                 Dark={StaticResource DarkBackground}}"
+                                    ColumnDefinitions="Auto,*,Auto,Auto"
+                                    RowDefinitions="*,*"
+                                    VerticalOptions="Center">
+                                    <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GotoTransactionDetailsCommand, Source={RelativeSource AncestorType={x:Type viewModels:TransactionsViewModel}}, x:DataType=viewModels:TransactionsViewModel}" CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>-->
+
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:TransactionsViewModel}}, Path=GotoTransactionDetailsCommand}" CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+
+
+                                    <Border
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        Style="{StaticResource IconFrameTransactionBorder}">
+                                        <Label Style="{StaticResource MaterialFramedIcon}" Text="{Binding TransactionCategory.IconUnicode}" />
+                                    </Border>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        Style="{StaticResource Body1}"
+                                        Text="{Binding Transaction.Name}"
+                                        VerticalOptions="Center" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        Style="{StaticResource Caption1}"
+                                        Text="{Binding Transaction.Description}"
+                                        VerticalOptions="Center" />
+
+                                    <Label
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        HorizontalOptions="End"
+                                        Style="{StaticResource Body1}"
+                                        Text="{Binding Transaction.TotalAmount, StringFormat='{0:C2}'}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </sfListView:SfListView.ItemTemplate>
+                </sfListView:SfListView>
+            </Grid>
+
+            <Grid
+                x:Name="TopLayer"
+                Grid.RowSpan="2"
+                Style="{StaticResource LayoutBodyGrid}">
+                <VerticalStackLayout>
+                    <universalViews:FilterTransactionsContentView BindingContext="{Binding FilterTransactionsVM}" />
+                </VerticalStackLayout>
+                <universalViews:DropdownSelectTransactionCategoryContentView BindingContext="{Binding FilterTransactionsVM.DropdownTransactionCategoryVM}" />
+            </Grid>
+
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+        </Grid>
+
+    </Grid>
 </ContentPage>

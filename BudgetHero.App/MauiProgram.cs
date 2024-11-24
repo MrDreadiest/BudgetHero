@@ -1,6 +1,8 @@
 ﻿using BudgetHero.App.Services;
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.ViewModels;
+using BudgetHero.App.ViewModels.Details;
+using BudgetHero.App.Views.Details;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
@@ -58,6 +60,9 @@ namespace BudgetHero.App
             builder.Services.AddSingleton<ReportsViewModel>();
             builder.Services.AddSingleton<SettingsViewModel>();
             builder.Services.AddSingleton<TransactionsViewModel>();
+
+            builder.Services.AddTransientWithShellRoute<TransactionDetailView, TransactionDetailViewModel>(nameof(TransactionDetailView));
+
             #endregion
 
             return builder.Build();

@@ -32,7 +32,10 @@ namespace BudgetHero.App.Utilities
         /// <param name="action"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static async Task RunWithBusyFlagAsync(this IBusyHandler obj, Func<Task> action, IMessage? message = null)
+        public static async Task RunWithBusyFlagAsync(
+            this IBusyHandler obj,
+            Func<Task> action,
+            IMessage? message = null)
         {
             if (obj.IsBusy)
             {
@@ -58,6 +61,37 @@ namespace BudgetHero.App.Utilities
                 {
                     obj.ModalDisplayHandler?.HandleMessage(message);
                 }
+            }
+        }
+
+        public static async Task RunWithBusyFlagAndConfirmationAsync(
+            this IBusyHandler busyHandler,
+            Func<Task> action,
+            IConfirmation confirmation)
+        {
+            if (busyHandler.IsBusy)
+            {
+                return;
+            }
+
+            try
+            {
+                bool isConfirmed = await busyHandler.ModalDisplayHandler.HandleConfirmation(confirmation);
+
+                if (!isConfirmed)
+                    return;
+
+                busyHandler.IsBusy = true;
+                await action();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred during task execution.");
+                busyHandler.ModalDisplayHandler.HandleError(ex);
+            }
+            finally
+            {
+                busyHandler.IsBusy = false;
             }
         }
     }

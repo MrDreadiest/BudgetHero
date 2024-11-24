@@ -71,7 +71,9 @@
 		<PackageReference Include="Serilog" Version="4.2.0-dev-02328" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="27.2.2" />
 		<PackageReference Include="Syncfusion.Maui.Expander" Version="27.2.2" />
+		<PackageReference Include="Syncfusion.Maui.Inputs" Version="27.2.2" />
 		<PackageReference Include="Syncfusion.Maui.ListView" Version="27.2.2" />
+		<PackageReference Include="Syncfusion.Maui.Popup" Version="27.2.2" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="1.0.2" />
 	</ItemGroup>
 
@@ -106,6 +108,15 @@
 	  <MauiXaml Update="Views\Content\Universal\AddBudgetContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Universal\DropdownPickerTransactionCategoryContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Universal\DropdownSelectTransactionCategoryContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Universal\FilterTransactionsContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Content\Universal\IconSelectContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -113,6 +124,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DashboardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Details\TransactionDetailView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\FirstSetupView.xaml">
@@ -130,7 +144,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Factories\" />
 	  <Folder Include="ViewModels\Content\Interfaces\" />
 	  <Folder Include="ViewModels\Converters\" />
 	</ItemGroup>

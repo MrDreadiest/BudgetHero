@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using BudgetHero.App.Resources.Languages;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BudgetHero.App.Models
 {
+    [ResourceKey("Resource_Singular_Transaction", "Resource_Plural_Transaction")]
     public partial class Transaction : ObservableObject
     {
         public required string Id { get; set; }

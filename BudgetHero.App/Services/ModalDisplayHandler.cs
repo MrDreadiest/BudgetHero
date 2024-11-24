@@ -18,6 +18,11 @@ namespace BudgetHero.App.Services
             DisplayAlert(message).FireAndForgetSafeAsync();
         }
 
+        public async Task<bool> HandleConfirmation(IConfirmation confirmation)
+        {
+            return await DisplayAlert(confirmation);
+        }
+
         private async Task DisplayAlert(IMessage message)
         {
             try
@@ -27,6 +32,25 @@ namespace BudgetHero.App.Services
                 {
                     await shell.DisplayAlert(message.Title, message.Body, message.Accept);
                 }
+            }
+            finally
+            {
+                _semaphore.Release();
+            }
+        }
+
+        private async Task<bool> DisplayAlert(IConfirmation confirmation)
+        {
+            try
+            {
+                await _semaphore.WaitAsync();
+                if (Shell.Current is Shell shell)
+                {
+                    bool isConfirmed = await shell.DisplayAlert(confirmation.Title, confirmation.Message, confirmation.Accept, confirmation.Cancel);
+                    return isConfirmed;
+                }
+
+                return false;
             }
             finally
             {
