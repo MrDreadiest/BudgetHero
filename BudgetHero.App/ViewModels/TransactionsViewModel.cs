@@ -79,7 +79,7 @@ namespace BudgetHero.App.ViewModels
         }
 
         [RelayCommand]
-        private void GotoTransactionDetails(TransactionListItem item) => Shell.Current.GoToAsync($"{nameof(TransactionDetailView)}?id={item.Transaction.Id}");
+        private void GotoTransactionDetails(TransactionListItem item) => Shell.Current.GoToAsync($"{nameof(TransactionDetailView)}?id={item.Transaction.Id}").FireAndForgetSafeAsync(ModalDisplayHandler);
 
         [RelayCommand]
         private async Task DeleteTransaction(TransactionListItem item)

@@ -17,7 +17,7 @@
             Text="{x:Static lang:AppResource.General_ToolbarItem_Button_Delete}" />
     </ContentPage.ToolbarItems>
 
-    <Grid Margin="{StaticResource LayoutMargin}" Padding="{StaticResource LayoutPaddong}">
+    <Grid Margin="{StaticResource LayoutMargin}" Padding="{StaticResource LayoutPadding}">
         <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
     </Grid>
 
