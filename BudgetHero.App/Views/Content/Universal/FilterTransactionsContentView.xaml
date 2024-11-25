@@ -16,7 +16,7 @@
         HorizontalOptions="Center"
         Style="{StaticResource ExpanderOuterBorder}"
         VerticalOptions="Center">
-        <sfExpander:SfExpander AnimationDuration="200" IsExpanded="{Binding IsOpen}">
+        <sfExpander:SfExpander IsExpanded="{Binding IsOpen}">
             <sfExpander:SfExpander.Header>
                 <Grid Padding="{StaticResource LayoutPadding}" ColumnDefinitions="Auto,*">
                     <Label

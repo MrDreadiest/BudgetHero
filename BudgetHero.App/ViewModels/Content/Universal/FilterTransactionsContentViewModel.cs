@@ -81,22 +81,6 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             DateFrom = dateRange.DateFrom;
             DateTo = dateRange.DateTo;
         }
-
-        private void DropdownTransactionCategoryVM_SelectedTransactionCategoryChanged(object? sender, List<Models.TransactionCategory> e)
-        {
-            _filteredCategories = e;
-        }
-
-        public async Task Refresh()
-        {
-            await DropdownTransactionCategoryVM.Refresh();
-        }
-
-        public async Task InitData()
-        {
-            await Task.CompletedTask;
-        }
-
         [RelayCommand]
         public async Task Reset()
         {
@@ -151,6 +135,27 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             });
         }
 
+        public async Task Refresh()
+        {
+            await DropdownTransactionCategoryVM.Refresh();
+        }
+
+        public async Task InitData()
+        {
+            await Task.CompletedTask;
+        }
+
+        internal void Show()
+        {
+            IsOpen = true;
+        }
+
+        internal void Hide()
+        {
+            IsOpen = false;
+            DropdownTransactionCategoryVM.Hide();
+        }
+
         private void SegmentedControlVM_SelectionChanged(object? sender, (int oldIndex, int newIndex) e)
         {
             if (e.oldIndex != e.newIndex)
@@ -163,6 +168,11 @@ namespace BudgetHero.App.ViewModels.Content.Universal
 
                 IsDateEntryEnable = dateFilterType == DateFilterType.Own;
             }
+        }
+
+        private void DropdownTransactionCategoryVM_SelectedTransactionCategoryChanged(object? sender, List<Models.TransactionCategory> e)
+        {
+            _filteredCategories = e;
         }
     }
 }
