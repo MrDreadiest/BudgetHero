@@ -579,4 +579,19 @@
   <data name="IconHelper_ResourceException_NoResource" xml:space="preserve">
     <value>Brak zasobu dla klucza {0}.</value>
   </data>
+  <data name="ReportsView_CheckBox_Label_SumOtherAsResult" xml:space="preserve">
+    <value>Sumuj pozostałe wydatki jako Reszta. Wymaga ponowienia filtracji.</value>
+  </data>
+  <data name="ReportsView_CheckBox_Label_PercentageVisible" xml:space="preserve">
+    <value>Pokaz udział procentowy.</value>
+  </data>
+  <data name="ReportsView_CheckBox_Label_CategoryNameVisible" xml:space="preserve">
+    <value>Pokazuj nazwy kategorii razem z ikonami.</value>
+  </data>
+  <data name="ReportsView_Label_AllTransaction" xml:space="preserve">
+    <value>Wydatki sumarycznie</value>
+  </data>
+  <data name="ReportsView_Label_AvgTransaction" xml:space="preserve">
+    <value>Wydatki średnie miesięczne</value>
+  </data>
 </root>

@@ -1330,6 +1330,51 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pokazuj nazwy kategorii razem z ikonami..
+        /// </summary>
+        internal static string ReportsView_CheckBox_Label_CategoryNameVisible {
+            get {
+                return ResourceManager.GetString("ReportsView_CheckBox_Label_CategoryNameVisible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokaz udział procentowy..
+        /// </summary>
+        internal static string ReportsView_CheckBox_Label_PercentageVisible {
+            get {
+                return ResourceManager.GetString("ReportsView_CheckBox_Label_PercentageVisible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sumuj pozostałe wydatki jako Reszta. Wymaga ponowienia filtracji..
+        /// </summary>
+        internal static string ReportsView_CheckBox_Label_SumOtherAsResult {
+            get {
+                return ResourceManager.GetString("ReportsView_CheckBox_Label_SumOtherAsResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wydatki sumarycznie.
+        /// </summary>
+        internal static string ReportsView_Label_AllTransaction {
+            get {
+                return ResourceManager.GetString("ReportsView_Label_AllTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wydatki średnie miesięczne.
+        /// </summary>
+        internal static string ReportsView_Label_AvgTransaction {
+            get {
+                return ResourceManager.GetString("ReportsView_Label_AvgTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Raporty.
         /// </summary>
         internal static string ReportsView_Title {
