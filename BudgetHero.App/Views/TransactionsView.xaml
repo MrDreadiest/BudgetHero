@@ -126,14 +126,10 @@
                                     ColumnDefinitions="Auto,*,Auto,Auto"
                                     RowDefinitions="*,*"
                                     VerticalOptions="Center">
-                                    <!--<Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding GotoTransactionDetailsCommand, Source={RelativeSource AncestorType={x:Type viewModels:TransactionsViewModel}}, x:DataType=viewModels:TransactionsViewModel}" CommandParameter="{Binding .}" />
-                                    </Grid.GestureRecognizers>-->
 
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:TransactionsViewModel}}, Path=GotoTransactionDetailsCommand}" CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
-
 
                                     <Border
                                         Grid.RowSpan="2"

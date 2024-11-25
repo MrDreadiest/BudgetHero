@@ -1,12 +1,53 @@
-﻿namespace BudgetHero.App.Models.Icon
+﻿using BudgetHero.App.Resources.Languages;
+using System.Reflection;
+
+namespace BudgetHero.App.Models.Icon
 {
     public static class IconHelper
     {
+        /// <summary>
+        /// Returns translated name of icon, based on resource key.
+        /// </summary>
+        /// <param name="icon"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public static string GetName(string icon)
+        {
+
+            var field = typeof(Icons).GetFields(BindingFlags.Public | BindingFlags.Static)
+                .FirstOrDefault(f => f.GetValue(null)?.ToString() == icon);
+
+            if (field == null)
+            {
+                string template = AppResource.IconHelper_ResourceException_NoIcon;
+                string message = string.Format(template, icon);
+
+                throw new InvalidOperationException(message);
+            }
+
+
+            var attribute = field.GetCustomAttribute<IconResourceKeyAttribute>();
+
+            if (attribute == null)
+            {
+                string template = AppResource.IconHelper_ResourceException_NoKey;
+                string message = string.Format(template, field.Name);
+
+                throw new InvalidOperationException(message);
+            }
+
+            return AppResource.ResourceManager.GetString(attribute.ResourceKey)
+                   ?? throw new InvalidOperationException(string.Format(AppResource.IconHelper_ResourceException_NoResource, attribute.ResourceKey));
+        }
+        /// <summary>
+        /// Returns grouped icon dictionary. Icons as value, category as key.
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<string, List<(string Unicode, string Name)>> GetBudgetRelatedIcons()
         {
             return new Dictionary<string, List<(string Unicode, string Name)>>
             {
-                ["Expenses and Income"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_ExpensesAndIncome] = new List<(string Unicode, string Name)>
                 {
                     ("\ue2eb", "Savings"),
                     ("\uef63", "Payments"),
@@ -25,7 +66,7 @@
                     ("\uef6e", "Receipt  "),
                     ("\ue91d", "Pets  "),
                 },
-                ["Events"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_Events] = new List<(string Unicode, string Name)>
                 {
                     ("\uea23", "Events"),
                     ("\uea65", "Celebration"),
@@ -39,7 +80,7 @@
                     ("\uea68", "Festival"),
                     ("\uf8d7", "Friends")
                 },
-                ["Shopping"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_Shopping] = new List<(string Unicode, string Name)>
                 {
                     ("\ue8cc", "Shopping Cart"),
                     ("\ue870", "Card"),
@@ -47,7 +88,7 @@
                     ("\ue8cb", "Shopping Basket"),
                     ("\uf19e", "Checkroom"),
                     ("\ue54a", "Laundry "),
-                    ("\uf6da", "Shoes"),
+                    //("\uf6da", "Shoes"), // POPRAWIĆ BŁĘDY KOD
                     ("\uea60", "Liquor"),
                     ("\ue54c", "Mall"),
                     ("\ue545", "Flowers"),
@@ -55,7 +96,7 @@
                     ("\ue9b4", "Imagesearch Roller"),
                     ("\uea3c", "Construction"),
                 },
-                ["Food and Restaurants"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_FoodAndRestaurants] = new List<(string Unicode, string Name)>
                 {
                     ("\ue56c", "Restaurant"),
                     ("\uea61", "Lunch"),
@@ -73,7 +114,7 @@
                     //("\ue110", "Nutrition"),// POPRAWIĆ BŁĘDY KOD
                     ("\uea74", "TakeOut"),
                 },
-                ["Transport"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_Transport] = new List<(string Unicode, string Name)>
                 {
                     ("\ue531", "Car"),
                     ("\ue539", "Flight"),
@@ -87,7 +128,7 @@
                     ("\ueb1f", "Scooter"),
                     //("\uf474", "Metro"), // POPRAWIĆ BŁĘDY KOD
                 },
-                ["Entertainment"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_Entertainment] = new List<(string Unicode, string Name)>
                 {
                     ("\ue02c", "Movie"),
                     ("\uea28", "Gaming"),
@@ -100,7 +141,7 @@
                     ("\ue30c", "TV"),
                     ("\ueaae", "Church"),
                 },
-                ["Gym"] = new List<(string Unicode, string Name)>
+                [AppResource.Icon_Category_Gym] = new List<(string Unicode, string Name)>
                 {
                     ("\ueb43", "Gym"),
                     //("\uf6e6", "Exercise"), // POPRAWIĆ BŁĘDY KOD

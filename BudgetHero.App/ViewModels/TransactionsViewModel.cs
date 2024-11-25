@@ -57,7 +57,12 @@ namespace BudgetHero.App.ViewModels
         }
 
         [RelayCommand]
-        private void NavigatedTo() => _isNavigatedTo = true;
+        private async Task NavigatedTo()
+        {
+            _isNavigatedTo = true;
+            FilterTransactionsVM.Hide();
+            await Task.Delay(100);
+        }
 
         [RelayCommand]
         private void NavigatedFrom() => _isNavigatedTo = false;

@@ -10,6 +10,8 @@ namespace BudgetHero.App.ViewModels.Content.Universal
 {
     public partial class DropdownTransactionCategoryContentViewModel : ObservableObject, IBusyHandler
     {
+        public const int DefaultSelectTopInRangeCount = 3;
+
         public event EventHandler<List<TransactionCategory>>? SelectedTransactionCategoryChanged;
 
         [ObservableProperty]
@@ -111,18 +113,6 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         }
 
         [RelayCommand]
-        private void Show()
-        {
-            IsVisible = true;
-        }
-
-        [RelayCommand]
-        private void Hide()
-        {
-            IsVisible = false;
-        }
-
-        [RelayCommand]
         private void ItemTapped(TransactionCategory tappedCategory)
         {
             if (tappedCategory == null)
@@ -158,11 +148,21 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             SelectedTransactionCategoryChanged?.Invoke(this, SelectedCategories.ToList());
         }
 
+        internal void Show()
+        {
+            IsVisible = true;
+        }
+
+        internal void Hide()
+        {
+            IsVisible = false;
+        }
+
         /// <summary>
         /// Select first n categories from top
         /// </summary>
         /// <param name="count"></param>
-        public void SelectTopInRange(int count)
+        public void SelectTopInRange(int count = DefaultSelectTopInRangeCount)
         {
             SelectCategories(AllTransactionCategories.Take(count).Select(c => c.Id));
         }
@@ -206,6 +206,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         {
             await this.RunWithBusyFlagAsync(async () =>
             {
+                IsVisible = false;
                 await ReloadDataAsync();
                 FilteredTransactionCategories = new ObservableCollection<TransactionCategory>(AllTransactionCategories);
                 SelectedCategories.Clear();
@@ -227,6 +228,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         {
             await this.RunWithBusyFlagAsync(async () =>
             {
+                IsVisible = false;
                 await ReloadDataAsync();
                 UpdateSelectedObjects();
 

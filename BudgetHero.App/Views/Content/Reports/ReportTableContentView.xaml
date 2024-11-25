@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Reports.ReportTableContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:BudgetHero.App.ViewModels.Converters"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:report="clr-namespace:BudgetHero.App.ViewModels.Content.Reports"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="report:ReportTableViewModel">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:SKColorToColorConverter x:Key="SKColorToColor" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <ScrollView>
+            <Grid
+                Padding="{StaticResource LayoutPadding}"
+                ColumnDefinitions="Auto,*"
+                RowDefinitions="35,*">
+
+                <CollectionView
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    ItemsSource="{Binding Categories}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="report:CategoryInfo">
+                            <Grid
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="{StaticResource LayoutSpacing}"
+                                HeightRequest="35">
+
+                                <Border
+                                    Margin="2"
+                                    Background="{Binding CategoryColor, Converter={StaticResource SKColorToColor}}"
+                                    Style="{StaticResource IconFrameTransactionBorder}">
+                                    <Label Style="{StaticResource MaterialFramedIcon}" Text="{Binding IconUnicode}" />
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type report:ReportTableViewModel}}, Path=IsCategoryNameVisible}"
+                                    LineBreakMode="TailTruncation"
+                                    MaximumWidthRequest="130"
+                                    Style="{StaticResource Body1}"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <CollectionView
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    ItemsSource="{Binding MonthColumns}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="report:MonthColumn">
+                            <Grid Padding="0" RowDefinitions="35,*">
+                                <Label
+                                    Grid.Row="0"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    LineBreakMode="TailTruncation"
+                                    Style="{StaticResource Body1}"
+                                    Text="{Binding MonthLabel}"
+                                    VerticalOptions="Center" />
+
+                                <CollectionView Grid.Row="1" ItemsSource="{Binding Values}">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Vertical" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="report:SumAndPercentage">
+                                            <Grid
+                                                Padding="0"
+                                                ColumnDefinitions="70,Auto"
+                                                ColumnSpacing="{StaticResource LayoutSpacing}"
+                                                HeightRequest="35"
+                                                VerticalOptions="Center">
+                                                <Label
+                                                    Grid.Column="0"
+                                                    HorizontalTextAlignment="End"
+                                                    Style="{StaticResource Body1}"
+                                                    Text="{Binding Sum}"
+                                                    VerticalOptions="Center" />
+                                                <Label
+                                                    Grid.Column="1"
+                                                    FontAttributes="Italic"
+                                                    HorizontalTextAlignment="Start"
+                                                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type report:ReportTableViewModel}}, Path=IsPercentageVisible}"
+                                                    MinimumWidthRequest="40"
+                                                    Style="{StaticResource Caption1Strong}"
+                                                    Text="{Binding Percentage, StringFormat='{0:N1}%'}"
+                                                    VerticalOptions="Center" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+        </ScrollView>
+        <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+    </Grid>
+
+
+</ContentView>
