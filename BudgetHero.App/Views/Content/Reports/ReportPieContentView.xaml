@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Reports.ReportPieContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:report="clr-namespace:BudgetHero.App.ViewModels.Content.Reports"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    x:DataType="report:ReportPieViewModel">
+
+    <Grid>
+        <lvc:PieChart HeightRequest="250" Series="{Binding Series}" />
+        <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+    </Grid>
+
+</ContentView>

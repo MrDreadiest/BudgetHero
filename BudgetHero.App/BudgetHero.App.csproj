@@ -103,6 +103,15 @@
 	  <MauiXaml Update="Views\Content\Main\RegisterContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Reports\ReportBarContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Reports\ReportPieContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Reports\ReportTableContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Content\Universal\ActivityIndicator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
