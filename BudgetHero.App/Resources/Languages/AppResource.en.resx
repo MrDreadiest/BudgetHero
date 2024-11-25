@@ -579,4 +579,19 @@
   <data name="IconHelper_ResourceException_NoResource" xml:space="preserve">
     <value>No resource for key {0}.</value>
   </data>
+  <data name="ReportsView_CheckBox_Label_SumOtherAsResult" xml:space="preserve">
+    <value>Sum remaining transaction as Rest. Requires re-filtering.</value>
+  </data>
+  <data name="ReportsView_CheckBox_Label_PercentageVisible" xml:space="preserve">
+    <value>Show percentage share.</value>
+  </data>
+  <data name="ReportsView_CheckBox_Label_CategoryNameVisible" xml:space="preserve">
+    <value>Show category names with icons.</value>
+  </data>
+  <data name="ReportsView_Label_AllTransaction" xml:space="preserve">
+    <value>Total expenses</value>
+  </data>
+  <data name="ReportsView_Label_AvgTransaction" xml:space="preserve">
+    <value>Average monthly expenses</value>
+  </data>
 </root>

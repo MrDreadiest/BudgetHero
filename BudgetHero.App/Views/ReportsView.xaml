@@ -95,28 +95,28 @@
                                     <Grid BackgroundColor="{StaticResource DarkBackground}">
                                         <VerticalStackLayout>
                                             <Grid ColumnDefinitions="Auto,*">
-                                                <CheckBox IsChecked="{Binding IsSumOtherAsLastSwitch}" />
+                                                <CheckBox IsChecked="{Binding IsSumOtherAsLastSwitch}" IsEnabled="True" />
                                                 <Label
                                                     Grid.Column="1"
                                                     LineBreakMode="WordWrap"
                                                     Style="{StaticResource CheckboxLabel}"
-                                                    Text="Sumuj pozostałe wydatki jako Reszta. Wymaga ponowienia filtracji." />
+                                                    Text="{x:Static lang:AppResource.ReportsView_CheckBox_Label_SumOtherAsResult}" />
                                             </Grid>
 
                                             <Grid ColumnDefinitions="Auto,*">
-                                                <CheckBox IsChecked="{Binding IsPercentageVisible}" />
+                                                <CheckBox IsChecked="{Binding IsPercentageVisible}" IsEnabled="True" />
                                                 <Label
                                                     Grid.Column="1"
                                                     Style="{StaticResource CheckboxLabel}"
-                                                    Text="Pokaz udział procentowy." />
+                                                    Text="{x:Static lang:AppResource.ReportsView_CheckBox_Label_PercentageVisible}" />
                                             </Grid>
 
                                             <Grid ColumnDefinitions="Auto,*">
-                                                <CheckBox IsChecked="{Binding IsCategoryNameVisible}" />
+                                                <CheckBox IsChecked="{Binding IsCategoryNameVisible}" IsEnabled="True" />
                                                 <Label
                                                     Grid.Column="1"
                                                     Style="{StaticResource CheckboxLabel}"
-                                                    Text="Pokazuj nazwy kategorii razem z ikonami." />
+                                                    Text="{x:Static lang:AppResource.ReportsView_CheckBox_Label_CategoryNameVisible}" />
                                             </Grid>
                                         </VerticalStackLayout>
                                     </Grid>
@@ -128,7 +128,7 @@
                                 Grid.Column="0"
                                 HorizontalOptions="Start"
                                 Style="{StaticResource Body1}"
-                                Text="Wydatki sumarycznie" />
+                                Text="{x:Static lang:AppResource.ReportsView_Label_AllTransaction}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="End"
@@ -143,7 +143,7 @@
                                 Grid.Column="0"
                                 HorizontalOptions="Start"
                                 Style="{StaticResource Body1}"
-                                Text="Wydatki średnie miesięczne" />
+                                Text="{x:Static lang:AppResource.ReportsView_Label_AvgTransaction}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="End"
