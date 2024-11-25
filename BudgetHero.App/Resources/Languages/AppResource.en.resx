@@ -396,4 +396,187 @@
   <data name="General_ToolbarItem_Button_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Icon_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Icon_Graphs" xml:space="preserve">
+    <value>Graphs</value>
+  </data>
+  <data name="Icon_Transactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="Icon_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Icon_Budget" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="Icon_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Icon_TransactionAdd" xml:space="preserve">
+    <value>Add Transaction</value>
+  </data>
+  <data name="Icon_TransactionSplit" xml:space="preserve">
+    <value>Split transaction</value>
+  </data>
+  <data name="Icon_TransitionPush" xml:space="preserve">
+    <value>Push transaction</value>
+  </data>
+  <data name="Icon_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Icon_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Icon_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Icon_Sort" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="Icon_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Icon_FilterList" xml:space="preserve">
+    <value>Filter list</value>
+  </data>
+  <data name="Icon_FilterListOff" xml:space="preserve">
+    <value>Filter list off</value>
+  </data>
+  <data name="Icon_Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="Icon_Backspace" xml:space="preserve">
+    <value>Backspace</value>
+  </data>
+  <data name="Icon_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Icon_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Icon_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Icon_PersonAdd" xml:space="preserve">
+    <value>Add user</value>
+  </data>
+  <data name="Icon_GroupAdd" xml:space="preserve">
+    <value>Add to group</value>
+  </data>
+  <data name="Icon_GroupRemove" xml:space="preserve">
+    <value>Remove from group</value>
+  </data>
+  <data name="Icon_Calendar" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="Icon_CalendarStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Icon_CalendarEnds" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="Icon_Clock" xml:space="preserve">
+    <value>Clock</value>
+  </data>
+  <data name="Icon_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Icon_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Icon_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Icon_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Icon_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Icon_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Icon_Sum" xml:space="preserve">
+    <value>Sum</value>
+  </data>
+  <data name="Icon_Rest" xml:space="preserve">
+    <value>Rest</value>
+  </data>
+  <data name="Icon_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Icon_Person" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Icon_AccountCircle" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Icon_CloudDone" xml:space="preserve">
+    <value>Connection on</value>
+  </data>
+  <data name="Icon_CloudOff" xml:space="preserve">
+    <value>Connection off</value>
+  </data>
+  <data name="Icon_Sync" xml:space="preserve">
+    <value>Syc on</value>
+  </data>
+  <data name="Icon_SyncOff" xml:space="preserve">
+    <value>Sync off</value>
+  </data>
+  <data name="Icon_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Icon_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Icon_ArrowForward" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Icon_ArrowBackward" xml:space="preserve">
+    <value>Backward</value>
+  </data>
+  <data name="Icon_ArrowUp" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Icon_ArrowDown" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Icon_Visibility" xml:space="preserve">
+    <value>Visibility on</value>
+  </data>
+  <data name="Icon_VisibilityOff" xml:space="preserve">
+    <value>Visibility off</value>
+  </data>
+  <data name="Icon_Category_ExpensesAndIncome" xml:space="preserve">
+    <value>Expenses and income</value>
+  </data>
+  <data name="Icon_Category_Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Icon_Category_Shopping" xml:space="preserve">
+    <value>Shopping</value>
+  </data>
+  <data name="Icon_Category_FoodAndRestaurants" xml:space="preserve">
+    <value>Food and Restaurants</value>
+  </data>
+  <data name="Icon_Category_Transport" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="Icon_Category_Entertainment" xml:space="preserve">
+    <value>Entertainment</value>
+  </data>
+  <data name="Icon_Category_Gym" xml:space="preserve">
+    <value>Gym</value>
+  </data>
+  <data name="IconHelper_ResourceException_NoIcon" xml:space="preserve">
+    <value>The icon {0} has not been defined.</value>
+  </data>
+  <data name="IconHelper_ResourceException_NoKey" xml:space="preserve">
+    <value>The icon {0} does not have a resource key assigned.</value>
+  </data>
+  <data name="IconHelper_ResourceException_NoResource" xml:space="preserve">
+    <value>No resource for key {0}.</value>
+  </data>
 </root>

@@ -610,6 +610,555 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Konto.
+        /// </summary>
+        internal static string Icon_AccountCircle {
+            get {
+                return ResourceManager.GetString("Icon_AccountCircle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj.
+        /// </summary>
+        internal static string Icon_Add {
+            get {
+                return ResourceManager.GetString("Icon_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do tyłu.
+        /// </summary>
+        internal static string Icon_ArrowBackward {
+            get {
+                return ResourceManager.GetString("Icon_ArrowBackward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W dół.
+        /// </summary>
+        internal static string Icon_ArrowDown {
+            get {
+                return ResourceManager.GetString("Icon_ArrowDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do przodu.
+        /// </summary>
+        internal static string Icon_ArrowForward {
+            get {
+                return ResourceManager.GetString("Icon_ArrowForward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W górę.
+        /// </summary>
+        internal static string Icon_ArrowUp {
+            get {
+                return ResourceManager.GetString("Icon_ArrowUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powrót.
+        /// </summary>
+        internal static string Icon_Back {
+            get {
+                return ResourceManager.GetString("Icon_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cofnij.
+        /// </summary>
+        internal static string Icon_Backspace {
+            get {
+                return ResourceManager.GetString("Icon_Backspace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Budżet.
+        /// </summary>
+        internal static string Icon_Budget {
+            get {
+                return ResourceManager.GetString("Icon_Budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oblicz.
+        /// </summary>
+        internal static string Icon_Calculate {
+            get {
+                return ResourceManager.GetString("Icon_Calculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kalendarz.
+        /// </summary>
+        internal static string Icon_Calendar {
+            get {
+                return ResourceManager.GetString("Icon_Calendar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Koniec.
+        /// </summary>
+        internal static string Icon_CalendarEnds {
+            get {
+                return ResourceManager.GetString("Icon_CalendarEnds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Początek.
+        /// </summary>
+        internal static string Icon_CalendarStart {
+            get {
+                return ResourceManager.GetString("Icon_CalendarStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anuluj.
+        /// </summary>
+        internal static string Icon_Cancel {
+            get {
+                return ResourceManager.GetString("Icon_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoire.
+        /// </summary>
+        internal static string Icon_Categories {
+            get {
+                return ResourceManager.GetString("Icon_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rozrywka.
+        /// </summary>
+        internal static string Icon_Category_Entertainment {
+            get {
+                return ResourceManager.GetString("Icon_Category_Entertainment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wydażenia.
+        /// </summary>
+        internal static string Icon_Category_Events {
+            get {
+                return ResourceManager.GetString("Icon_Category_Events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przychody i wydatki.
+        /// </summary>
+        internal static string Icon_Category_ExpensesAndIncome {
+            get {
+                return ResourceManager.GetString("Icon_Category_ExpensesAndIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jedzenie i restauracje.
+        /// </summary>
+        internal static string Icon_Category_FoodAndRestaurants {
+            get {
+                return ResourceManager.GetString("Icon_Category_FoodAndRestaurants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ćwiczenia.
+        /// </summary>
+        internal static string Icon_Category_Gym {
+            get {
+                return ResourceManager.GetString("Icon_Category_Gym", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zakupy.
+        /// </summary>
+        internal static string Icon_Category_Shopping {
+            get {
+                return ResourceManager.GetString("Icon_Category_Shopping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transport.
+        /// </summary>
+        internal static string Icon_Category_Transport {
+            get {
+                return ResourceManager.GetString("Icon_Category_Transport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czas.
+        /// </summary>
+        internal static string Icon_Clock {
+            get {
+                return ResourceManager.GetString("Icon_Clock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zamknij.
+        /// </summary>
+        internal static string Icon_Close {
+            get {
+                return ResourceManager.GetString("Icon_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Połączenie aktywne.
+        /// </summary>
+        internal static string Icon_CloudDone {
+            get {
+                return ResourceManager.GetString("Icon_CloudDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Połączenie nieaktywne.
+        /// </summary>
+        internal static string Icon_CloudOff {
+            get {
+                return ResourceManager.GetString("Icon_CloudOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kasuj.
+        /// </summary>
+        internal static string Icon_Delete {
+            get {
+                return ResourceManager.GetString("Icon_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Błąd.
+        /// </summary>
+        internal static string Icon_Error {
+            get {
+                return ResourceManager.GetString("Icon_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtruj.
+        /// </summary>
+        internal static string Icon_Filter {
+            get {
+                return ResourceManager.GetString("Icon_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtruj listę.
+        /// </summary>
+        internal static string Icon_FilterList {
+            get {
+                return ResourceManager.GetString("Icon_FilterList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyłącz filtrowanie listy.
+        /// </summary>
+        internal static string Icon_FilterListOff {
+            get {
+                return ResourceManager.GetString("Icon_FilterListOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wykresy.
+        /// </summary>
+        internal static string Icon_Graphs {
+            get {
+                return ResourceManager.GetString("Icon_Graphs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj do grupy.
+        /// </summary>
+        internal static string Icon_GroupAdd {
+            get {
+                return ResourceManager.GetString("Icon_GroupAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuń z grupy.
+        /// </summary>
+        internal static string Icon_GroupRemove {
+            get {
+                return ResourceManager.GetString("Icon_GroupRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pomoc.
+        /// </summary>
+        internal static string Icon_Help {
+            get {
+                return ResourceManager.GetString("Icon_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Historia.
+        /// </summary>
+        internal static string Icon_History {
+            get {
+                return ResourceManager.GetString("Icon_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kokpit.
+        /// </summary>
+        internal static string Icon_Home {
+            get {
+                return ResourceManager.GetString("Icon_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informacja.
+        /// </summary>
+        internal static string Icon_Info {
+            get {
+                return ResourceManager.GetString("Icon_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        internal static string Icon_Menu {
+            get {
+                return ResourceManager.GetString("Icon_Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dalej.
+        /// </summary>
+        internal static string Icon_Next {
+            get {
+                return ResourceManager.GetString("Icon_Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Użytkownik.
+        /// </summary>
+        internal static string Icon_Person {
+            get {
+                return ResourceManager.GetString("Icon_Person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj osobę.
+        /// </summary>
+        internal static string Icon_PersonAdd {
+            get {
+                return ResourceManager.GetString("Icon_PersonAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuń.
+        /// </summary>
+        internal static string Icon_Remove {
+            get {
+                return ResourceManager.GetString("Icon_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reszta.
+        /// </summary>
+        internal static string Icon_Rest {
+            get {
+                return ResourceManager.GetString("Icon_Rest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukaj.
+        /// </summary>
+        internal static string Icon_Search {
+            get {
+                return ResourceManager.GetString("Icon_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ustawienia.
+        /// </summary>
+        internal static string Icon_Settings {
+            get {
+                return ResourceManager.GetString("Icon_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sortuj.
+        /// </summary>
+        internal static string Icon_Sort {
+            get {
+                return ResourceManager.GetString("Icon_Sort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suma.
+        /// </summary>
+        internal static string Icon_Sum {
+            get {
+                return ResourceManager.GetString("Icon_Sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Synchronizacja aktywna.
+        /// </summary>
+        internal static string Icon_Sync {
+            get {
+                return ResourceManager.GetString("Icon_Sync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Synchronizacja nieaktywna.
+        /// </summary>
+        internal static string Icon_SyncOff {
+            get {
+                return ResourceManager.GetString("Icon_SyncOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj transakcję.
+        /// </summary>
+        internal static string Icon_TransactionAdd {
+            get {
+                return ResourceManager.GetString("Icon_TransactionAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transakcje.
+        /// </summary>
+        internal static string Icon_Transactions {
+            get {
+                return ResourceManager.GetString("Icon_Transactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dziel transakcję.
+        /// </summary>
+        internal static string Icon_TransactionSplit {
+            get {
+                return ResourceManager.GetString("Icon_TransactionSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wypchnij transakcję.
+        /// </summary>
+        internal static string Icon_TransitionPush {
+            get {
+                return ResourceManager.GetString("Icon_TransitionPush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aktualizuj.
+        /// </summary>
+        internal static string Icon_Update {
+            get {
+                return ResourceManager.GetString("Icon_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Widoczny.
+        /// </summary>
+        internal static string Icon_Visibility {
+            get {
+                return ResourceManager.GetString("Icon_Visibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Niewidoczny.
+        /// </summary>
+        internal static string Icon_VisibilityOff {
+            get {
+                return ResourceManager.GetString("Icon_VisibilityOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ostrzeżenie.
+        /// </summary>
+        internal static string Icon_Warning {
+            get {
+                return ResourceManager.GetString("Icon_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ikona {0} nie została zdefiniowana..
+        /// </summary>
+        internal static string IconHelper_ResourceException_NoIcon {
+            get {
+                return ResourceManager.GetString("IconHelper_ResourceException_NoIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ikona {0} nie posiada przypisanego klucza zasobów..
+        /// </summary>
+        internal static string IconHelper_ResourceException_NoKey {
+            get {
+                return ResourceManager.GetString("IconHelper_ResourceException_NoKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brak zasobu dla klucza {0}..
+        /// </summary>
+        internal static string IconHelper_ResourceException_NoResource {
+            get {
+                return ResourceManager.GetString("IconHelper_ResourceException_NoResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wybór ikony.
         /// </summary>
         internal static string IconSelectContentView_Title {
