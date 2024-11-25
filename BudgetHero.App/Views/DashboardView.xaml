@@ -3,7 +3,9 @@
     x:Class="BudgetHero.App.Views.DashboardView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:models="clr-namespace:BudgetHero.App.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
@@ -17,10 +19,63 @@
     </ContentPage.Behaviors>
 
 
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource LargeTitle}"
+                    Text="{Binding Title}"
+                    VerticalOptions="Center" />
+
+                <Grid
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="{StaticResource LayoutSpacing}"
+                    RowDefinitions="*,*">
+                    <Border
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Style="{StaticResource IconFrameBorder}">
+                        <Label
+                            FontSize="{StaticResource IconSizeLarger}"
+                            Style="{StaticResource MaterialFramedIcon}"
+                            Text="{Binding Budget.IconUnicode}" />
+                    </Border>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Style="{StaticResource Title2}"
+                        Text="{Binding Budget.Name}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource Caption1}"
+                        Text="{Binding Budget.Description}"
+                        VerticalOptions="Start" />
+
+                    <Button
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Command="{Binding NavigatedToBudgetDetailsCommand}"
+                        Style="{StaticResource IconNavigateButton}"
+                        Text="{x:Static icons:Icons.ArrowForward}" />
+
+                </Grid>
+
+
+            </VerticalStackLayout>
+        </Border>
+
+        <Grid
+            Grid.Row="1"
+            Padding="{StaticResource LayoutPadding}"
+            RowDefinitions="*">
+
+            <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+        </Grid>
+
+    </Grid>
+
 </ContentPage>

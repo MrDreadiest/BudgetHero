@@ -36,7 +36,6 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="1"
-                    Margin="{StaticResource LayoutMargin}"
                     Style="{StaticResource LargeTitle}"
                     Text="{Binding Title}"
                     VerticalOptions="Center" />

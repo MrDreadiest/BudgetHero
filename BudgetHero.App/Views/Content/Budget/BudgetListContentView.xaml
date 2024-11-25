@@ -16,20 +16,33 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Budget">
                     <Border>
-                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="{StaticResource LayoutSpacing}">
-
-                            <Border Grid.Column="0" Style="{StaticResource IconFrameTransactionBorder}">
-                                <Label Style="{StaticResource MaterialFramedIcon}" Text="{Binding IconUnicode}" />
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="{StaticResource LayoutSpacing}"
+                            RowDefinitions="*,*">
+                            <Border
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Style="{StaticResource IconFrameBorder}">
+                                <Label
+                                    FontSize="{StaticResource IconSizeLarger}"
+                                    Style="{StaticResource MaterialFramedIcon}"
+                                    Text="{Binding IconUnicode}" />
                             </Border>
-
-                            <VerticalStackLayout Grid.Column="1">
-                                <Label Style="{StaticResource Body1Strong}" Text="{Binding Name}" />
-                                <Label Style="{StaticResource Caption1}" Text="{Binding Description}" />
-                            </VerticalStackLayout>
-
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Style="{StaticResource Title2}"
+                                Text="{Binding Name}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource Caption1}"
+                                Text="{Binding Description}"
+                                VerticalOptions="Start" />
                             <Button
+                                Grid.RowSpan="2"
                                 Grid.Column="2"
-                                Margin="0"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type budget:BudgetListContentViewModel}}, Path=SelectCommand}"
                                 CommandParameter="{Binding .}"
                                 Style="{StaticResource IconNavigateButton}"
