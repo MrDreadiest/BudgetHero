@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BudgetHero.App.Views.Details.BudgetDetailView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:details="clr-namespace:BudgetHero.App.ViewModels.Details"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    Title="{Binding Title}"
+    x:DataType="details:BudgetDetailViewModel">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding DeleteBudgetCommand}"
+            Order="Primary"
+            Priority="0"
+            Text="{x:Static lang:AppResource.General_ToolbarItem_Button_Delete}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid Margin="{StaticResource LayoutMargin}" Padding="{StaticResource LayoutPadding}">
+        <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
+    </Grid>
+
+</ContentPage>

@@ -106,6 +106,15 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Szczegóły budżetu.
+        /// </summary>
+        internal static string BudgetDetailView_Title {
+            get {
+                return ResourceManager.GetString("BudgetDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Własne.
         /// </summary>
         internal static string BudgetListType_Own {

@@ -594,4 +594,7 @@
   <data name="ReportsView_Label_AvgTransaction" xml:space="preserve">
     <value>Wydatki średnie miesięczne</value>
   </data>
+  <data name="BudgetDetailView_Title" xml:space="preserve">
+    <value>Szczegóły budżetu</value>
+  </data>
 </root>

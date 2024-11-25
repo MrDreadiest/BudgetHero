@@ -65,6 +65,8 @@ namespace BudgetHero.App
 
             builder.Services.AddTransientWithShellRoute<TransactionDetailView, TransactionDetailViewModel>(nameof(TransactionDetailView));
 
+            builder.Services.AddTransientWithShellRoute<BudgetDetailView, BudgetDetailViewModel>(nameof(BudgetDetailView));
+
             #endregion
 
             return builder.Build();
