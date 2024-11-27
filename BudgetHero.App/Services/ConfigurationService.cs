@@ -12,7 +12,7 @@ namespace BudgetHero.App.Services
             _budgetService = budgetService;
         }
 
-        public T LoadConfiguration<T>() where T : class, new()
+        public T? LoadConfiguration<T>() where T : class, new()
         {
             string configKey = GenerateConfigurationKey<T>();
             string configJson = Preferences.Get(configKey, string.Empty);

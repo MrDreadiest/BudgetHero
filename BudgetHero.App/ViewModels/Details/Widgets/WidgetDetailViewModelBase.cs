@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BudgetHero.App.ViewModels.Details.Widgets
 {
-    public abstract partial class WidgetDetailViewModelBase : ObservableObject, IConfigurable
+    public abstract partial class WidgetDetailViewModelBase : ObservableObject, IConfigurationProvider
     {
         [ObservableProperty]
         private bool _isBusy;

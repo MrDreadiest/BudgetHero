@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BudgetHero.App.ViewModels.Content.Widgets
 {
-    public abstract partial class WidgetContentViewModelBase : ObservableObject, IConfigurable
+    public abstract partial class WidgetContentViewModelBase : ObservableObject, IConfigurationConsumer
     {
         [ObservableProperty]
         private bool _isBusy;
@@ -17,7 +17,6 @@ namespace BudgetHero.App.ViewModels.Content.Widgets
         public abstract void NavigateToDetailView();
 
         public abstract void LoadConfiguration();
-        public abstract void SaveConfiguration();
 
         public abstract Task Refresh();
     }

@@ -1,8 +1,7 @@
 ﻿namespace BudgetHero.App.ViewModels.Interfaces
 {
-    public interface IConfigurable
+    interface IConfigurationConsumer
     {
         void LoadConfiguration();
-        void SaveConfiguration();
     }
 }

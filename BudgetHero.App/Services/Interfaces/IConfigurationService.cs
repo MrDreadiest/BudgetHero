@@ -3,6 +3,6 @@
     public interface IConfigurationService
     {
         void SaveConfiguration<T>(T configuration);
-        T LoadConfiguration<T>() where T : class, new();
+        T? LoadConfiguration<T>() where T : class, new();
     }
 }

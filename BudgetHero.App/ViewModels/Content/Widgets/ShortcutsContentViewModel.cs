@@ -41,10 +41,5 @@ namespace BudgetHero.App.ViewModels.Content.Widgets
         {
             throw new NotImplementedException();
         }
-
-        public override void SaveConfiguration()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
