@@ -9,6 +9,7 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:viewModels="clr-namespace:BudgetHero.App.ViewModels"
+    xmlns:widgetsViews="clr-namespace:BudgetHero.App.Views.Content.Widgets"
     Title="{Binding Title}"
     x:DataType="viewModels:DashboardViewModel">
 
@@ -17,7 +18,6 @@
         <toolkit:EventToCommandBehavior Command="{Binding NavigatedFromCommand}" EventName="NavigatedFrom" />
         <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
     </ContentPage.Behaviors>
-
 
     <Grid RowDefinitions="Auto,*">
         <Border Grid.Row="0" Style="{StaticResource LayoutHeaderBoeder}">
@@ -28,7 +28,6 @@
                     Style="{StaticResource LargeTitle}"
                     Text="{Binding Title}"
                     VerticalOptions="Center" />
-
                 <Grid
                     ColumnDefinitions="Auto,*,Auto"
                     ColumnSpacing="{StaticResource LayoutSpacing}"
@@ -42,7 +41,6 @@
                             Style="{StaticResource MaterialFramedIcon}"
                             Text="{Binding Budget.IconUnicode}" />
                     </Border>
-
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"
@@ -54,17 +52,13 @@
                         Style="{StaticResource Caption1}"
                         Text="{Binding Budget.Description}"
                         VerticalOptions="Start" />
-
                     <Button
                         Grid.RowSpan="2"
                         Grid.Column="2"
                         Command="{Binding NavigatedToBudgetDetailsCommand}"
                         Style="{StaticResource IconNavigateButton}"
                         Text="{x:Static icons:Icons.ArrowForward}" />
-
                 </Grid>
-
-
             </VerticalStackLayout>
         </Border>
 
@@ -72,10 +66,14 @@
             Grid.Row="1"
             Padding="{StaticResource LayoutPadding}"
             RowDefinitions="*">
-
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <widgetsViews:FastBalanceContentView BindingContext="{Binding FastBalanceVM}" />
+                <widgetsViews:ShortcutsContentView BindingContext="{Binding ShortcutsVM}" />
+                <widgetsViews:FastReportContentView BindingContext="{Binding FastReportVM}" />
+                <widgetsViews:LastTransactionsContentView BindingContext="{Binding LastTransactionsVM}" />
+            </VerticalStackLayout>
             <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
         </Grid>
-
     </Grid>
 
 </ContentPage>

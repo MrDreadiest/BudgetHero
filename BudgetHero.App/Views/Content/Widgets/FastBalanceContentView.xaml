@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Widgets.FastBalanceContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    xmlns:widgets="clr-namespace:BudgetHero.App.ViewModels.Content.Widgets"
+    x:DataType="widgets:FastBalanceContentViewModel">
+
+    <Border Style="{StaticResource ExpanderOuterBorder}">
+        <Grid RowDefinitions="Auto,Auto">
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="*,Auto"
+                Style="{StaticResource ExpanderHeaderGrid}">
+                <Label
+                    Grid.Column="0"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource Body1}"
+                    Text="{Binding Title}"
+                    VerticalOptions="Center" />
+                <universalViews:ActivityIndicatorSmall Grid.ColumnSpan="2" IsBusy="{Binding IsBusy}" />
+                <Grid Grid.Column="1">
+                    <Label Style="{StaticResource ExpanderHeaderNavLabel}" Text="{x:Static lang:AppResource.Widget_ContentView_Button_GoToDetails}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToDetailViewCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Style="{StaticResource ExpanderBodyGrid}">
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                    <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+    </Border>
+
+</ContentView>

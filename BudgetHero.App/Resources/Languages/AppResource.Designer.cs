@@ -1438,6 +1438,15 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to konfiguracje.
+        /// </summary>
+        internal static string Resource_Plural_Configuration {
+            get {
+                return ResourceManager.GetString("Resource_Plural_Configuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to transakcje.
         /// </summary>
         internal static string Resource_Plural_Transaction {
@@ -1461,6 +1470,15 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string Resource_Singular_Category {
             get {
                 return ResourceManager.GetString("Resource_Singular_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to konfigurację.
+        /// </summary>
+        internal static string Resource_Singular_Configuration {
+            get {
+                return ResourceManager.GetString("Resource_Singular_Configuration", resourceCulture);
             }
         }
         
@@ -1497,6 +1515,87 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string TransactionsView_Title {
             get {
                 return ResourceManager.GetString("TransactionsView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dostosuj.
+        /// </summary>
+        internal static string Widget_ContentView_Button_GoToDetails {
+            get {
+                return ResourceManager.GetString("Widget_ContentView_Button_GoToDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szybki bilans.
+        /// </summary>
+        internal static string Widget_FastBalanceContentView_Title {
+            get {
+                return ResourceManager.GetString("Widget_FastBalanceContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szczegóły szybkiego bilansu.
+        /// </summary>
+        internal static string Widget_FastBalanceDetailView_Title {
+            get {
+                return ResourceManager.GetString("Widget_FastBalanceDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szybki raport.
+        /// </summary>
+        internal static string Widget_FastReportContentView_Title {
+            get {
+                return ResourceManager.GetString("Widget_FastReportContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szczegóły szybkiego raportu.
+        /// </summary>
+        internal static string Widget_FastReportDetailView_Title {
+            get {
+                return ResourceManager.GetString("Widget_FastReportDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ostatnie transakcje.
+        /// </summary>
+        internal static string Widget_LastTransactionsContentView_Title {
+            get {
+                return ResourceManager.GetString("Widget_LastTransactionsContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szczegóły ostatnich transakcji.
+        /// </summary>
+        internal static string Widget_LastTransactionsDetailView_Title {
+            get {
+                return ResourceManager.GetString("Widget_LastTransactionsDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skróty.
+        /// </summary>
+        internal static string Widget_ShortcutsContentView_Title {
+            get {
+                return ResourceManager.GetString("Widget_ShortcutsContentView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dostosuj skróty.
+        /// </summary>
+        internal static string Widget_ShortcutsDetailView_Title {
+            get {
+                return ResourceManager.GetString("Widget_ShortcutsDetailView_Title", resourceCulture);
             }
         }
     }

@@ -200,6 +200,7 @@
     </Style>
 
 
+
     <Style x:Key="IconButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderColor" Value="Transparent" />
@@ -253,6 +254,8 @@
         <Setter Property="Margin" Value="{OnIdiom 10, Desktop=10}" />
     </Style>
 
+    <!--  EXPANDER REGION START  -->
+
     <Style x:Key="ExpanderOuterBorder" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 15" />
         <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
@@ -260,6 +263,26 @@
         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkSecondaryBackground}}" />
         <Setter Property="Padding" Value="0" />
     </Style>
+
+    <Style
+        x:Key="ExpanderHeaderNavLabel"
+        BasedOn="{StaticResource Caption1Strong}"
+        TargetType="Label">
+        <Setter Property="FontAttributes" Value="Italic" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+
+    <Style x:Key="ExpanderHeaderGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="{StaticResource LayoutPadding}" />
+    </Style>
+
+    <Style x:Key="ExpanderBodyGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="{StaticResource LayoutPadding}" />
+        <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+    </Style>
+
+    <!--  EXPANDER REGION END  -->
 
     <Style x:Key="LayoutHeaderBoeder" TargetType="Border">
         <Setter Property="Padding" Value="{StaticResource LayoutPadding}" />
@@ -272,6 +295,8 @@
     </Style>
 
     <Style x:Key="LayoutBodyGrid" TargetType="Grid" />
+
+
 
     <Style x:Key="CardStyle" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 20" />

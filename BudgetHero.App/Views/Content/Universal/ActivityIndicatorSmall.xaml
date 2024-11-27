@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Universal.ActivityIndicatorSmall"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal">
+
+    <ActivityIndicator
+        Margin="0"
+        HeightRequest="20"
+        HorizontalOptions="Center"
+        IsRunning="{Binding IsBusy, Source={RelativeSource AncestorType={x:Type universalViews:ActivityIndicatorSmall}}}"
+        IsVisible="{Binding IsBusy, Source={RelativeSource AncestorType={x:Type universalViews:ActivityIndicatorSmall}}}"
+        VerticalOptions="Center"
+        Color="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground},
+                                Dark={StaticResource ComplementaryOnDarkBackground}}" />
+</ContentView>

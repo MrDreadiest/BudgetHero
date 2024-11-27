@@ -2,7 +2,9 @@
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.ViewModels;
 using BudgetHero.App.ViewModels.Details;
+using BudgetHero.App.ViewModels.Details.Widgets;
 using BudgetHero.App.Views.Details;
+using BudgetHero.App.Views.Details.Widgets;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -64,8 +66,12 @@ namespace BudgetHero.App
             builder.Services.AddSingleton<TransactionsViewModel>();
 
             builder.Services.AddTransientWithShellRoute<TransactionDetailView, TransactionDetailViewModel>(nameof(TransactionDetailView));
-
             builder.Services.AddTransientWithShellRoute<BudgetDetailView, BudgetDetailViewModel>(nameof(BudgetDetailView));
+
+            builder.Services.AddTransientWithShellRoute<FastBalanceDetailView, FastBalanceDetailViewModel>(nameof(FastBalanceDetailView));
+            builder.Services.AddTransientWithShellRoute<FastReportDetailView, FastReportDetailViewModel>(nameof(FastReportDetailView));
+            builder.Services.AddTransientWithShellRoute<LastTransactionsDetailView, LastTransactionsDetailViewModel>(nameof(LastTransactionsDetailView));
+            builder.Services.AddTransientWithShellRoute<ShortcutsDetailView, ShortcutsDetailViewModel>(nameof(ShortcutsDetailView));
 
             #endregion
 

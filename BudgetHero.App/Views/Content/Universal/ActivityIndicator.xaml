@@ -7,12 +7,12 @@
 
     <Frame BackgroundColor="{AppThemeBinding Light={StaticResource TransparentLightBackground}, Dark={StaticResource TransparentDarkBackground}}" IsVisible="{Binding IsBusy, Source={RelativeSource AncestorType={x:Type universalViews:ActivityIndicator}}}">
         <ActivityIndicator
-            HeightRequest="70"
             HorizontalOptions="Center"
             IsRunning="{Binding IsBusy, Source={RelativeSource AncestorType={x:Type universalViews:ActivityIndicator}}}"
             IsVisible="{Binding IsBusy, Source={RelativeSource AncestorType={x:Type universalViews:ActivityIndicator}}}"
+            MaximumHeightRequest="70"
+            MaximumWidthRequest="70"
             VerticalOptions="Center"
-            WidthRequest="70"
             Color="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground},
                                     Dark={StaticResource ComplementaryOnDarkBackground}}" />
     </Frame>
