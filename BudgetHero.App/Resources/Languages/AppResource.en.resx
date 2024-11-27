@@ -630,4 +630,7 @@
   <data name="Resource_Plural_Configuration" xml:space="preserve">
     <value>configurations</value>
   </data>
+  <data name="Widget_LastTransactionsDetailView_Entry_Count" xml:space="preserve">
+    <value>Transactions counter</value>
+  </data>
 </root>

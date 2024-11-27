@@ -1573,6 +1573,15 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Licznik transakcji.
+        /// </summary>
+        internal static string Widget_LastTransactionsDetailView_Entry_Count {
+            get {
+                return ResourceManager.GetString("Widget_LastTransactionsDetailView_Entry_Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Szczegóły ostatnich transakcji.
         /// </summary>
         internal static string Widget_LastTransactionsDetailView_Title {
