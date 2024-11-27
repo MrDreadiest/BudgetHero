@@ -10,6 +10,7 @@ namespace BudgetHero.App.Services.Interfaces
 
         Task<bool> GetAllTransactionAsync(Budget budget);
         Task<List<Transaction>> GetTransactionInRangeAsync(string budgetId, DateTime startDate, DateTime endDate);
+        Task<List<Transaction>> GetLastTransactionsAsync(string budgetId, int count);
         Task<List<Transaction>> GetTransactionInRangeByCategoriesAsync(string budgetId, DateTime startDate, DateTime endDate, List<string> categoryIds);
         Task<Transaction?> GetTransactionByIdAsync(string budgetId, string transactionId);
         Task<bool> CreateTransactionAsync(Budget budget, Transaction transaction);

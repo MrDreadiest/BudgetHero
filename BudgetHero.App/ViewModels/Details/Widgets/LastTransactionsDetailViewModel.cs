@@ -4,30 +4,50 @@ using BudgetHero.App.Resources.Languages;
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.Utilities;
 using BudgetHero.App.ViewModels.Interfaces;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace BudgetHero.App.ViewModels.Details.Widgets
 {
     public partial class LastTransactionsDetailViewModel : WidgetDetailViewModelBase, IBusyHandler
     {
-        private readonly IModalDisplayHandler _displayHandler;
-
         public IModalDisplayHandler? ModalDisplayHandler => _displayHandler;
 
-        public LastTransactionsDetailViewModel(IModalDisplayHandler displayHandler)
+
+        [ObservableProperty]
+        private int _count;
+
+        private LastTransactionsConfiguration _configuration;
+
+        private bool _isNavigatedTo;
+        private bool _dataLoaded;
+
+        private readonly IModalDisplayHandler _displayHandler;
+        private readonly IConfigurationService _configurationService;
+
+        public LastTransactionsDetailViewModel(IModalDisplayHandler displayHandler, IConfigurationService configurationService)
         {
             _displayHandler = displayHandler;
+            _configurationService = configurationService;
+
+            _configuration = new LastTransactionsConfiguration();
+
             Title = AppResource.Widget_LastTransactionsDetailView_Title;
         }
 
-        public override void LoadConfiguration()
-        {
-            throw new NotImplementedException();
-        }
+        [RelayCommand]
+        private void NavigatedTo() => _isNavigatedTo = true;
 
-        public override void SaveConfiguration()
+        [RelayCommand]
+        private void NavigatedFrom() => _isNavigatedTo = false;
+
+        [RelayCommand]
+        private async Task Appearing()
         {
-            throw new NotImplementedException();
+            if (!_isNavigatedTo)
+            {
+                await Refresh();
+            }
         }
 
         [RelayCommand]
@@ -36,8 +56,32 @@ namespace BudgetHero.App.ViewModels.Details.Widgets
             var confirmation = ConfirmationFactory.CreateUpdateConfirmation<LastTransactionsConfiguration>();
             await this.RunWithBusyFlagAndConfirmationAsync(async () =>
             {
-                await Task.Delay(2000);
+                SaveConfiguration();
+                await Task.CompletedTask;
             }, confirmation);
+        }
+
+        public override void LoadConfiguration()
+        {
+            var configuration = _configurationService.LoadConfiguration<LastTransactionsConfiguration>();
+
+            if (configuration != null)
+            {
+                _configuration = configuration;
+                Count = _configuration.Count;
+            }
+        }
+
+        public override void SaveConfiguration()
+        {
+            _configuration.Count = Count;
+            _configurationService.SaveConfiguration(_configuration);
+        }
+
+        private async Task Refresh()
+        {
+            LoadConfiguration();
+            await Task.CompletedTask;
         }
     }
 }

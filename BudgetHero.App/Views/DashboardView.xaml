@@ -66,12 +66,15 @@
             Grid.Row="1"
             Padding="{StaticResource LayoutPadding}"
             RowDefinitions="*">
-            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
-                <widgetsViews:FastBalanceContentView BindingContext="{Binding FastBalanceVM}" />
-                <widgetsViews:ShortcutsContentView BindingContext="{Binding ShortcutsVM}" />
-                <widgetsViews:FastReportContentView BindingContext="{Binding FastReportVM}" />
-                <widgetsViews:LastTransactionsContentView BindingContext="{Binding LastTransactionsVM}" />
-            </VerticalStackLayout>
+            <ScrollView>
+                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                    <widgetsViews:FastBalanceContentView BindingContext="{Binding FastBalanceVM}" />
+                    <widgetsViews:ShortcutsContentView BindingContext="{Binding ShortcutsVM}" />
+                    <widgetsViews:FastReportContentView BindingContext="{Binding FastReportVM}" />
+                    <widgetsViews:LastTransactionsContentView BindingContext="{Binding LastTransactionsVM}" />
+                </VerticalStackLayout>
+            </ScrollView>
+
             <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
         </Grid>
     </Grid>

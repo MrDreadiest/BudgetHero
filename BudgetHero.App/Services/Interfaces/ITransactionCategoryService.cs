@@ -8,7 +8,7 @@ namespace BudgetHero.App.Services.Interfaces
         event EventHandler<TransactionCategory> TransactionCategoryDeleted;
         event EventHandler<TransactionCategory> TransactionCategoryUpdated;
 
-        Task<bool> GetAllTransactionCategoriesAsync(Budget budget);
+        Task<List<TransactionCategory>> GetAllTransactionCategoriesAsync(Budget budget);
         Task<List<TransactionCategory>> GetTopAmountTransactionCategoriesInDataRangeAsync(string budgetId, int count, DateTime startDate, DateTime endDate);
         Task<List<TransactionCategory>> GetTopCountTransactionCategoriesInDataRangeAsync(string budgetId, int count, DateTime startDate, DateTime endDate);
         Task<TransactionCategory> GetTransactionCategoryByIdsAsync(string budgetId, string categoryId);

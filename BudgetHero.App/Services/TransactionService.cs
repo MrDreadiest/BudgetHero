@@ -64,6 +64,27 @@ namespace BudgetHero.App.Services
             return [];
         }
 
+        public async Task<List<Transaction>> GetLastTransactionsAsync(string budgetId, int count)
+        {
+            string url = $"" +
+                $"{ApiEndpoints.BaseAddress}" +
+                $"{ApiEndpoints.Api}" +
+                $"{ApiEndpoints.User}" +
+                $"{ApiEndpoints.Budget}" +
+                $"/{budgetId}" +
+                $"{ApiEndpoints.Transaction}" +
+                $"{ApiEndpoints.Last}" +
+                $"?count={count}";
+
+            var response = await _apiClient.GetAsync<List<TransactionGetResponseModel>>(url);
+
+            if (response != null)
+            {
+                return response.Select(r => r.FromGetResponse()).ToList();
+            }
+            return [];
+        }
+
         public async Task<List<Transaction>> GetTransactionInRangeByCategoriesAsync(string budgetId, DateTime startDate, DateTime endDate, List<string> categoryIds)
         {
             string categoriesQuery = string.Join("&categoryIds=", categoryIds);
@@ -188,5 +209,7 @@ namespace BudgetHero.App.Services
             }
             return false;
         }
+
+
     }
 }

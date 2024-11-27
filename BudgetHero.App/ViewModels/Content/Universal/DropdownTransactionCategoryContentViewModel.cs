@@ -246,10 +246,10 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         {
             var result = await _transactionCategoryService.GetAllTransactionCategoriesAsync(_budgetService.CurrentBudget);
 
-            if (result)
+            if (result.Any())
             {
                 AllTransactionCategories.Clear();
-                foreach (var category in _budgetService.CurrentBudget.TransactionCategories)
+                foreach (var category in result)
                 {
                     AllTransactionCategories.Add(category);
                 }

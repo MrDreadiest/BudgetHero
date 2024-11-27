@@ -4,6 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:sfData="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+    xmlns:sfDataExt="clr-namespace:Syncfusion.Maui.DataSource.Extensions;assembly=Syncfusion.Maui.DataSource"
+    xmlns:sfListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:transactions="clr-namespace:BudgetHero.App.ViewModels.Content.Transactions"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:widgets="clr-namespace:BudgetHero.App.ViewModels.Content.Widgets"
     x:DataType="widgets:LastTransactionsContentViewModel">
@@ -30,9 +34,91 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="1" Style="{StaticResource ExpanderBodyGrid}">
-                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
-                    <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
-                </VerticalStackLayout>
+                <sfListView:SfListView
+                    x:Name="listView"
+                    IsStickyGroupHeader="True"
+                    ItemsSource="{Binding FilteredTransaction}">
+
+                    <sfListView:SfListView.EmptyView>
+                        <Grid>
+                            <Label
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource Caption1Strong}"
+                                Text="{x:Static lang:AppResource.General_Views_NoItems}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </sfListView:SfListView.EmptyView>
+                    <sfListView:SfListView.DataSource>
+                        <sfData:DataSource>
+                            <sfData:DataSource.SortDescriptors>
+                                <sfData:SortDescriptor PropertyName="Date" />
+                            </sfData:DataSource.SortDescriptors>
+                        </sfData:DataSource>
+                    </sfListView:SfListView.DataSource>
+
+                    <sfListView:SfListView.GroupHeaderTemplate>
+                        <DataTemplate x:DataType="sfDataExt:GroupResult">
+                            <Border
+                                Padding="{StaticResource LayoutPadding}"
+                                Background="{AppThemeBinding Light={StaticResource LightBackground},
+                                                             Dark={StaticResource DarkSecondaryBackground}}"
+                                StrokeShape="RoundRectangle 8">
+                                <Label
+                                    HorizontalOptions="Start"
+                                    Style="{StaticResource Caption1Strong}"
+                                    Text="{Binding Key, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                    TextColor="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground},
+                                                                Dark={StaticResource ComplementaryOnDarkBackground}}"
+                                    VerticalOptions="Center" />
+                            </Border>
+                        </DataTemplate>
+                    </sfListView:SfListView.GroupHeaderTemplate>
+
+                    <sfListView:SfListView.ItemTemplate>
+                        <DataTemplate x:DataType="transactions:TransactionListItem">
+                            <Grid
+                                Background="{AppThemeBinding Light={StaticResource LightBackground},
+                                                             Dark={StaticResource DarkBackground}}"
+                                ColumnDefinitions="Auto,*,Auto,Auto"
+                                RowDefinitions="*,*"
+                                VerticalOptions="Center">
+
+                                <Border
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    Style="{StaticResource IconFrameTransactionBorder}">
+                                    <Label Style="{StaticResource MaterialFramedIcon}" Text="{Binding TransactionCategory.IconUnicode}" />
+                                </Border>
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Style="{StaticResource Body1}"
+                                    Text="{Binding Transaction.Name}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Style="{StaticResource Caption1}"
+                                    Text="{Binding Transaction.Description}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    Style="{StaticResource Body1}"
+                                    Text="{Binding Transaction.TotalAmount, StringFormat='{0:C2}'}"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </sfListView:SfListView.ItemTemplate>
+                </sfListView:SfListView>
             </Grid>
         </Grid>
     </Border>

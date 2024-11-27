@@ -29,5 +29,6 @@
         public static readonly string Filtered = "/Filtered";
         public static readonly string TopAmount = "/TopAmount";
         public static readonly string TopCount = "/TopCount";
+        public static readonly string Last = "/Last";
     }
 }

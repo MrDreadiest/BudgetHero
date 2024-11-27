@@ -19,7 +19,7 @@ namespace BudgetHero.App.Services
             _apiClient = apiClient;
         }
 
-        public async Task<bool> GetAllTransactionCategoriesAsync(Budget budget)
+        public async Task<List<TransactionCategory>> GetAllTransactionCategoriesAsync(Budget budget)
         {
             string url = $"" +
                 $"{ApiEndpoints.BaseAddress}" +
@@ -37,9 +37,9 @@ namespace BudgetHero.App.Services
                 {
                     budget.TransactionCategories.Add(item.FromGetResponse());
                 }
-                return true;
+                return response.Select(r => r.FromGetResponse()).ToList();
             }
-            return false;
+            return [];
         }
 
         public async Task<List<TransactionCategory>> GetTopAmountTransactionCategoriesInDataRangeAsync(string budgetId, int count, DateTime startDate, DateTime endDate)
