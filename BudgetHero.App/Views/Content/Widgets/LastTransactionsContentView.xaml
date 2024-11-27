@@ -36,8 +36,10 @@
             <Grid Grid.Row="1" Style="{StaticResource ExpanderBodyGrid}">
                 <sfListView:SfListView
                     x:Name="listView"
+                    IsScrollingEnabled="False"
                     IsStickyGroupHeader="True"
-                    ItemsSource="{Binding FilteredTransaction}">
+                    ItemsSource="{Binding FilteredTransaction}"
+                    SelectionMode="None">
 
                     <sfListView:SfListView.EmptyView>
                         <Grid>
@@ -53,7 +55,7 @@
                     <sfListView:SfListView.DataSource>
                         <sfData:DataSource>
                             <sfData:DataSource.SortDescriptors>
-                                <sfData:SortDescriptor PropertyName="Date" />
+                                <sfData:SortDescriptor Direction="Descending" PropertyName="Date" />
                             </sfData:DataSource.SortDescriptors>
                         </sfData:DataSource>
                     </sfListView:SfListView.DataSource>
