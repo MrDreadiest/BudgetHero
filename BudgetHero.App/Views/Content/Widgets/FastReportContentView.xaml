@@ -4,9 +4,17 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:reportsViews="clr-namespace:BudgetHero.App.Views.Content.Reports"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:widgets="clr-namespace:BudgetHero.App.ViewModels.Content.Widgets"
     x:DataType="widgets:FastReportContentViewModel">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
 
     <Border Style="{StaticResource ExpanderOuterBorder}">
         <Grid RowDefinitions="Auto,Auto">
@@ -14,12 +22,20 @@
                 Grid.Row="0"
                 ColumnDefinitions="*,Auto"
                 Style="{StaticResource ExpanderHeaderGrid}">
-                <Label
-                    Grid.Column="0"
-                    HorizontalOptions="Start"
-                    Style="{StaticResource Body1}"
-                    Text="{Binding Title}"
-                    VerticalOptions="Center" />
+                <HorizontalStackLayout Grid.Column="0" Spacing="{StaticResource LayoutSpacing}">
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource Body1}"
+                        Text="{Binding Title}"
+                        VerticalOptions="Center" />
+                    <!--<Label
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        LineBreakMode="TailTruncation"
+                        Style="{StaticResource Body1}"
+                        Text="{Binding Date}" />-->
+                </HorizontalStackLayout>
+
                 <universalViews:ActivityIndicatorSmall Grid.ColumnSpan="2" IsBusy="{Binding IsBusy}" />
                 <Grid Grid.Column="1">
                     <Label Style="{StaticResource ExpanderHeaderNavLabel}" Text="{x:Static lang:AppResource.Widget_ContentView_Button_GoToDetails}">
@@ -30,8 +46,30 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="1" Style="{StaticResource ExpanderBodyGrid}">
-                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
-                    <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
+                <VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <VerticalStackLayout.Style>
+                            <Style TargetType="VerticalStackLayout">
+                                <Style.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsGraphEmpty}"
+                                        TargetType="VerticalStackLayout"
+                                        Value="True">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding IsGraphEmpty}"
+                                        TargetType="VerticalStackLayout"
+                                        Value="False">
+                                        <Setter Property="IsVisible" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </VerticalStackLayout.Style>
+                        <reportsViews:ReportPieContentView BindingContext="{Binding ReportPieViewModel}" />
+                        <reportsViews:ReportTableContentView BindingContext="{Binding ReportTableViewModel}" />
+                    </VerticalStackLayout>
+                    <Label IsVisible="{Binding IsConfigurationValid, Converter={StaticResource InvertedBoolConverter}}" Text="{x:Static lang:AppResource.Widget_FastReportContentView_BadConfigurationMessage}" />
                 </VerticalStackLayout>
             </Grid>
         </Grid>

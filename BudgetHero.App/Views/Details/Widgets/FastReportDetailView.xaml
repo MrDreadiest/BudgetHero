@@ -3,13 +3,22 @@
     x:Class="BudgetHero.App.Views.Details.Widgets.FastReportDetailView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:sfEditors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:widgets="clr-namespace:BudgetHero.App.ViewModels.Details.Widgets"
     Title="{Binding Title}"
     x:DataType="widgets:FastReportDetailViewModel"
     Shell.NavBarHasShadow="True"
     Shell.TabBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedToCommand}" EventName="NavigatedTo" />
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedFromCommand}" EventName="NavigatedFrom" />
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -19,10 +28,51 @@
             Text="{x:Static lang:AppResource.General_ToolbarItem_Button_Save}" />
     </ContentPage.ToolbarItems>
 
-    <Grid>
-        <Grid Margin="{StaticResource LayoutMargin}" Padding="{StaticResource LayoutPadding}">
-            <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
-        </Grid>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="{StaticResource LayoutMargin}">
+        <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+            <Border Padding="2" StrokeShape="RoundRectangle 8">
+                <universalViews:SegmentedControlView BindingContext="{Binding SegmentedControlVM}" />
+            </Border>
+
+            <inputLayout:SfTextInputLayout
+                Grid.Column="0"
+                Hint="Liczba kategori"
+                IsEnabled="{Binding IsTopCounterAvailable}">
+                <sfEditors:SfNumericEntry
+                    x:Name="AmountFrom"
+                    AllowNull="False"
+                    CustomFormat="N0"
+                    Value="{Binding TopCounter}" />
+            </inputLayout:SfTextInputLayout>
+
+            <universalViews:DropdownPickerTransactionCategoryContentView BindingContext="{Binding DropdownTransactionCategoryVM}" />
+
+            <Grid ColumnDefinitions="Auto,*">
+                <CheckBox IsChecked="{Binding IsSumOtherAsLastSwitch}" />
+                <Label
+                    Grid.Column="1"
+                    LineBreakMode="WordWrap"
+                    Style="{StaticResource CheckboxLabel}"
+                    Text="{x:Static lang:AppResource.ReportsView_CheckBox_Label_SumOtherAsResult}" />
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto,*">
+                <CheckBox IsChecked="{Binding IsShowPercentageSwitch}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{StaticResource CheckboxLabel}"
+                    Text="{x:Static lang:AppResource.ReportsView_CheckBox_Label_PercentageVisible}" />
+            </Grid>
+
+        </VerticalStackLayout>
+
+        <universalViews:DropdownSelectTransactionCategoryContentView BindingContext="{Binding DropdownTransactionCategoryVM}" />
         <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
     </Grid>
 

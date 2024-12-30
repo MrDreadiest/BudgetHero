@@ -633,4 +633,16 @@
   <data name="Widget_LastTransactionsDetailView_Entry_Count" xml:space="preserve">
     <value>Licznik transakcji</value>
   </data>
+  <data name="TransactionCategoriesSelectType_Own" xml:space="preserve">
+    <value>Włąsny</value>
+  </data>
+  <data name="TransactionCategoriesSelectType_TopCount" xml:space="preserve">
+    <value>Liczba transakcji</value>
+  </data>
+  <data name="TransactionCategoriesSelectType_TopAmount" xml:space="preserve">
+    <value>Suma transakcji</value>
+  </data>
+  <data name="Widget_FastReportContentView_BadConfigurationMessage" xml:space="preserve">
+    <value>Błędna konfiguracja lub brak transakcji w aktualnym miesiącu. Dodaj wydatki lub dostosuj widok.</value>
+  </data>
 </root>

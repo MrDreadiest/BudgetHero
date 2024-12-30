@@ -633,4 +633,16 @@
   <data name="Widget_LastTransactionsDetailView_Entry_Count" xml:space="preserve">
     <value>Transactions counter</value>
   </data>
+  <data name="TransactionCategoriesSelectType_Own" xml:space="preserve">
+    <value>Own</value>
+  </data>
+  <data name="TransactionCategoriesSelectType_TopCount" xml:space="preserve">
+    <value>Top count</value>
+  </data>
+  <data name="TransactionCategoriesSelectType_TopAmount" xml:space="preserve">
+    <value>Top amount</value>
+  </data>
+  <data name="Widget_FastReportContentView_BadConfigurationMessage" xml:space="preserve">
+    <value>Incorrect configuration or no transactions for current month. Add transaction or customize view.</value>
+  </data>
 </root>

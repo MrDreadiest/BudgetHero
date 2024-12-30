@@ -20,7 +20,6 @@ namespace BudgetHero.App.ViewModels.Details.Widgets
         private LastTransactionsConfiguration _configuration;
 
         private bool _isNavigatedTo;
-        private bool _dataLoaded;
 
         private readonly IModalDisplayHandler _displayHandler;
         private readonly IConfigurationService _configurationService;

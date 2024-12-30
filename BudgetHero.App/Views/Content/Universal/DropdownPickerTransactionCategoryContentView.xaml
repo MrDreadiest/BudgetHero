@@ -18,7 +18,7 @@
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ToggleViewCommand}" />
             </Grid.GestureRecognizers>
-            <sf:SfTextInputLayout
+            <sf:SfTextInputLayout IsEnabled="{Binding IsEnable}"
                 Hint="{x:Static lang:AppResource.FilterTransactionsContentView_Label_SelectCategoty_Hint}"
                 InputTransparent="True"
                 LeadingViewPosition="Inside"

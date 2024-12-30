@@ -1501,6 +1501,33 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Włąsny.
+        /// </summary>
+        internal static string TransactionCategoriesSelectType_Own {
+            get {
+                return ResourceManager.GetString("TransactionCategoriesSelectType_Own", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suma transakcji.
+        /// </summary>
+        internal static string TransactionCategoriesSelectType_TopAmount {
+            get {
+                return ResourceManager.GetString("TransactionCategoriesSelectType_TopAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liczba transakcji.
+        /// </summary>
+        internal static string TransactionCategoriesSelectType_TopCount {
+            get {
+                return ResourceManager.GetString("TransactionCategoriesSelectType_TopCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Szczegóły transakcji.
         /// </summary>
         internal static string TransactionDetailView_Title {
@@ -1542,6 +1569,15 @@ namespace BudgetHero.App.Resources.Languages {
         internal static string Widget_FastBalanceDetailView_Title {
             get {
                 return ResourceManager.GetString("Widget_FastBalanceDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Błędna konfiguracja lub brak transakcji w aktualnym miesiącu. Dodaj wydatki lub dostosuj widok..
+        /// </summary>
+        internal static string Widget_FastReportContentView_BadConfigurationMessage {
+            get {
+                return ResourceManager.GetString("Widget_FastReportContentView_BadConfigurationMessage", resourceCulture);
             }
         }
         
