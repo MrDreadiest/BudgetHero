@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BudgetHero.App.Views.Content.Shortcuts.ShortcutContentView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:shortcuts="clr-namespace:BudgetHero.App.ViewModels.Content.Shortcuts"
+    x:DataType="shortcuts:ShortcutContentViewModel">
+
+
+    <VerticalStackLayout Spacing="5">
+        <Border Grid.Row="0" Style="{StaticResource IconFrameBorder}">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToDetailViewCommand}" />
+            </Border.GestureRecognizers>
+            <Label
+                FontSize="{StaticResource IconSizeLarger}"
+                Style="{StaticResource MaterialFramedIcon}"
+                Text="{Binding IconUnicode}" />
+        </Border>
+        <Label
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            LineBreakMode="WordWrap"
+            Style="{StaticResource Caption1}"
+            Text="{Binding Title}"
+            VerticalOptions="Center"
+            VerticalTextAlignment="Start" />
+    </VerticalStackLayout>
+
+</ContentView>

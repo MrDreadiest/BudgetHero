@@ -112,6 +112,9 @@
 	  <MauiXaml Update="Views\Content\Reports\ReportTableContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Shortcuts\ShortcutContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Content\Universal\ActivityIndicator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -196,6 +199,9 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResource.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Content\Shortcuts\ShortcutContentView.xaml.cs">
+	    <DependentUpon>ShortcutContentView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
