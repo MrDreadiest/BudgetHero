@@ -9,7 +9,10 @@
     x:DataType="controls:IconSelectContentViewModel">
 
     <ContentView.Resources>
-        <Style BasedOn="{StaticResource IconFramedButton}" TargetType="Button">
+        <Style
+            x:Key="LocalIconFramedButton"
+            BasedOn="{StaticResource IconFramedButton}"
+            TargetType="Button">
             <Setter Property="HeightRequest" Value="60" />
             <Setter Property="WidthRequest" Value="60" />
             <Setter Property="Margin" Value="5" />
@@ -42,21 +45,22 @@
 
     <Grid
         x:Name="Root"
-        Padding="{StaticResource LayoutPadding}"
         BackgroundColor="{AppThemeBinding Light={StaticResource LightSecondaryBackground},
                                           Dark={StaticResource DarkBackground}}"
         RowDefinitions="Auto,*"
         RowSpacing="{StaticResource LayoutSpacing}">
 
         <Border Grid.Row="0" Padding="{StaticResource LayoutPadding}">
-            <Grid ColumnSpacing="{StaticResource LayoutSpacing}">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
                 <Button
+                    Grid.Column="0"
                     Command="{Binding ToggleViewCommand}"
                     HorizontalOptions="Start"
                     Style="{StaticResource IconNavigateButton}"
                     Text="{x:Static icons:Icons.ArrowBackward}" />
                 <Label
-                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Center"
                     Style="{StaticResource SubHeadline}"
                     Text="{x:Static lang:AppResource.IconSelectContentView_Title}"
                     VerticalOptions="Center" />
@@ -83,6 +87,7 @@
                                                 <Button
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type controls:IconSelectContentViewModel}}, Path=SelectIconCommand}"
                                                     CommandParameter="{Binding}"
+                                                    Style="{StaticResource LocalIconFramedButton}"
                                                     Text="{Binding Unicode}" />
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>

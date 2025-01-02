@@ -237,8 +237,8 @@
 
     <Style x:Key="IconFrameBorder" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 8" />
-        <Setter Property="MinimumHeightRequest" Value="50" />
-        <Setter Property="MinimumWidthRequest" Value="50" />
+        <Setter Property="MaximumHeightRequest" Value="50" />
+        <Setter Property="MaximumWidthRequest" Value="50" />
         <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
         <Setter Property="StrokeThickness" Value="0" />
         <Setter Property="Padding" Value="{OnIdiom 10, Desktop=20}" />
@@ -350,6 +350,8 @@
     </Style>
 
     <Style TargetType="sfEditors:SfNumericEntry">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="{OnIdiom 18, Desktop=24}" />
         <Setter Property="CustomFormat" Value="C2" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
@@ -358,8 +360,24 @@
     </Style>
 
     <Style TargetType="sfExpander:SfExpander">
-        <Setter Property="HeaderBackground" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource DarkSecondaryBackground}}" />
-        <Setter Property="HeaderIconColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup>
+                    <VisualState Name="Expanded">
+                        <VisualState.Setters>
+                            <Setter Property="HeaderBackground" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource DarkSecondaryBackground}}" />
+                            <Setter Property="HeaderIconColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="Collapsed">
+                        <VisualState.Setters>
+                            <Setter Property="HeaderBackground" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource DarkSecondaryBackground}}" />
+                            <Setter Property="HeaderIconColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
     </Style>
 
     <Style TargetType="sfPopup:SfPopup">

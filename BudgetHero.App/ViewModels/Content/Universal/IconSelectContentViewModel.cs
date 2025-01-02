@@ -96,5 +96,9 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             SelectIcon(IconCategories.FirstOrDefault()!.Icons.FirstOrDefault()!);
         }
 
+        internal void Hide()
+        {
+            IsVisible = false;
+        }
     }
 }

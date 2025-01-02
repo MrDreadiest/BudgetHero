@@ -79,14 +79,15 @@
         RowSpacing="{StaticResource LayoutSpacing}">
 
         <Border Grid.Row="0" Padding="{StaticResource LayoutPadding}">
-            <Grid ColumnSpacing="{StaticResource LayoutSpacing}">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="{StaticResource LayoutSpacing}">
                 <Button
+                    Grid.Column="0"
                     Command="{Binding ToggleViewCommand}"
-                    HorizontalOptions="Start"
                     Style="{StaticResource IconNavigateButton}"
                     Text="{x:Static icons:Icons.ArrowBackward}" />
                 <Label
-                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Center"
                     Style="{StaticResource SubHeadline}"
                     Text="{x:Static lang:AppResource.FilterTransactionsContentView_Label_SelectCategoty_Hint}"
                     VerticalOptions="Center" />
@@ -94,34 +95,43 @@
         </Border>
 
         <Border Grid.Row="1" Padding="{StaticResource LayoutPadding}">
-            <RefreshView Command="{Binding ReloadCommand}" IsRefreshing="{Binding IsRefreshing}">
-                <ScrollView>
-                    <CollectionView ItemsSource="{Binding FilteredTransactionCategories}" SelectionMode="None">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="model:TransactionCategory">
-                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type universal:DropdownTransactionCategoryContentViewModel}}, Path=ItemTappedCommand}" CommandParameter="{Binding}" />
-                                    </Grid.GestureRecognizers>
-                                    <Label
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Style="{StaticResource SelectableMaterialIcon}"
-                                        Text="{Binding IconUnicode}" />
-                                    <Label
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        Style="{StaticResource SelectableLabel}"
-                                        Text="{Binding Name}" />
-                                    <BoxView Grid.Row="1" Grid.ColumnSpan="3" />
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </ScrollView>
-            </RefreshView>
 
+            <Grid RowDefinitions="Auto,*">
+
+                <Grid IsVisible="{Binding IsAddMethodAvailable}">
+                    <universalViews:DropdownAddTransactionCategoryContentView Grid.Row="0" BindingContext="{Binding AddInlistCategoryVM}" />
+                </Grid>
+
+                <RefreshView
+                    Grid.Row="1"
+                    Command="{Binding ReloadCommand}"
+                    IsRefreshing="{Binding IsRefreshing}">
+                    <ScrollView>
+                        <CollectionView ItemsSource="{Binding FilteredTransactionCategories}" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:TransactionCategory">
+                                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type universal:DropdownTransactionCategoryContentViewModel}}, Path=ItemTappedCommand}" CommandParameter="{Binding}" />
+                                        </Grid.GestureRecognizers>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Style="{StaticResource SelectableMaterialIcon}"
+                                            Text="{Binding IconUnicode}" />
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Style="{StaticResource SelectableLabel}"
+                                            Text="{Binding Name}" />
+                                        <BoxView Grid.Row="1" Grid.ColumnSpan="3" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </RefreshView>
+            </Grid>
         </Border>
-
     </Grid>
 </ContentView>

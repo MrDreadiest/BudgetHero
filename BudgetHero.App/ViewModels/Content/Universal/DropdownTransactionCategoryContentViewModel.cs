@@ -1,4 +1,6 @@
-﻿using BudgetHero.App.Models;
+﻿using BudgetHero.App.Factories.Confirmations;
+using BudgetHero.App.Models;
+using BudgetHero.App.Models.Extensions;
 using BudgetHero.App.Services.Interfaces;
 using BudgetHero.App.Utilities;
 using BudgetHero.App.ViewModels.Interfaces;
@@ -43,10 +45,8 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         [ObservableProperty]
         private bool _isMultipleSelectionAvailable = false;
 
-        //public AddInlistCategoryContentViewModel AddInlistCategoryVM { get; set; }
+        public AddInlistCategoryContentViewModel AddInlistCategoryVM { get; set; }
         public IModalDisplayHandler? ModalDisplayHandler => _displayHandler;
-
-
 
         public List<TransactionCategory> AllTransactionCategories = new();
 
@@ -84,10 +84,10 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             LastSelectedTransactionCategory = new TransactionCategory() { BudgetId = string.Empty, Id = string.Empty };
 
             IsAddMethodAvailable = isAddMethodAvailable;
-            //if (IsAddMethodAvailable)
-            //{
-            //    AddInlistCategoryVM = new AddInlistCategoryContentViewModel();
-            //}
+            if (IsAddMethodAvailable)
+            {
+                AddInlistCategoryVM = new AddInlistCategoryContentViewModel();
+            }
         }
 
 
@@ -156,6 +156,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
         internal void Hide()
         {
             IsVisible = false;
+            AddInlistCategoryVM?.IconSelectVM.Hide();
         }
 
         /// <summary>
@@ -213,7 +214,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
 
                 LastSelectedTransactionCategory = new TransactionCategory() { BudgetId = string.Empty, Id = string.Empty };
 
-                //AddInlistCategoryVM?.ResetView();
+                AddInlistCategoryVM?.ResetView();
                 SearchText = string.Empty;
 
                 SelectedTransactionCategoryChanged?.Invoke(this, SelectedCategories.ToList());
@@ -235,7 +236,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
                 FilteredTransactionCategories = new ObservableCollection<TransactionCategory>(AllTransactionCategories);
                 SelectedCategories.Clear();
 
-                //AddInlistCategoryVM?.ResetView();
+                AddInlistCategoryVM?.ResetView();
                 SearchText = string.Empty;
 
                 SelectedTransactionCategoryChanged?.Invoke(this, SelectedCategories.ToList());
@@ -257,7 +258,7 @@ namespace BudgetHero.App.ViewModels.Content.Universal
 
             FilteredTransactionCategories = new ObservableCollection<TransactionCategory>(AllTransactionCategories);
 
-            //AddInlistCategoryVM?.ResetView();
+            AddInlistCategoryVM?.ResetView();
         }
 
         private void UpdateSelectedObjects()
@@ -309,22 +310,99 @@ namespace BudgetHero.App.ViewModels.Content.Universal
             FilterTransactionCategories(newValue);
         }
 
-        //partial void OnSelectedCategoryChanged(TransactionCategory? oldValue, TransactionCategory newValue)
-        //{
-        //    if (oldValue != null)
-        //    {
-        //        oldValue.IsSelected = false;
-        //    }
-
-        //    newValue.IsSelected = true;
-
-        //    SelectedTransactionCategoryChanged?.Invoke(newValue, new List<TransactionCategory> { newValue });
-        //}
-
         private void TransactionCategoryService_TransactionCategoryCreated(object? sender, TransactionCategory e)
         {
             AllTransactionCategories.Add(e);
             FilteredTransactionCategories.Add(e);
+        }
+    }
+
+    public partial class AddInlistCategoryContentViewModel : ViewModelBase, IBusyHandler
+    {
+        public IModalDisplayHandler? ModalDisplayHandler => _displayHandler;
+        public IconSelectContentViewModel IconSelectVM { get; }
+        public TransactionCategory TemporaryCategory { get; set; }
+
+        [ObservableProperty]
+        private bool _isOpen;
+
+        private readonly IModalDisplayHandler _displayHandler;
+        private readonly IBudgetService _budgetService;
+        private readonly ITransactionCategoryService _transactionCategoryService;
+
+        public AddInlistCategoryContentViewModel() : this(
+            App.Services.GetService<IModalDisplayHandler>()!,
+            App.Services.GetService<IBudgetService>()!,
+            App.Services.GetService<ITransactionCategoryService>()!)
+        {
+        }
+
+        public AddInlistCategoryContentViewModel(IModalDisplayHandler displayHandler, IBudgetService budgetService, ITransactionCategoryService transactionCategoryService)
+        {
+            _displayHandler = displayHandler;
+            _budgetService = budgetService;
+            _transactionCategoryService = transactionCategoryService;
+
+            //TODO: zasoby
+            Title = "Dodaj kategorię";
+
+            IconSelectVM = new IconSelectContentViewModel();
+            IconSelectVM.SelectedIconChanged += IconSelectVM_SelectedIconChanged;
+            TemporaryCategory = new TransactionCategory()
+            {
+                Id = string.Empty,
+                BudgetId = _budgetService.CurrentBudget.Id
+            };
+        }
+
+        public void ResetView()
+        {
+            IconSelectVM.ResetView();
+            TemporaryCategory = new TransactionCategory()
+            {
+                Id = string.Empty,
+                BudgetId = _budgetService.CurrentBudget.Id,
+                IconUnicode = IconSelectVM.SelectedIconItem.Unicode
+            };
+        }
+
+        [RelayCommand]
+        public async Task AddCategory()
+        {
+            var confirmation = ConfirmationFactory.CreateAddConfirmation<TransactionCategory>();
+            await this.RunWithBusyFlagAndConfirmationAsync(async () =>
+            {
+                if (!await CreateTransactionCategory())
+                {
+                    //TODO: Zasoby + poporawa obsługi błędów
+                    throw new InvalidOperationException("Nie udało się dodać kategorii.");
+                }
+            }, confirmation);
+        }
+
+        private async Task<bool> CreateTransactionCategory()
+        {
+            var validation = TemporaryCategory.ToCreateRequest().IsRequestValid();
+
+            if (validation)
+            {
+                var result = await _transactionCategoryService.CreateTransactionCategoryAsync(_budgetService.CurrentBudget, TemporaryCategory);
+
+                if (result)
+                {
+                    ResetView();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void IconSelectVM_SelectedIconChanged(object? sender, EventArgs e)
+        {
+            if (IconSelectVM.SelectedIconItem != null)
+            {
+                TemporaryCategory.IconUnicode = IconSelectVM.SelectedIconItem.Unicode;
+            }
         }
     }
 }
