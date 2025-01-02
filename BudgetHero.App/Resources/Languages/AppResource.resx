@@ -645,4 +645,40 @@
   <data name="Widget_FastReportContentView_BadConfigurationMessage" xml:space="preserve">
     <value>Błędna konfiguracja lub brak transakcji w aktualnym miesiącu. Dodaj wydatki lub dostosuj widok.</value>
   </data>
+  <data name="Shortcut_AddTransactionDetailView_Title" xml:space="preserve">
+    <value>Dodawanie transakcji</value>
+  </data>
+  <data name="Shortcut_ManageCategoriesDetailView_Title" xml:space="preserve">
+    <value>Zarządzanie kategoriami</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Title" xml:space="preserve">
+    <value>Dzielenie paragonu</value>
+  </data>
+  <data name="Shortcut_AddTransactionView_Title" xml:space="preserve">
+    <value>Dodaj transakcję</value>
+  </data>
+  <data name="Shortcut_ManageCategoriesView_Title" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="Shortcut_SplitTransactionView_Title" xml:space="preserve">
+    <value>Podziel paragon</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Entry_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Entry_Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Entry_TotalAmount" xml:space="preserve">
+    <value>Kwota</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Entry_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Entry_Time" xml:space="preserve">
+    <value>Godzina</value>
+  </data>
+  <data name="Shortcut_AddTransactionDetailView_Button_Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
 </root>

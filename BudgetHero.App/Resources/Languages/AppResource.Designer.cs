@@ -1501,6 +1501,114 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Button_Add {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Button_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Entry_Date {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Entry_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opis.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Entry_Description {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Entry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Entry_Name {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Entry_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Godzina.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Entry_Time {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Entry_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kwota.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Entry_TotalAmount {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Entry_TotalAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodawanie transakcji.
+        /// </summary>
+        internal static string Shortcut_AddTransactionDetailView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj transakcję.
+        /// </summary>
+        internal static string Shortcut_AddTransactionView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_AddTransactionView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zarządzanie kategoriami.
+        /// </summary>
+        internal static string Shortcut_ManageCategoriesDetailView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_ManageCategoriesDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategorie.
+        /// </summary>
+        internal static string Shortcut_ManageCategoriesView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_ManageCategoriesView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dzielenie paragonu.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podziel paragon.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionView_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Włąsny.
         /// </summary>
         internal static string TransactionCategoriesSelectType_Own {
