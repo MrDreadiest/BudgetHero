@@ -1591,6 +1591,96 @@ namespace BudgetHero.App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wydziel.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Button_Add {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Button_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj wszystkie.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Button_AddAll {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Button_AddAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wylicz.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Button_Calculate {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Button_Calculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zrzuć.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Button_DropRest {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Button_DropRest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_Date {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opis.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_Description {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_Name {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kwota całkowita do podziału.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_SplitAmount {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_SplitAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Godzina.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_Time {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kwota transakcji.
+        /// </summary>
+        internal static string Shortcut_SplitTransactionDetailView_Entry_TotalAmount {
+            get {
+                return ResourceManager.GetString("Shortcut_SplitTransactionDetailView_Entry_TotalAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dzielenie paragonu.
         /// </summary>
         internal static string Shortcut_SplitTransactionDetailView_Title {

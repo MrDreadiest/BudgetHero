@@ -681,4 +681,34 @@
   <data name="Shortcut_AddTransactionDetailView_Button_Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_TotalAmount" xml:space="preserve">
+    <value>Transaction amount</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_SplitAmount" xml:space="preserve">
+    <value>Total amount to separate</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Entry_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Button_Add" xml:space="preserve">
+    <value>Separate</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Button_AddAll" xml:space="preserve">
+    <value>Add all</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Button_DropRest" xml:space="preserve">
+    <value>Drop</value>
+  </data>
+  <data name="Shortcut_SplitTransactionDetailView_Button_Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
 </root>
