@@ -132,7 +132,7 @@ namespace BudgetHero.App.ViewModels.Content.Widgets
                     if (_configuration.IsSumOtherAsLastSwitch)
                     {
                         categoriesLeft = allCategories
-                            .Where(c => !categories.Contains(c))
+                            .Where(c => !categories.Any(cat => cat.Id == c.Id))
                             .ToList();
 
                         transactionsLeft = await _transactionService.GetTransactionInRangeByCategoriesAsync(

@@ -148,11 +148,13 @@ namespace BudgetHero.App.ViewModels
             {
                 if (IsSumOtherAsLastSwitch)
                 {
+                    List<TransactionCategory> allCategories = await _transactionCategoryService.GetAllTransactionCategoriesAsync(_budgetService.CurrentBudget);
+
                     List<Transaction> transactionsLeft = new();
                     List<TransactionCategory> categoriesLeft = new();
 
-                    categoriesLeft = _budgetService.CurrentBudget.TransactionCategories
-                        .Where(c => !e.filteredCategories.Contains(c))
+                    categoriesLeft = allCategories
+                        .Where(c => !e.filteredCategories.Any(cat => cat.Id == c.Id))
                         .ToList();
 
                     transactionsLeft = await _transactionService.GetTransactionInRangeByCategoriesAsync(
