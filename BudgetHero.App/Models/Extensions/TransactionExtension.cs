@@ -86,22 +86,23 @@ namespace BudgetHero.App.Models.Extensions
             };
         }
 
+        //TODO: Zasoby
         public static ValidationResult IsRequestValid(this TransactionCreateRequestModel requestModel)
         {
             if (string.IsNullOrEmpty(requestModel.BudgetId))
-                return new ValidationResult(false, "BudgetId cannot be null or empty.");
+                return new ValidationResult(false, "Budżet dla transakcji jest nieprawidłowy lub pusty.");
 
             if (string.IsNullOrEmpty(requestModel.CreatorId))
-                return new ValidationResult(false, "CreatorId cannot be null or empty.");
+                return new ValidationResult(false, "Właściciel transakcji jest nieprawidłowy lub pusty.");
 
             if (string.IsNullOrEmpty(requestModel.TransactionCategoryId))
-                return new ValidationResult(false, "TransactionCategoryId cannot be null or empty.");
+                return new ValidationResult(false, "Kategoria transakcji jest nieprawidła lub pusta.");
 
             if (string.IsNullOrEmpty(requestModel.Name))
-                return new ValidationResult(false, "Name cannot be null or empty.");
+                return new ValidationResult(false, "Nazwa transakcji nie może być pusta.");
 
             if (requestModel.TotalAmount == 0)
-                return new ValidationResult(false, "TotalAmount cannot be zero.");
+                return new ValidationResult(false, "Kwota transakcji nie może być równa 0.");
 
             return new ValidationResult(true, string.Empty);
         }
