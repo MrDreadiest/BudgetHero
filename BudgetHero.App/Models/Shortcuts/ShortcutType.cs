@@ -14,15 +14,14 @@ namespace BudgetHero.App.Models.Shortcuts
     {
         public static string GetDescription(this ShortcutType shortcutType)
         {
-            //TODO: Zasoby
             switch (shortcutType)
             {
                 case ShortcutType.AddTransaction:
-                    return "Add";
+                    return Resources.Languages.AppResource.Shortcut_AddTransactionDetailView_Title;
                 case ShortcutType.SplitTransaction:
-                    return "Split";
+                    return Resources.Languages.AppResource.Shortcut_SplitTransactionDetailView_Title;
                 case ShortcutType.ManageCategories:
-                    return "Manage Cat.";
+                    return Resources.Languages.AppResource.Shortcut_ManageCategoriesView_Title;
                 default:
                     return string.Empty;
             }
