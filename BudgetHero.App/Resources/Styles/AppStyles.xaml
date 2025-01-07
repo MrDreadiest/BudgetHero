@@ -351,7 +351,7 @@
 
     <Style TargetType="sfEditors:SfNumericEntry">
         <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="FontSize" Value="{OnIdiom 18, Desktop=24}" />
+        <Setter Property="FontSize" Value="{OnIdiom 24, Desktop=30}" />
         <Setter Property="CustomFormat" Value="C2" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
