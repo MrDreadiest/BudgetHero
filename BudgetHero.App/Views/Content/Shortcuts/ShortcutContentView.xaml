@@ -8,8 +8,7 @@
     xmlns:shortcuts="clr-namespace:BudgetHero.App.ViewModels.Content.Shortcuts"
     x:DataType="shortcuts:ShortcutContentViewModel">
 
-
-    <VerticalStackLayout Spacing="5">
+    <VerticalStackLayout>
         <Border Grid.Row="0" Style="{StaticResource IconFrameBorder}">
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding NavigateToDetailViewCommand}" />
@@ -24,10 +23,9 @@
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             LineBreakMode="WordWrap"
+            LineHeight="0.8"
             Style="{StaticResource Caption1}"
-            Text="{Binding Title}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Start" />
+            Text="{Binding Title}" />
     </VerticalStackLayout>
 
 </ContentView>

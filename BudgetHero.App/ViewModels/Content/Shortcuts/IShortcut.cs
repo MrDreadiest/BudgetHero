@@ -5,6 +5,6 @@
         string DetailViewPath { get; set; }
         string Title { get; set; }
         string IconUnicode { get; set; }
-        void NavigateToDetailView();
+        Task NavigateToDetailView();
     }
 }

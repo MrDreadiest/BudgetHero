@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     xmlns:sfEditors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:sfExpander="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
@@ -378,6 +379,48 @@
                 </VisualStateGroup>
             </VisualStateGroupList>
         </Setter>
+    </Style>
+
+    <Style TargetType="radialMenu:SfRadialMenuItem">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="WidthRequest" Value="80" />
+        <Setter Property="HeightRequest" Value="80" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style TargetType="radialMenu:SfRadialMenu">
+        <Setter Property="CenterButtonFontSize" Value="{StaticResource IconSizeLarge}" />
+        <Setter Property="CenterButtonFontFamily" Value="MaterialIcons" />
+        <Setter Property="CenterButtonTextColor" Value="{AppThemeBinding Light={StaticResource LightOnDarkBackground}, Dark={StaticResource DarkBackground}}" />
+        <Setter Property="CenterButtonBackgroundColor" Value="{AppThemeBinding Light={StaticResource ComplementaryOnLightBackground}, Dark={StaticResource ComplementaryOnDarkBackground}}" />
+        <Setter Property="CenterButtonRadius" Value="5" />
+        <Setter Property="CenterButtonStrokeThickness" Value="0" />
+        <Setter Property="LayoutType" Value="Custom" />
+        <Setter Property="RimColor" Value="Transparent" />
+        <Setter Property="RimRadius" Value="400" />
+        <Setter Property="WidthRequest" Value="400" />
+        <Setter Property="Margin" Value="0,0,-160,-160" />
+        <Setter Property="HeightRequest" Value="400" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="SeparatorThickness" Value="0" />
+        <Setter Property="EnableRotation" Value="False" />
+        <Setter Property="IsDragEnabled" Value="False" />
     </Style>
 
     <Style TargetType="sfPopup:SfPopup">

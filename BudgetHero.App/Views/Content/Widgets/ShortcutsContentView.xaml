@@ -3,39 +3,35 @@
     x:Class="BudgetHero.App.Views.Content.Widgets.ShortcutsContentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:BudgetHero.App.Models.Icon"
     xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu"
+    xmlns:shortcuts="clr-namespace:BudgetHero.App.ViewModels.Content.Shortcuts"
+    xmlns:shortcutsView="clr-namespace:BudgetHero.App.Views.Content.Shortcuts"
     xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
     xmlns:widgets="clr-namespace:BudgetHero.App.ViewModels.Content.Widgets"
     x:DataType="widgets:ShortcutsContentViewModel">
 
-    <Border Style="{StaticResource ExpanderOuterBorder}">
-        <Grid RowDefinitions="Auto,Auto">
-            <Grid
-                Grid.Row="0"
-                ColumnDefinitions="*,Auto"
-                Style="{StaticResource ExpanderHeaderGrid}">
-                <universalViews:ActivityIndicatorSmall Grid.ColumnSpan="2" IsBusy="{Binding IsBusy}" />
-                <Label
-                    Grid.Column="0"
-                    HorizontalOptions="Start"
-                    Style="{StaticResource Body1}"
-                    Text="{Binding Title}"
-                    VerticalOptions="Center" />
-                <Grid Grid.Column="1">
-                    <Label Style="{StaticResource ExpanderHeaderNavLabel}" Text="{x:Static lang:AppResource.Widget_ContentView_Button_GoToDetails}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToDetailViewCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="1" Style="{StaticResource ExpanderBodyGrid}">
-                <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
-                    <Label Text="{x:Static lang:AppResource.General_Views_NoItems}" />
-                </VerticalStackLayout>
+    <Grid>
+        <Frame
+            x:Name="Root"
+            BackgroundColor="{StaticResource DarkBackground}"
+            BorderColor="Transparent"
+            CornerRadius="0"
+            IsVisible="{Binding IsOpen}" />
+        <radialMenu:SfRadialMenu
+            AnimationDuration="{Binding AnimationDuration}"
+            CenterButtonText="{x:Static icons:Icons.Add}"
+            IsOpen="{Binding IsOpen}"
+            ItemsSource="{Binding Shortcuts}"
+            VisibleSegmentsCount="8">
+            <radialMenu:SfRadialMenu.ItemTemplate>
+                <DataTemplate x:DataType="shortcuts:ShortcutContentViewModel">
+                    <shortcutsView:ShortcutContentView BindingContext="{Binding .}" />
+                </DataTemplate>
+            </radialMenu:SfRadialMenu.ItemTemplate>
+        </radialMenu:SfRadialMenu>
+    </Grid>
 
-            </Grid>
-        </Grid>
-    </Border>
 
 </ContentView>

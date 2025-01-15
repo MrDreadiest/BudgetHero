@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BudgetHero.App.Views.Details.Shortcuts.AddTransactionDetailView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:lang="clr-namespace:BudgetHero.App.Resources.Languages"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:sfEditors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:shortcuts="clr-namespace:BudgetHero.App.ViewModels.Details.Shortcuts"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:universalViews="clr-namespace:BudgetHero.App.Views.Content.Universal"
+    Title="{Binding Title}"
+    x:DataType="shortcuts:AddTransactionDetailViewModel"
+    Shell.NavBarHasShadow="True"
+    Shell.TabBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedToCommand}" EventName="NavigatedTo" />
+        <toolkit:EventToCommandBehavior Command="{Binding NavigatedFromCommand}" EventName="NavigatedFrom" />
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.ToolbarItems />
+
+    <Grid Margin="{StaticResource LayoutMargin}">
+        <Border VerticalOptions="Start">
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}">
+                <universalViews:DropdownPickerTransactionCategoryContentView Margin="0,5,0,0" BindingContext="{Binding DropdownTransactionCategoryVM}" />
+
+                <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Entry_Name}">
+                    <Entry Text="{Binding TemporaryTransaction.Name}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Entry_Description}">
+                    <Entry Text="{Binding TemporaryTransaction.Description}" />
+                </sf:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Entry_TotalAmount}">
+                    <sfEditors:SfNumericEntry
+                        x:Name="TotalAmount"
+                        ValueChanged="TotalAmount_ValueChanged"
+                        Value="{Binding TemporaryTransaction.TotalAmount}" />
+                </inputLayout:SfTextInputLayout>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="{StaticResource LayoutSpacing}">
+                    <sf:SfTextInputLayout Grid.Column="0" Hint="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Entry_Date}">
+                        <DatePicker Date="{Binding SelectedDate}" />
+                    </sf:SfTextInputLayout>
+
+                    <sf:SfTextInputLayout Grid.Column="1" Hint="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Entry_Time}">
+                        <TimePicker Time="{Binding SelectedTime}" />
+                    </sf:SfTextInputLayout>
+                </Grid>
+                <Button Command="{Binding ProcessActionCommand}" Text="{x:Static lang:AppResource.Shortcut_AddTransactionDetailView_Button_Add}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <universalViews:DropdownSelectTransactionCategoryContentView BindingContext="{Binding DropdownTransactionCategoryVM}" />
+        <universalViews:IconSelectContentView BindingContext="{Binding DropdownTransactionCategoryVM.AddInlistCategoryVM.IconSelectVM}" />
+        <universalViews:ActivityIndicator IsBusy="{Binding IsBusy}" />
+    </Grid>
+
+</ContentPage>
