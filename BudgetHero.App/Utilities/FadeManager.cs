@@ -5,9 +5,17 @@ namespace BudgetHero.App.Utilities
     {
         private const int ShowFormDuration = 250;
         private const int HideFormDuration = 250;
+        private const double ShowFormOpacity = 0;
+        private const double HideFormOpacity = 1;
+
 
         private ContentView _contentView;
         private VisualElement _root;
+
+        public uint ShowDuration = ShowFormDuration;
+        public uint HideDuration = HideFormDuration;
+        public double ShowOpacity = ShowFormOpacity;
+        public double HideOpacity = HideFormOpacity;
 
         public FadeManager(ContentView contentView)
         {
@@ -34,14 +42,14 @@ namespace BudgetHero.App.Utilities
             _root.Opacity = 0;
 
             await Task.WhenAll(
-                _root.FadeTo(1, ShowFormDuration, Easing.CubicOut)
+                _root.FadeTo(HideOpacity, ShowDuration, Easing.CubicOut)
             );
         }
 
         private async Task HideFormAsync()
         {
             await Task.WhenAll(
-                _root.FadeTo(0, HideFormDuration, Easing.CubicIn)
+                _root.FadeTo(ShowOpacity, HideDuration, Easing.CubicIn)
             );
 
             _root.IsVisible = false;
